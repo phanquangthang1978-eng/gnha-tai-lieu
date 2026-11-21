@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Quy tắc tổ chức việc Lark Gnhà · bản chuẩn v2 · 21/11/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+
+:root{--bg:#0E0A1C;--bg2:#17112B;--card:#1F1738;--line:rgba(255,255,255,.1);--cam:#FD5D32;--kem:#FFEFE7;--mut:#B9AEC9;--ok:#3DCCA6;--warn:#F5C16C;--sans:"Be Vietnam Pro",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(900px 500px at 85% -5%,rgba(253,93,50,.18),transparent 60%),var(--bg);color:#EFE9F7;font-family:var(--sans);font-size:17px;line-height:1.7}
+.side{position:fixed;left:0;top:0;bottom:0;width:272px;background:var(--bg2);border-right:1px solid var(--line);padding:22px 16px;overflow:auto}
+.side img{height:34px;margin:0 6px 4px}.side .t{font-size:12px;color:var(--mut);margin:0 6px 18px}
+.side h6{margin:18px 8px 6px;font-size:11px;letter-spacing:.14em;color:var(--cam);font-weight:800}
+.side a{display:flex;gap:10px;align-items:center;color:#DCD3EA;text-decoration:none;padding:8px 10px;border-radius:10px;font-size:14.5px;font-weight:500}
+.side a b{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;font-size:11px;flex:none}
+.side a:hover,.side a.on{background:rgba(253,93,50,.16);color:#fff}.side a.on b{background:var(--cam);color:#fff}
+main{margin-left:272px;max-width:980px;padding:44px 48px 90px}
+.kick{font-size:12px;letter-spacing:.16em;color:var(--cam);font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(32px,4.4vw,48px);line-height:1.12;letter-spacing:-.03em;margin:8px 0 12px}h1 em{font-style:normal;color:var(--cam)}
+h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;margin:0 0 10px}
+h3{font-size:20px;margin:0 0 8px;letter-spacing:-.02em}
+.lead{color:var(--mut);font-size:18px;max-width:66ch}
+section{padding:46px 0 10px;border-top:1px solid var(--line);margin-top:34px}
+section:first-of-type{border-top:0;margin-top:0}
+p{margin:0 0 14px;max-width:68ch}p b,li b{color:#fff;background:linear-gradient(transparent 62%,rgba(253,93,50,.38) 62%)}
+ul,ol{margin:0 0 16px;padding-left:1.15em;max-width:70ch}li{margin:0 0 6px}
+table{width:100%;border-collapse:collapse;border-radius:16px;overflow:hidden;background:var(--card);font-size:15px;margin:14px 0 18px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:rgba(253,93,50,.18);color:#FFD2C4;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}tr:last-child td{border-bottom:0}
+table.wrap td:first-child{font-weight:800;color:#fff;white-space:normal}
+a{color:#FFB199}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 20px;overflow:hidden}
+.fig h3,.fig h4{margin:0 0 6px;font-size:18px}.fig p{margin:0 0 10px;color:var(--mut);font-size:15px;max-width:none}
+.fig.wide{grid-column:1/-1}
+.fig .who{font-size:13px;color:#FFD2C4;font-weight:600;margin:0 0 10px}
+.callout{display:flex;gap:14px;align-items:flex-start;background:rgba(253,93,50,.1);border:1px solid rgba(253,93,50,.35);border-radius:16px;padding:16px 18px;margin:16px 0}
+.callout .ic{width:44px;height:44px;border-radius:12px;background:var(--cam);color:#fff;display:grid;place-items:center;flex:none;font-weight:800}
+.callout p{margin:0;max-width:none}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.s3{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.s3 .n{width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px}
+.s3 h4{margin:0 0 4px}.s3 p{margin:0;color:var(--mut);font-size:14.5px;max-width:none}
+.rules{display:grid;gap:12px;margin:16px 0}
+.rule{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.rule .n{width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.rule h4{margin:0 0 4px;font-size:17px}.rule p{margin:0;color:var(--mut);font-size:14.5px;max-width:none}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 0}
+.ok,.no{border-radius:14px;padding:12px 14px;font-size:14.5px}
+.ok{background:rgba(61,204,166,.1);border:1px solid rgba(61,204,166,.28)}
+.no{background:rgba(253,93,50,.1);border:1px solid rgba(253,93,50,.28)}
+.ok h5,.no h5{margin:0 0 6px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.ok h5{color:var(--ok)}.no h5{color:#FFB199}
+.ok p,.no p{margin:0;color:#EFE9F7;font-size:14.5px;max-width:none}
+.tag{display:inline-block;border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:700;background:rgba(253,93,50,.16);color:#FFB199;white-space:nowrap}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.chip{display:inline-flex;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#EFE9F7;border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600}
+.announce{background:var(--card);border:1px dashed rgba(253,93,50,.55);border-radius:20px;padding:22px 24px;margin:16px 0;white-space:pre-wrap;font-size:15.5px;line-height:1.7;color:#EFE9F7}
+.announce h4{margin:0 0 10px;color:var(--cam);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+.chot{counter-reset:q;display:grid;gap:10px;margin:16px 0}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px 14px 18px;display:flex;gap:12px}
+.q:before{counter-increment:q;content:counter(q);width:32px;height:32px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.q p{margin:0;max-width:none}
+.foot{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+@media(max-width:900px){.side{position:static;width:auto;border:0}main{margin:0;padding:24px 18px}.cards,.steps3,.split{grid-template-columns:1fr}}
+@media print{.side{display:none}main{margin:0;max-width:none}body{background:#0E0A1C;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+
+
+table.sm{font-size:14px}
+table.sm th,table.sm td{padding:11px 12px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+@media(max-width:900px){.people{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <img src="data:image/png;base64,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" alt="Gnhà">
+  <p class="t">Bản chuẩn v2 · 21/11/2026</p>
+  <h6>Mục lục</h6>
+  <a href="#s0"><b>0</b> Tinh thần lúc này</a>
+  <a href="#s1"><b>1</b> Mỗi người một phần</a>
+  <a href="#s2"><b>2</b> Từng nhóm</a>
+  <a href="#s3"><b>3</b> Quy tắc nhắn tin</a>
+  <a href="#s4"><b>4</b> Việc và dữ liệu</a>
+  <a href="#s5"><b>5</b> Phân công bot trực</a>
+  <a href="#s6"><b>6</b> Thứ Hai 23/11</a>
+  <a href="#s7"><b>7</b> A cần chốt</a>
+</aside>
+<main>
+<p class="kick">Bản chuẩn v2 · nội bộ · chờ anh xem trước, chưa đăng Lark</p>
+<h1>Quy tắc tổ chức việc Lark Gnhà</h1>
+<p class="lead">Làm lại theo ý anh Thắng tối 21/11: mọi người là một, làm sao cho việc chạy; thông tin để mở; quyền và tài khoản gom về một nơi. Tách nhóm là để quản lý, vận hành nhân sự số và tạo doanh thu — không phải để giấu nhau.</p>
+<div class="meta">
+  <span class="chip">Soạn lại 21/11/2026 · Asia/Saigon (UTC+7)</span>
+  <span class="chip">Thay bản đề xuất trước đó cùng ngày</span>
+  <span class="chip">Chưa đăng · chưa ghim</span>
+</div>
+
+<section id="s0">
+  <div class="kick">Mở đầu</div>
+  <h2>Tinh thần lúc này</h2>
+  <div class="callout">
+    <div class="ic">1</div>
+    <p><b>Mọi người là một. Cần làm sao cho việc chạy.</b> Anh Nam là người hỗ trợ toàn bộ về mặt kỹ thuật.</p>
+  </div>
+  <p>Mỗi anh chị hiện nay đều giữ một phần quan trọng, một phần sinh mệnh của Gnhà — không thể thiếu ai. Mục tiêu lúc này là chạy việc, làm được nhân sự số và tạo doanh thu. Tách nhóm, tách việc là để quản lý cho rõ. Với thành viên đang có, thông tin cứ để mở để làm việc; lộ thông tin nội bộ cũng không sao, vì mọi người cũng đã biết.</p>
+  <p>Điều còn nhạy cảm là <b>dữ liệu server</b>: không cung cấp thông tin server ra. <b>Quyền admin, tài khoản server và tài khoản dịch vụ thu về một nơi do anh Thắng nắm</b>, để dễ quản lý và kiểm soát rủi ro. Anh vừa chia lại quyền server và giữ quyền admin, cho có một chỗ thống nhất. Không nhắn mật khẩu lên nhóm.</p>
+  <p><b>Nhóm Gnhà – Chuyên môn & Điều hành</b> là nhóm lãnh đạo cao nhất, bộ não của công ty. Thông tin trong nhóm này cứ mở, không cần quá kín. Quyền và tài khoản thì vẫn gom về một chỗ như trên.</p>
+</section>
+
+<section id="s1">
+  <div class="kick">Người giữ việc</div>
+  <h2>Mỗi người một phần sinh mệnh của Gnhà</h2>
+  <p>Ba anh dưới đây đều rất quan trọng, cùng một mức. Không ai thay được phần của ai. Các anh chị khác trong nhóm cũng vậy.</p>
+  <div class="people">
+    <div class="fig">
+      <h3>Anh Nam</h3>
+      <p class="who">Hỗ trợ toàn bộ kỹ thuật · viết code Gnhà và app từ đầu đến nay</p>
+      <p>Người hỗ trợ toàn bộ về mặt kỹ thuật. Viết code Gnhà và app từ đó tới nay. Trưởng IT, đầu mối khi việc kỹ thuật cần phối hợp.</p>
+    </div>
+    <div class="fig">
+      <h3>Anh Duy</h3>
+      <p class="who">Phụ trách app</p>
+      <p>Lo app — một phần rất quan trọng của Gnhà. Việc app, lỗi app, hướng phát triển app đi qua anh Duy, với sự hỗ trợ kỹ thuật chung của anh Nam.</p>
+    </div>
+    <div class="fig">
+      <h3>Anh Hưng</h3>
+      <p class="who">Cùng xây dựng công ty · mạng và bảo mật</p>
+      <p>Cùng xây dựng công ty, nắm các thông tin công ty, mạng và bảo mật. Một phần sinh mệnh hạ tầng của Gnhà, cùng một mức với anh Nam và anh Duy.</p>
+    </div>
+  </div>
+  <div class="cards">
+    <div class="fig wide">
+      <h3>Các anh chị khác — ai cũng giữ một phần, không thể thiếu</h3>
+      <p>Anh Huy: lỗi web. Anh Bảo: dữ liệu máy chủ (phần dữ liệu server không cung cấp ra ngoài). Anh Khoán: dữ liệu quy hoạch. Anh Tân: kinh doanh, chăm sóc, khiếu nại khách. Chị Loan: cùng nhóm Kinh doanh & CSKH. Anh Thắng: chốt hướng, nắm quyền admin thống nhất. Mỗi người giữ một phần việc; tách nhóm chỉ để việc chạy rõ ràng hơn.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="kick">Mục 2</div>
+  <h2>Từng nhóm: việc gì, để làm rõ quản lý</h2>
+  <p>Tên nhóm giữ đúng dạng đã có: <b>Gnhà – …</b>. Nhóm Marketing hiện có giữ nguyên tên. Tách nhóm không phải vì thành viên hiện nay không được xem thông tin, mà để biết việc nào của phòng nào, bot tóm tắt đúng chỗ, nhân sự số chạy được.</p>
+
+  <div class="fig wide" style="margin-bottom:14px">
+    <div class="n" style="width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px">1</div>
+    <h3>Gnhà – Chuyên môn & Điều hành</h3>
+    <p class="who">Nhóm lãnh đạo cao nhất · bộ não của công ty</p>
+    <p>Thành viên đã có: anh Thắng, anh Khoán, anh Tân, anh Bảo. Việc của nhóm: chốt hướng, phân việc giữa các phòng, việc chuyên môn cần điều hành cùng xem.</p>
+    <p><b>Thông tin trong nhóm này cứ mở, không cần quá kín.</b> Được trao đổi mọi việc điều hành để chạy công ty. Không đặt mật khẩu, quyền admin, hay thông tin đăng nhập server/tài khoản dịch vụ vào tin nhắn — những thứ đó thu về một nơi do anh Thắng nắm.</p>
+    <p>Tab ghim: Wiki mục 01 Điều hành · Base Bảng việc · Nhiệm vụ. Tên chủ đề: <span class="tag">[QUYẾT ĐỊNH] · …</span> hoặc <span class="tag">[VIỆC] · …</span>.</p>
+  </div>
+
+  <div class="fig wide" style="margin-bottom:14px">
+    <div class="n" style="width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px">2</div>
+    <h3>Gnhà – Kỹ thuật</h3>
+    <p class="who">Anh Nam hỗ trợ toàn bộ kỹ thuật · anh Duy lo app · anh Hưng mạng và bảo mật · anh Huy lỗi web · anh Bảo dữ liệu máy chủ</p>
+    <p>Thành viên đã có: anh Nam, anh Duy, anh Huy, anh Hưng, anh Khoán, anh Bảo, anh Tân, anh Thắng. Việc của nhóm: app, sửa lỗi web, mạng và bảo mật, hạ tầng, việc kỹ thuật các phòng chuyển sang.</p>
+    <p>Được đăng: <span class="tag">[VIỆC]</span> / lỗi (kèm link, bước tái hiện, ảnh), <span class="tag">[HỎI]</span> kỹ thuật, <span class="tag">[BÁO CÁO]</span> tình trạng được phép kiểm, <span class="tag">[FILE]</span> tài liệu (link). Thông tin kỹ thuật để cả nhóm cùng chạy việc. <b>Không đăng mật khẩu, khóa, quyền admin, thông tin đăng nhập, dữ liệu server nhạy cảm</b> — gửi riêng cho anh Thắng (nơi thống nhất), không đưa lên nhóm.</p>
+    <p>Phân việc trong nhóm: app → anh Duy (anh Nam hỗ trợ). Lỗi web → anh Huy. Mạng và bảo mật → anh Hưng. Dữ liệu máy chủ → anh Bảo (không cung cấp thông tin server ra ngoài). Việc chưa rõ người nhận hoặc cần phối hợp nhiều mảng → anh Nam.</p>
+    <p>Tab ghim: Wiki mục 05 Công nghệ · Base Bảng việc · Nhiệm vụ. Tên chủ đề: <span class="tag">[VIỆC] · web/app/mạng — mô tả ngắn</span>.</p>
+  </div>
+
+  <div class="fig wide" style="margin-bottom:14px">
+    <div class="n" style="width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px">3</div>
+    <h3>Gnhà – Dữ liệu (mật)</h3>
+    <p class="who">Anh Khoán · anh Bảo · anh Thắng · AI BOT ở tạm để giúp việc, không đưa dữ liệu ra ngoài</p>
+    <p>Nhóm này để quản lý việc số hoá dữ liệu quy hoạch và việc liên quan máy chủ cho có chỗ riêng — không phải vì các thành viên khác không quan trọng. Việc dữ liệu server: <b>không cung cấp thông tin server ra ngoài nhóm này, cũng không đưa vào digest, Base chung, Wiki chung, hay nhóm khác</b>.</p>
+    <p>Bot ở lại tạm thời để giúp việc (nhắc hạn, tổ chức Nhiệm vụ trong nhóm). Bot không đưa dữ liệu trong nhóm này ra ngoài, kể cả vào bản tóm tắt hay bảng việc chung. Không nhắn mật khẩu trong tin. Không thêm người nếu anh Thắng chưa duyệt.</p>
+    <p>Tab ghim: thư mục/Wiki riêng của nhóm · Nhiệm vụ. Việc server/dữ liệu nhóm này không đưa vào Base việc chung. Tiêu đề chủ đề không ghi mật khẩu hay thông tin đăng nhập.</p>
+  </div>
+
+  <div class="fig wide" style="margin-bottom:14px">
+    <div class="n" style="width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px">4</div>
+    <h3>Gnhà – Kinh doanh & CSKH</h3>
+    <p class="who">Anh Tân · chị Loan · anh Khoán · anh Thắng</p>
+    <p>Việc của nhóm: bán hàng, chăm sóc, khiếu nại, Hội viên, thưởng giới thiệu — điều phối việc để chạy doanh thu. Được đăng: <span class="tag">[VIỆC]</span>, <span class="tag">[HỎI]</span>, <span class="tag">[BÁO CÁO]</span> số lượng, link quy trình. Thông tin trong nhóm để mở cho việc chạy.</p>
+    <p>Hồ sơ khách (danh sách tên + SĐT, ảnh sổ) để trên công cụ CSKH hoặc gửi riêng cho người nhận việc — không dán hàng loạt lên nhóm, để quản lý cho gọn, không phải để giấu thành viên. Không đặt mật khẩu hay thông tin server vào đây.</p>
+    <p>Tab ghim: Wiki mục 03 Kinh doanh và 04 CSKH · Base Bảng việc · Nhiệm vụ. Tên chủ đề: <span class="tag">[VIỆC] · loại việc</span>.</p>
+  </div>
+
+  <div class="fig wide" style="margin-bottom:14px">
+    <div class="n" style="width:38px;height:38px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:10px">5</div>
+    <h3>Group Marketing GPTC</h3>
+    <p class="who">Tên nhóm hiện có, giữ nguyên. Thành viên giữ như đang có.</p>
+    <p>Việc của nhóm: nội dung, đăng bài, quảng cáo, kênh. Với anh chị đang có trong nhóm, thông tin không coi là mật. Được đăng: <span class="tag">[VIỆC]</span> sản xuất/đăng, <span class="tag">[HỎI]</span> duyệt nội dung, <span class="tag">[BÁO CÁO]</span> tiến độ (không đưa số bịa), <span class="tag">[FILE]</span> link bản chốt.</p>
+    <p>Không đặt mật khẩu, quyền admin, thông tin server lên nhóm này. Việc kỹ thuật chuyển sang nhóm Kỹ thuật. Việc bán/CSKH chuyển sang nhóm Kinh doanh & CSKH.</p>
+    <p>Tab ghim: Wiki mục 02 Marketing · Base Bảng việc · Nhiệm vụ. Tên chủ đề: <span class="tag">[VIỆC] · kênh — tên nội dung</span>.</p>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="kick">Mục 3</div>
+  <h2>Quy tắc nhắn tin — mọi nhóm</h2>
+  <p>Dùng đúng tính năng Lark quốc tế đang có. Không thêm công cụ mới, không thêm cuộc họp. Luồng chuẩn: <b>tin có tag → trả lời trong đúng chủ đề → thành Nhiệm vụ (người nhận + hạn) và một dòng trên Bảng việc → file và quyết định vào Wiki</b>. Chat là chỗ trao đổi để việc chạy, không phải kho lưu.</p>
+  <div class="rules">
+    <div class="rule"><div class="n">1</div><div><h4>Một việc, một chủ đề</h4><p>Việc mới thì mở chủ đề mới. Cập nhật, hỏi thêm, nộp file thì trả lời trong luồng đó, không viết tin rời.</p></div></div>
+    <div class="rule"><div class="n">2</div><div><h4>Đầu tin có một tag</h4><p><span class="tag">[VIỆC]</span> giao việc · <span class="tag">[HỎI]</span> cần người trả lời · <span class="tag">[BÁO CÁO]</span> tiến độ hoặc số · <span class="tag">[FILE]</span> gửi tài liệu · <span class="tag">[QUYẾT ĐỊNH]</span> việc đã chốt. Không tag thì khi tóm tắt được phép bỏ qua.</p></div></div>
+    <div class="rule"><div class="n">3</div><div><h4>Nhờ việc thì thành Nhiệm vụ Lark</h4><p>Có người nhận và hạn. Không nhận «nhờ anh xem giúp» không hạn. Người giao tạo Nhiệm vụ ngay; nếu quên, bot bổ sung lúc làm digest.</p></div></div>
+    <div class="rule"><div class="n">4</div><div><h4>File không sống trong chat</h4><p>Đưa vào Wiki hoặc thư mục của nhóm, trong tin chỉ gửi link + tag <span class="tag">[FILE]</span>. Bản chốt mới đưa vào Bộ não thứ 2. Bản nháp không ghim.</p></div></div>
+    <div class="rule"><div class="n">5</div><div><h4>Chỉ @ người phải làm hoặc phải chốt</h4><p>Không @ cả nhóm, không @ nhiều người «cho biết». Người không được @ không cần trả lời.</p></div></div>
+    <div class="rule"><div class="n">6</div><div><h4>Quyết định phải tách ra</h4><p>Khi đã chốt, sửa đầu luồng thành <span class="tag">[QUYẾT ĐỊNH]</span> hoặc viết một tin mới và ghim nếu cả nhóm cần nhớ. Quyết định được chép vào Wiki trong tuần đó.</p></div></div>
+    <div class="rule"><div class="n">7</div><div><h4>Không nhắn mật khẩu, không cung cấp thông tin server</h4><p>Quyền và tài khoản thu về một nơi do anh Thắng nắm. Hồ sơ khách để trên công cụ CSKH, không dán danh sách hàng loạt. Dữ liệu server không đưa ra ngoài nhóm Dữ liệu, không vào digest hay Base chung. Việc xong thì đánh Xong trên Nhiệm vụ/Base — không xoá tin để «dọn». Muốn biết mình phải làm gì: xem Nhiệm vụ, Bảng việc, và digest 17:30, đừng đọc hết chat.</p></div></div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="kick">Mục 4</div>
+  <h2>Việc và dữ liệu sống ở đâu</h2>
+  <p>Chat là chỗ nói chuyện để việc chạy. Việc, quyết định và file bản chốt phải có chỗ ở. Wiki không dựng cây mới — ghim đúng mục <a href="https://tbzfsprhpt.sg.larksuite.com/wiki/D4M9wnWDuilH3lk">Gnhà – Bộ não thứ 2</a> đã có.</p>
+  <table class="wrap sm">
+    <thead><tr><th>Nhóm Lark</th><th>Mục Wiki</th><th>Đưa lên Wiki</th></tr></thead>
+    <tbody>
+      <tr><td>Chuyên môn & Điều hành</td><td>01 Điều hành · 07 Con người & văn hoá (đặt quy tắc này)</td><td>Quyết định, quy chế, tóm tắt tuần — thông tin nhóm này để mở</td></tr>
+      <tr><td>Kỹ thuật</td><td>05 Công nghệ</td><td>Quy trình kỹ thuật, báo cáo đã sàng (không mật khẩu, không thông tin server nhạy cảm)</td></tr>
+      <tr><td>Kinh doanh & CSKH</td><td>03 Kinh doanh · 04 CSKH</td><td>Quy trình bán/chăm, kịch bản đã chốt (danh sách khách để trên công cụ CSKH)</td></tr>
+      <tr><td>Marketing hiện có</td><td>02 Marketing</td><td>Bản chốt bài, quy trình content, báo cáo đã sàng</td></tr>
+      <tr><td>Dữ liệu (mật)</td><td>Thư mục/Wiki riêng của nhóm. Mục 06 chỉ nhận quy trình đã sàng, không nhận thông tin server</td><td>Không đưa dữ liệu server lên Wiki chung</td></tr>
+    </tbody>
+  </table>
+  <h3>Bảng việc và digest — đã chốt 21/11</h3>
+  <ul>
+    <li><b>Bảng việc:</b> một Base chung, mỗi phòng có chế độ xem chỉ lọc việc của phòng mình. Việc của nhóm Dữ liệu (mật), đặc biệt dữ liệu server, không đưa vào Base chung.</li>
+    <li><b>Digest 17:30:</b> một bản chung gửi Group Marketing, mỗi phòng nhận bản riêng của phòng mình. Nội dung nhóm Dữ liệu (mật) không đưa vào bản chung.</li>
+    <li>Cột Base bám bảng việc hiện có, thêm cột Nhóm, Người phụ trách, Hạn, Trạng thái, Nguồn (link tin/Nhiệm vụ). Không ghi mật khẩu, thông tin đăng nhập, thông tin server trên Base chung.</li>
+    <li>Không xoá hàng loạt tin. Việc xong: đánh Xong, không xoá dòng. Bản chốt lên Wiki trong tuần; nháp không vào Bộ não thứ 2. Bot không tự xoá dữ liệu.</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <div class="kick">Mục 5</div>
+  <h2>Phân công bot trực — để việc chạy nhanh</h2>
+  <p>Anh giao phân công bot nào nhận tin và trả lời nhanh nhất có thể. Thời gian ở bảng là mục tiêu sau khi có cách nhận sự kiện. Hiện webhook chỉ gửi được tin; đọc tin vẫn qua AI BOT trên máy Windows MXH, nên mới quét theo lịch.</p>
+  <table class="sm wrap">
+    <thead>
+      <tr><th>Nhóm</th><th>Bot trực</th><th>Chuyển người khi</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Chuyên môn & Điều hành</td>
+        <td>Bot điều phối (Bot chiến lược marketing)</td>
+        <td>Tiền, nhân sự, đổi hạ tầng/VPS, quyền và tài khoản, việc hai phòng không thống nhất — chuyển anh Thắng</td>
+      </tr>
+      <tr>
+        <td>Kỹ thuật</td>
+        <td>Agent Kỹ thuật IT & Web</td>
+        <td>App → anh Duy. Web → anh Huy. Mạng/bảo mật → anh Hưng. Dữ liệu máy chủ → anh Bảo. Phối hợp hoặc chưa rõ → anh Nam (hỗ trợ toàn bộ kỹ thuật). Đổi VPS, quyền, tài khoản — không tự làm, chuyển anh Nam rồi chờ anh Thắng duyệt</td>
+      </tr>
+      <tr>
+        <td>Dữ liệu (mật)</td>
+        <td>Chỉ Bot điều phối. Không đưa dữ liệu ra ngoài, không chuyển bot khác</td>
+        <td>Việc cần đưa nội dung ra ngoài, thêm người, hoặc không chắc — hỏi anh Thắng riêng, không dán dữ liệu server</td>
+      </tr>
+      <tr>
+        <td>Kinh doanh & CSKH</td>
+        <td>Agent Kinh doanh Pháp lý và Agent CSKH Zalo</td>
+        <td>Giá đặc biệt, hoàn tiền, khiếu nại lớn, việc pháp lý cần luật sư — chuyển anh Tân hoặc anh Thắng</td>
+      </tr>
+      <tr>
+        <td>Group Marketing GPTC</td>
+        <td>Bot điều phối, cùng Agent Quảng cáo và Agent Báo cáo/KPI</td>
+        <td>Ngân sách quảng cáo, chiến dịch mới, nội dung chưa duyệt — chuyển anh Thắng</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Bot không bịa số, không tự chốt tiền, pháp lý, hạ tầng, nhân sự, quyền hay tài khoản. Không chắc thì @ đúng người và dừng. Nhiều bot không trả lời cùng một tin.</p>
+  <div class="callout">
+    <div class="ic">→</div>
+    <p>Muốn trả lời trong vài giây: cần một Custom App trên Lark Open Platform (bản quốc tế), nhận sự kiện <code>im.message.receive_v1</code>, dịch vụ nhỏ chạy trên VPS. Anh Nam tạo app và cấp quyền; <b>thay đổi VPS chỉ làm khi anh Thắng duyệt</b>. Chi tiết kỹ thuật, quyền, rủi ro và chi phí (không bịa số gói Lark của Gnhà) nằm ở trang «Phân công bot trực Lark» soạn cùng ngày. Chưa triển khai.</p>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="kick">Mục 6</div>
+  <h2>Việc thứ Hai 23/11 và văn bản ghim</h2>
+  <p>Làm lần lượt, không cần họp dài. Quy tắc và văn bản ghim chỉ đăng hoặc ghim sau khi anh duyệt bản v2 này và, nếu anh cho, sau khi anh chị trên Lark đã góp ý.</p>
+  <div class="steps3">
+    <div class="s3"><div class="n">1</div><h4>Sáng — nhóm và tab</h4><p>Hoàn tất tab Wiki, Base, Nhiệm vụ trên mỗi nhóm (kể cả Marketing). Base chung có bộ lọc theo phòng. Nhóm Dữ liệu: không ghim Base chung.</p></div>
+    <div class="s3"><div class="n">2</div><h4>Sáng — ghim quy tắc</h4><p>Ghim văn bản dưới đây lên 4 nhóm mới và nhóm Marketing. Đặt trang này vào Wiki (07 hoặc 01). Chưa đăng tin nội dung khác nếu anh không bảo thêm.</p></div>
+    <div class="s3"><div class="n">3</div><h4>Chiều và 17:30</h4><p>Nhắc một câu trong từng nhóm: việc của nhóm, nhìn tab và digest. 17:30 digest thử: bản chung vào Group Marketing, bản riêng từng phòng. Trong tuần: Distilly bắt đầu bằng kịch bản bán hàng với anh Tân; anh Nam tạo webhook chỉ gửi cho 4 nhóm mới.</p></div>
+  </div>
+  <h3>Văn bản ghim — bản nháp, chưa đăng, chưa ghim</h3>
+  <div class="announce"><h4>Nội dung ghim</h4>Quy tắc nhóm Lark Gnhà (áp dụng từ 23/11/2026)
+
+Tinh thần: mọi người là một, cần làm sao cho việc chạy. Anh Nam hỗ trợ toàn bộ về kỹ thuật. Mỗi người giữ một phần sinh mệnh của Gnhà — không thể thiếu ai.
+
+Nhóm này chỉ nói việc của nhóm. Tin có thể nhiều; việc không được trôi.
+
+1. Một việc, một chủ đề. Cập nhật thì trả lời trong luồng đó.
+2. Đầu tin ghi một tag: [VIỆC] [HỎI] [BÁO CÁO] [FILE] [QUYẾT ĐỊNH].
+3. Nhờ việc thì tạo Nhiệm vụ: có người nhận và hạn. Xem việc của mình trên tab Nhiệm vụ / Bảng việc, và bản tóm tắt 17:30.
+4. File để trong Wiki hoặc thư mục nhóm; trong chat chỉ gửi link.
+5. Chỉ @ người phải làm hoặc phải chốt. Không @ cả nhóm.
+6. Không nhắn mật khẩu, không cung cấp thông tin server. Quyền và tài khoản thu về một nơi do anh Thắng nắm.
+
+Chi tiết: trang «Quy tắc tổ chức việc Lark Gnhà — bản chuẩn v2» trên Wiki Bộ não thứ 2.</div>
+</section>
+
+<section id="s7">
+  <div class="kick">Đã chốt và còn chờ</div>
+  <h2>Đã chốt 21/11, và A cần chốt</h2>
+  <p>Anh đã chốt: ghim quy tắc vào sáng thứ Hai 23/11; bot ở lại nhóm Dữ liệu (mật) để giúp việc, không đưa dữ liệu ra ngoài; digest 17:30 gom một bản chung vào Group Marketing, mỗi phòng một bản riêng; một Base chung, mỗi phòng một chế độ xem; anh Nam tạo webhook chỉ gửi cho 4 nhóm mới; Distilly thứ Hai, bắt đầu bằng kịch bản bán hàng với anh Tân.</p>
+  <div class="chot">
+    <div class="q"><p>Anh duyệt bản chuẩn v2 này, để em đăng lên Group Marketing (và các nhóm mới) cho anh chị góp ý, rồi ghim vào sáng thứ Hai 23/11?</p></div>
+    <div class="q"><p>Phương án tạo Custom App (Lark quốc tế) và chạy dịch vụ nhận sự kiện trên VPS để bot trả lời trong vài giây: anh duyệt làm không? Thay đổi VPS chỉ làm sau khi anh duyệt. Chi tiết ở trang phân công bot trực cùng ngày.</p></div>
+  </div>
+</section>
+
+<div class="foot">Gnhà · Tài liệu nội bộ · Hotline 1900 58 88 57 · Zalo 090 1627939 · gnha.vn · Quy tắc tổ chức việc Lark · bản chuẩn v2 · 21/11/2026</div>
+</main>
+<script>
+const L=[...document.querySelectorAll('.side a')];
+const S=L.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+  let k=0;
+  S.forEach((s,i)=>{if(s && s.getBoundingClientRect().top<160)k=i});
+  L.forEach((a,i)=>a.classList.toggle('on',i===k));
+});
+L[0].classList.add('on');
+</script>
+
+</body>
+</html>
