@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kế hoạch ra tiền Gnhà — họp liên phòng 22/11/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+
+:root{
+  --navy:#1B1533; --navy2:#32204E; --navy3:#0E0A1C;
+  --cam:#FD5D32; --cam2:#F85619; --cam-dam:#C04524;
+  --kem:#FFF8F4; --kem2:#FFEFE7; --kem3:#F8E4D8;
+  --nau:#4A3B39; --nau-dam:#2C201F;
+  --txt:#2C201F; --muted:#7A6565; --line:rgba(44,32,31,.12);
+  --ok:#2F7D4A; --wait:#B45309; --paper:#fff;
+  --sans:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --shadow:0 1px 2px rgba(27,21,51,.06),0 10px 32px rgba(27,21,51,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--kem);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--cam-dam)}
+code{font-size:12.5px;background:var(--kem2);padding:1px 6px;border-radius:6px;word-break:break-all}
+.top{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:12px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:40;box-shadow:0 8px 24px rgba(27,21,51,.25)}
+.top .logo{height:36px;width:auto;flex:none}
+.brand h1{margin:0;font-size:15px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1.2}
+.brand p{margin:2px 0 0;font-size:12px;color:#F3C7B8;font-weight:500}
+.top .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600}
+.tabs{background:rgba(255,248,244,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:60px;z-index:30;display:flex;gap:6px;padding:10px 20px;overflow-x:auto}
+.tabs a.t{flex:none;border:0;background:transparent;color:var(--nau);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13.5px;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap}
+.tabs a.t:hover{background:#fff;color:var(--cam-dam);box-shadow:var(--shadow)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 24px 80px}
+.hero{background:linear-gradient(145deg,var(--navy) 0%,#3A2158 58%,#5A2A3A 100%);color:#fff;border-radius:28px;padding:36px 40px 32px;position:relative;overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px}
+.hero:after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;background:radial-gradient(closest-side,rgba(253,93,50,.45),transparent 70%);pointer-events:none}
+.hero .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#FFB199;font-weight:700;margin:0 0 10px}
+.hero h2{margin:0 0 10px;font-size:clamp(26px,4vw,40px);line-height:1.15;letter-spacing:-.03em;max-width:20em}
+.hero h2 em{font-style:normal;color:var(--cam)}
+.hero .lead{margin:0 0 18px;max-width:66ch;color:rgba(255,239,231,.86);font-size:16.5px;position:relative;z-index:1}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;position:relative;z-index:1}
+.hero-tags span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px;font-size:12.5px;color:#ffe}
+.quote{margin:0 0 12px;background:rgba(0,0,0,.22);border-left:4px solid var(--cam);padding:14px 18px;border-radius:0 14px 14px 0;color:#fff;font-size:15.5px;max-width:72ch;position:relative;z-index:1}
+.quote small{display:block;margin-top:6px;color:#FFB199;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 0;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 16px}
+.stat b{display:block;font-size:32px;line-height:1;color:#fff}
+.stat span{display:block;margin-top:4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F3C7B8;font-weight:600}
+.howto{background:var(--navy);color:#fff;border-radius:18px;padding:18px 20px;margin:0 0 22px}
+.howto h3{margin:0 0 8px;color:#FFB199;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.howto ol{margin:0;padding:0 0 0 20px}
+.howto li{margin:0 0 8px}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 28px}
+.toc a{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--txt);box-shadow:var(--shadow);font-weight:600;font-size:14px}
+.toc a:hover{border-color:var(--cam);color:var(--cam-dam)}
+.toc a .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+.toc a.wait .n{background:#3B2A6E}
+.toc a small{display:block;font-weight:500;color:var(--muted);font-size:12px;margin-top:2px}
+.sec{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 22px 16px;margin:0 0 22px;box-shadow:var(--shadow);scroll-margin-top:130px}
+.sec h2{margin:0 0 8px;font-size:22px;letter-spacing:-.02em}
+.sec.wait{border-color:#D9D0F3;background:#FCFAFF}
+.sec .lead{color:var(--nau);margin:0 0 14px;font-size:14.5px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.badge{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700}
+.badge.ok{background:#E8F6EE;color:var(--ok)}
+.badge.mid{background:#FFF4E5;color:var(--wait)}
+.badge.no{background:#FFE8E0;color:var(--cam-dam)}
+.badge.anh{background:#F0EBFF;color:#3B2A6E}
+.badge.lv{background:var(--kem2);color:var(--nau-dam);border:1px solid var(--kem3)}
+.tblwrap{overflow-x:auto;margin:0 0 16px;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px;min-width:640px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--navy);color:#fff;font-size:12.5px;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+.plus td:nth-child(2),.plus td:first-child{color:var(--ok);font-weight:700}
+.minus td:nth-child(2){color:var(--cam-dam);font-weight:700}
+dl.kv{margin:0;display:grid;gap:10px}
+dl.kv dt{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--cam-dam);margin:0}
+dl.kv dd{margin:2px 0 0;color:var(--nau);font-size:14.5px}
+.note{font-size:13.5px;color:var(--nau);margin:0 0 8px}
+.foot{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.prize{background:linear-gradient(145deg,#3A2158,#5A2A3A);color:#fff;border-radius:22px;padding:22px;margin:0 0 22px;box-shadow:var(--shadow)}
+.prize h2{margin:0 0 8px;color:#fff}
+.prize p{color:rgba(255,239,231,.9)}
+.prize .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.prize .c{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 14px}
+.prize .c b{display:block;color:#FFB199;font-size:13px;margin-bottom:4px}
+@media(max-width:860px){
+  .stats,.toc,.prize .grid{grid-template-columns:1fr}
+  .hero{padding:24px 20px}
+  .top{padding:10px 14px}
+  .wrap{padding:18px 14px 60px}
+  .tabs{top:56px;padding:8px 10px}
+  table{min-width:560px}
+}
+@media print{
+  .top,.tabs{position:static}
+  .sec,.hero,.prize{break-inside:avoid}
+}
+
+.check{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:#FD5D32;margin-top:2px;flex:none}
+.check b{display:block}
+.sub{margin:22px 0 8px;font-size:16.5px;color:var(--navy)}
+
+
+.sec h3{margin:18px 0 8px;font-size:16.5px;color:var(--navy)}
+.sec blockquote{margin:0 0 14px;background:var(--kem);border-left:4px solid var(--cam);padding:10px 14px;border-radius:0 12px 12px 0;font-size:14px;color:var(--nau)}
+.sec ul,.sec ol{padding-left:20px}
+.sec li{margin:0 0 6px}
+.sec p{margin:0 0 12px}
+.hero .lead p{margin:0 0 10px}
+.hero .lead{max-width:80ch}
+td,th{font-size:13px}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <img class="logo" src="data:image/png;base64,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" alt="Gnhà">
+  <div class="brand"><h1>Gnhà</h1><p>Kế hoạch ra tiền · Nội bộ</p></div>
+  <div class="sp"></div>
+  <span class="chip">22/11/2026 · Asia/Saigon</span>
+</header>
+<nav class="tabs"><a class="t" href="#a-so">Số thật bây giờ</a><a class="t" href="#b-gap">GẤP (23–24/11) và ĐỂ SAU</a><a class="t" href="#c-lich">Lịch theo ngày, tuần, tháng</a><a class="t" href="#d-phoi-hop">Phối hợp giữa các phòng</a><a class="t" href="#e-quyet">Quyết định anh cần chốt (10 </a><a class="t" href="#nguon">Nguồn</a></nav>
+<main class="wrap">
+<section class="hero">
+  <p class="kicker">Họp liên phòng 22/11/2026 · 12 phòng · Chiến lược phản biện</p>
+  <h2>Bán cho người <em>đã biết Gnhà</em>,<br>vá phễu, rồi mới chạy thêm ads</h2>
+  <div class="lead">
+<p><strong>Một đoạn:</strong> 36 ý của 12 phòng gộp thành <strong>4 luồng bán + 2 việc nền</strong>. Tiền gần nhất trong 7–14 ngày đến từ người <strong>đã biết Gnhà</strong> (khách cũ, khách đã từng trả tiền, môi giới đã duyệt), không đến từ kênh mới. Nút thắt không phải thiếu ý tưởng: (1) chỉ 2 người chốt, (2) phễu web thủng, (3) không ai ghi tiền thu thật mỗi ngày. Chạy 2 luồng bán từ 23/11, vá phễu song song, <strong>không bật thêm ads mới trước khi có form + sự kiện Lead</strong>.</p>
+<hr /></div>
+  <div class="stats">
+    <div class="stat"><b>888.325đ</b><span>FB chi đến 21/11 16:10</span></div>
+    <div class="stat"><b>1.530</b><span>Lượt xem trang đích</span></div>
+    <div class="stat"><b>0/50 · 0đ</b><span>Hội viên · thực thu</span></div>
+    <div class="stat"><b>2.807.700đ</b><span>Còn trong trần 5tr tháng 11</span></div>
+  </div>
+</section>
+<section class="sec" style="padding-bottom:6px"><blockquote>
+<p>Nội bộ · Soạn <strong>22/11/2026 ~14:00 (Asia/Saigon, UTC+7)</strong> · Điều phối tổng hợp từ 12 phòng + Chiến lược phản biện tổng.<br />
+Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 file <code>y-kien/</code>, <code>chien-luoc-phan-bien-tong.md</code>), <code>ke-hoach-chung.md</code>, <code>he-thong-van-hanh-lien-phong.md</code>.<br />
+<strong>Agent chỉ đưa ý kiến; anh Thắng quyết.</strong> Không nhắn khách, không đăng, không chi tiền, không đổi routine từ file này. Không bịa số: chỗ chưa có ghi «chưa có số». Chữ <strong>GIẢ ĐỊNH</strong> = mục tiêu để đo, không phải dữ kiện.</p>
+</blockquote></section>
+<section class="sec" id="a-so"><h2>(a) Số thật bây giờ</h2><div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Chỉ số</th>
+<th>Số</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Facebook 18–21/11</td>
+<td>Chi <strong>888.325đ</strong> (đến 21/11 16:10), 19.694 hiển thị, 1.754 click, <strong>1.530 lượt xem trang đích</strong></td>
+<td><code>theo-doi-theo-gio.csv</code> (Agent Quảng cáo)</td>
+</tr>
+<tr>
+<td>Facebook 22/11</td>
+<td><strong>chưa có số</strong> (csv chưa có dòng mới sau 21/11)</td>
+<td>csv</td>
+</tr>
+<tr>
+<td>TikTok</td>
+<td>Chi <strong>0đ</strong>, bản nháp chưa phát hành; số dư 1.200.000đ (đã nạp 1.320.000đ)</td>
+<td>csv, dòng 21/11 19:15</td>
+</tr>
+<tr>
+<td>Hội viên</td>
+<td><strong>0/50 suất</strong>, thực thu <strong>0đ</strong></td>
+<td>Báo cáo số 15; sổ đếm suất</td>
+</tr>
+<tr>
+<td>Lead thật</td>
+<td><strong>0</strong> · khách Zalo mới 1-1 = 0</td>
+<td>Báo cáo số 15; CSKH</td>
+</tr>
+<tr>
+<td>Thực thu gói kiểm tra / dịch vụ pháp lý</td>
+<td><strong>chưa có số</strong></td>
+<td>Chưa ai nhập thu hằng ngày</td>
+</tr>
+<tr>
+<td>Google Ads (kênh đang kéo khách tra cứu)</td>
+<td><strong>chưa có số</strong></td>
+<td>Chưa ai đọc báo cáo</td>
+</tr>
+<tr>
+<td>Chi phí mỗi lead / mỗi Hội viên</td>
+<td><strong>chưa có số</strong> (chưa có sự kiện Lead)</td>
+<td>Quảng cáo</td>
+</tr>
+<tr>
+<td>Zalo OA</td>
+<td>Gói Nâng cao hết hạn cuối 21/11; chưa thấy xác nhận gia hạn</td>
+<td>Báo cáo số 14, CSKH</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Đọc thẳng:</strong> đã chi gần 900k để kéo 1.530 lượt vào trang Hội viên, ra 0 lead, 0đ. Trang không có form, nút đăng ký bắt đăng nhập, đồng hồ ưu đãi tắt sớm một ngày. Chạy thêm ads vào trang này là đốt tiền.</p>
+<h3>Một bảng trần ads chung (thay hai bảng đang lệch)</h3>
+<p>Hai phòng tính khác nhau vì <strong>đếm ở hai điểm</strong>, cùng một trần tháng 5.000.000đ (anh chốt 21/11 15:03). Dùng <strong>một bảng</strong>, không cộng dồn:</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Dòng</th>
+<th>Số</th>
+<th>Nguồn / cách tính</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần tháng 11</td>
+<td>5.000.000đ</td>
+<td>Anh chốt 21/11</td>
+</tr>
+<tr>
+<td>Đã xuất</td>
+<td>2.192.300đ = 872.300đ (5 hóa đơn FB 18–21/11) + 1.320.000đ (nạp TikTok)</td>
+<td>Báo cáo số 15 (kế toán)</td>
+</tr>
+<tr>
+<td><strong>Còn lại (đề xuất làm số trừ trần duy nhất)</strong></td>
+<td><strong>2.807.700đ</strong></td>
+<td>5.000.000đ − 2.192.300đ</td>
+</tr>
+<tr>
+<td>Chi thực FB (Ads Manager)</td>
+<td>888.325đ đến 21/11 16:10</td>
+<td>csv. Lệch 16.025đ với hóa đơn do giờ cắt số</td>
+</tr>
+<tr>
+<td>Chi thực FB sau 21/11 16:10</td>
+<td><strong>chưa có số</strong></td>
+<td>Chờ Quảng cáo ghi dòng mới vào csv</td>
+</tr>
+<tr>
+<td>Chi thực TikTok</td>
+<td>0đ</td>
+<td>csv</td>
+</tr>
+<tr>
+<td>Chiến dịch FB đang chạy (trần 1.800.000đ, đến 24/11)</td>
+<td>Còn 911.675đ tại 21/11 16:10 (1.800.000đ − 888.325đ)</td>
+<td>Quảng cáo, csv</td>
+</tr>
+<tr>
+<td>TikTok đã nạp, chưa chi</td>
+<td>1.200.000đ</td>
+<td>Đã tính trong «đã xuất»; theo cách đếm đề xuất, chi từ số dư này <strong>không trừ thêm</strong> vào 2.807.700đ</td>
+</tr>
+<tr>
+<td>Trần ngày đề xuất 23–30/11 (Hội viên)</td>
+<td>FB ≤ 300.000đ + TikTok ≤ 150.000đ</td>
+<td>Chỉ là <strong>trần</strong>, không phải ngân sách phải chi. Tổng không vượt phần còn lại</td>
+</tr>
+<tr>
+<td>Quảng cáo đề xuất thêm</td>
+<td>+800.000đ retarget Hội viên · +700.000đ gói kiểm tra · +500.000đ Google Ads (= 2.000.000đ)</td>
+<td>Chiến lược khuyến nghị: <strong>chỉ 800.000đ retarget, có điều kiện</strong>; hoãn 700.000đ và 500.000đ. 800.000đ nằm <strong>trong</strong> 2.807.700đ, không phải khoản thêm</td>
+</tr>
+</tbody>
+</table></div>
+<p>Quy tắc: số ads chỉ lấy từ csv của Agent Quảng cáo; không có nguồn thì «chưa có số», <strong>không bao giờ ghi 0</strong>. Không nạp thêm TikTok, không tăng trần tháng. Khi có thực thu đã vào tài khoản và anh xác nhận, kế hoạch ra tiền cũ cho phép trích thêm khoảng 20% số đó cho marketing — chỉ sau khi tiền về, <strong>anh xác nhận lại</strong> quy tắc này cho tháng 12.</p>
+<hr /></section>
+<section class="sec" id="b-gap"><h2>(b) GẤP (23–24/11) và ĐỂ SAU</h2><h3>GẤP — làm ngay, trước hoặc trong 24/11</h3>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc</th>
+<th>Ai làm</th>
+<th>Hạn</th>
+<th>KPI đo bằng gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Đổi token Strapi lộ trong JS công khai (KT-1811-01, P0 bảo mật).</strong> Gỡ khỏi bundle, đổi token. Không in token ra file hay tin</td>
+<td>Kỹ thuật (kiểm lại bằng curl) + anh Nam/anh Huy sửa; anh cho phép</td>
+<td><strong>Trước 9:00 23/11</strong> (bài số 11 đăng qua chính Strapi này)</td>
+<td>Kỹ thuật kiểm chỉ đọc: token cũ không còn trong JS → ghi vào mục lục E</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Quyết gia hạn Zalo OA</strong> (chi tiền)</td>
+<td>Anh Thắng</td>
+<td>Trước 8:00 23/11</td>
+<td>Anh báo đã gia hạn → CSKH + điều phối kiểm hộp tin OA</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Anh chọn bản tin môi giới đợt 1–2</strong> (câu hạn chung, nêu thưởng gì)</td>
+<td>Đối tác soạn 2 bản; anh duyệt</td>
+<td>Trước 9:00 23/11</td>
+<td>Có «đã duyệt» của anh trước khi gửi</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Gửi đợt 1 (9:30) và đợt 2 (14:00, chỉ khi Zalo không cảnh báo).</strong> Một bộ tin, một lịch gửi chung với CSKH (cùng số Zalo)</td>
+<td>Đối tác (file, nhật ký); chị Loan gửi; điều phối test máy MXH trước giờ</td>
+<td>23/11</td>
+<td>Số tin đã gửi; số trả lời; số để SĐT; số tiền thu (Sổ ra tiền)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Gọi 13 khách cũ, nhắn 7</strong> theo bảng giao việc; điều phối chuyển file cho anh Tân và chị Loan trước 9:30</td>
+<td>Anh Tân (gọi), chị Loan (nhắn); Đối tác theo dõi; Kinh doanh soạn kịch bản</td>
+<td>Bắt đầu 9:00 23/11</td>
+<td>Sổ ra tiền: đã liên hệ → đã hẹn → đã ký → <strong>đã thu tạm ứng</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Mở một file lead chung + «Sổ ra tiền»</strong> (gộp phiếu CSKH, phiếu nhận hồ sơ Kinh doanh, cột Đối tác; thêm cột đã hẹn / đã ký / đã thu)</td>
+<td>CSKH giữ file; KPI giữ Sổ; anh Tân hoặc anh Thắng xác nhận thu mỗi ngày</td>
+<td>Mở 23/11</td>
+<td>Có dòng mỗi ngày; ô trống ghi «chưa có số»</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Mỗi lead gọi trong 2 giờ làm việc</strong>; ngoài giờ thì sáng hôm sau</td>
+<td>CSKH tạo thẻ lead (09:05 / 12:05 / 17:05); ca gọi theo anh chốt</td>
+<td>Từ 23/11</td>
+<td>% lead được nhận ca trong 2 giờ (đích 100%)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Vá phễu trang Hội viên theo thứ tự:</strong> (1) <code>endsAt</code> → <code>2026-12-01T00:00+07:00</code>; (2) form 3 ô không bắt đăng nhập + sự kiện Lead, hoặc tạm đổi CTA sang Zalo/hotline/<code>/dang-ky</code> giữ ref + UTM; (3) đủ 5 công cụ ở khối đầu; (4) link thật tới Hội viên và hoàn công trên trang chủ (cả điện thoại), sửa 404</td>
+<td>Kỹ thuật lập phiếu + test; anh Nam/anh Huy sửa; anh cho phép</td>
+<td><code>endsAt</code> <strong>bắt buộc trước 29/11</strong>, tốt nhất 23–25/11; form + Lead sớm nhất có thể</td>
+<td>Kỹ thuật test gửi form khi chưa đăng nhập; csv có sự kiện Lead</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Đăng 2 clip đã duyệt</strong> (ND-03 v2 «Tra đúng thửa» 11:20; v3.1 «Kiểm tra 5 thứ trước khi đặt cọc» 19:20)</td>
+<td>Dựng & Đăng video; điều phối thao tác máy MXH; anh duyệt</td>
+<td>23/11</td>
+<td>Đăng đúng giờ; số tin nhắn / SĐT từ clip (CSKH đếm)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Xin quyền đọc Google Ads (anh Hưng) và GA4</strong>; IT xuất file đơn gói kiểm tra từ gnha.vn</td>
+<td>Anh Thắng cho phép; điều phối chuyển; IT xuất</td>
+<td>Trước 24/11</td>
+<td>Có số Google Ads vào Sổ ra tiền; nếu không có file đơn thì gạch luồng gọi lại khách gói kiểm tra khỏi 7 ngày</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Mốc kiểm 24/11:</strong> so số thật của đợt 1–2, phiếu ký / tạm ứng, chi FB so với tin nhắn / SĐT nhận được. Quyết giữ hay dừng FB đang chạy theo <strong>tin nhắn / SĐT thực nhận</strong>, không theo CTR / CPC</td>
+<td>KPI đo; Chiến lược phản biện; điều phối trình anh</td>
+<td>24/11</td>
+<td>Sổ ra tiền + csv</td>
+</tr>
+</tbody>
+</table></div>
+<h3>ĐỂ SAU (mốc 01/12) và CẮT</h3>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Lý do</th>
+<th>Ai giữ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ads gói kiểm tra / «chặn giao dịch» (700.000đ đề xuất)</td>
+<td>Chưa có sự kiện Lead; câu chữ dịch vụ chưa được anh Tân duyệt</td>
+<td>Quảng cáo</td>
+</tr>
+<tr>
+<td>Google Ads: dựng lại cấu trúc / chi thêm (500.000đ đề xuất)</td>
+<td>Việc gấp là <strong>đọc báo cáo</strong>, chưa có số; sửa khi chưa xem dễ phá nguồn đang ra tiền</td>
+<td>Quảng cáo + anh Hưng</td>
+</tr>
+<tr>
+<td>Landing mới xóa thế chấp / hỗ trợ hồ sơ vay</td>
+<td>Dùng tạm trang dịch vụ sẵn có + CTA</td>
+<td>Kỹ thuật, Kinh doanh</td>
+</tr>
+<tr>
+<td>Kênh chi nhánh ngân hàng</td>
+<td>Không ra tiền trong 14 ngày; không trả thưởng cho cán bộ ngân hàng</td>
+<td>Ngân hàng vay (bot)</td>
+</tr>
+<tr>
+<td>Bộ 6 ảnh «chặn giao dịch» đầy đủ, clip Luật Nhà ở</td>
+<td>Rút ảnh còn 2 mẫu (người bán bị chặn / người mua trước cọc)</td>
+<td>Hình ảnh, Video</td>
+</tr>
+<tr>
+<td>Sửa lệch giá <code>/bang-gia</code></td>
+<td>Xem quyết định số 9</td>
+<td>Kỹ thuật</td>
+</tr>
+<tr>
+<td><strong>CẮT</strong> khỏi 14 ngày: gửi đợt 3–8 cho người chưa từng biết Gnhà; bật ads mới khi chưa có form + Lead; ghi số suất còn lại / đếm ngược suất (đang 0/50); «xem miễn phí» không giới hạn; nạp thêm TikTok; tăng trần tháng</td>
+<td>Rủi ro pháp lý, đốt tiền, hoặc tốn giờ 2 người chốt</td>
+<td>Điều phối giữ ranh</td>
+</tr>
+</tbody>
+</table></div>
+<hr /></section>
+<section class="sec" id="c-lich"><h2>(c) Lịch theo ngày, tuần, tháng</h2><h3>Ngày 23/11 (thứ Hai)</h3>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Giờ (UTC+7)</th>
+<th>Việc</th>
+<th>Ai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trước 8:00</td>
+<td>Anh quyết gia hạn OA</td>
+<td>Anh Thắng</td>
+</tr>
+<tr>
+<td>Trước 9:00</td>
+<td>Đổi token Strapi · anh duyệt bản tin môi giới</td>
+<td>Anh Nam/Huy · anh Thắng</td>
+</tr>
+<tr>
+<td>07:30–07:45</td>
+<td>Anh duyệt bộ nội dung và clip</td>
+<td>Anh Thắng</td>
+</tr>
+<tr>
+<td>08:00</td>
+<td>Giao ban sáng (mọi agent đọc <code>ke-hoach-chung.md</code>, ghi 1 dòng)</td>
+<td>Mọi agent</td>
+</tr>
+<tr>
+<td>08:40</td>
+<td>Điều phối chốt mục «Hôm nay»</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>09:00</td>
+<td>Anh Tân gọi 13 khách cũ; chị Loan nhắn 7</td>
+<td>Anh Tân, chị Loan</td>
+</tr>
+<tr>
+<td>09:30</td>
+<td>Môi giới đợt 1</td>
+<td>Chị Loan; điều phối thao tác máy</td>
+</tr>
+<tr>
+<td>09:05 / 12:05 / 17:05</td>
+<td>CSKH phân loại lead, tạo thẻ lead</td>
+<td>CSKH Zalo</td>
+</tr>
+<tr>
+<td>11:20 · 19:20</td>
+<td>Đăng 2 clip đã duyệt (nếu anh duyệt)</td>
+<td>Dựng & Đăng video</td>
+</tr>
+<tr>
+<td>14:00</td>
+<td>Môi giới đợt 2 (chỉ khi đợt 1 không bị Zalo cảnh báo)</td>
+<td>Chị Loan</td>
+</tr>
+<tr>
+<td>17:30</td>
+<td>KPI: Sổ ra tiền + csv ads</td>
+<td>Báo cáo/KPI</td>
+</tr>
+<tr>
+<td>21:00</td>
+<td>Anh duyệt phiếu còn lại</td>
+<td>Anh Thắng</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Tuần 23–29/11 (tối đa 3 P0; chờ anh chốt)</h3>
+<ol>
+<li><strong>Bán cho người đã biết Gnhà:</strong> khách cũ + môi giới đợt 1–2 + nhóm khách đã từng trả tiền (đã loại trùng).</li>
+<li><strong>Vá phễu trang Hội viên</strong> (<code>endsAt</code>, form + Lead, 5 công cụ, link trang chủ) và đổi token — mọi tin và mọi đồng ads đều đổ vào trang này.</li>
+<li><strong>Tiếp nhận lead trong 2 giờ + Sổ ra tiền hằng ngày</strong> — không có thì không chấm được ý nào ra tiền.</li>
+</ol>
+<p>Thứ Hai họp tuần theo <code>he-thong-van-hanh-lien-phong.md</code>, lấy kết quả này (không mở vòng ý trùng). Thứ Bảy 28/11 KPI chấm phiếu tuần.</p>
+<h3>Tháng đến 30/11</h3>
+<ul>
+<li>24/11: mốc kiểm đợt 1–2. Nếu <strong>0 SĐT và 0đ</strong> thì <strong>không</strong> mở đợt 3–8, dồn sức vá phễu + luồng khách cũ.</li>
+<li>25–30/11: nếu trang đã vá (form + Lead + <code>endsAt</code>) và anh duyệt: bật <strong>retarget Hội viên tối đa 800.000đ</strong> trong bảng trần chung. Chưa vá thì không bật.</li>
+<li>26–30/11: nhắc người đã để SĐT / đã hỏi, dùng câu chung đã duyệt, không hối. Kiểm đồng hồ trang ngày 29/11 và 30/11.</li>
+<li>Mục tiêu đã chốt: <strong>50 suất Hội viên 990k hoặc hết 30/11</strong>. Mốc tuần (3 / 5 / 10 suất) trong các file phòng là <strong>GIẢ ĐỊNH</strong>, anh chưa chốt làm KPI → <strong>anh chốt số</strong>. Mục tiêu duy nhất Chiến lược đề xuất đo: <strong>≥ 1 phiếu ký + tạm ứng 23–28/11 (GIẢ ĐỊNH)</strong>.</li>
+</ul>
+<h3>Hướng tháng 12</h3>
+<ul>
+<li>Giai đoạn vẫn BÁN HÀNG, trừ khi anh đổi khi họp tháng (đề xuất 28/11 hoặc 30/11, anh chốt ngày).</li>
+<li>Giá Hội viên sau 30/11: 1.990k, trừ khi anh gia hạn / đổi giá / đổi số suất → <strong>anh chốt</strong>.</li>
+<li>Trần ads tháng 12: kế hoạch ra tiền cũ ghi 5.000.000đ → <strong>anh chốt</strong>.</li>
+<li>Ưu tiên tháng 12 (nếu tháng 11 có số): gói kiểm tra + «chặn giao dịch» với sự kiện Lead; đọc báo cáo Google Ads rồi mới quyết cấu trúc; landing hỗ trợ hồ sơ vay / xóa thế chấp.</li>
+<li>Mục tiêu doanh thu, số suất, số hồ sơ tháng 12: <strong>anh chốt số</strong>.</li>
+</ul>
+<hr /></section>
+<section class="sec" id="d-phoi-hop"><h2>(d) Phối hợp giữa các phòng</h2><div class="tblwrap"><table>
+<thead>
+<tr>
+<th>Phòng</th>
+<th>Làm</th>
+<th>Cần từ phòng khác</th>
+<th>Hỗ trợ phòng khác</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đối tác & Khách cũ</td>
+<td>Một danh sách, một người liên hệ, một bộ tin cho môi giới; nhật ký trả lời</td>
+<td>Kinh doanh: phần tin về dịch vụ; CSKH: loại trùng nhóm đã thanh toán với 20 khách cũ; điều phối: máy gửi</td>
+<td>Kinh doanh, KPI: cột «nguồn giới thiệu»</td>
+</tr>
+<tr>
+<td>Kinh doanh Pháp lý</td>
+<td>Kịch bản theo giai đoạn giao dịch; phiếu nhận hồ sơ (5 câu sàng lọc); khung giá + tạm ứng chờ anh duyệt</td>
+<td>Anh Tân duyệt phần pháp lý; anh Thắng duyệt giá; IT xuất file đơn</td>
+<td>CSKH (kịch bản trả lời), Quảng cáo (câu chữ), Ngân hàng vay (giá)</td>
+</tr>
+<tr>
+<td>CSKH Zalo</td>
+<td>Thẻ lead, phiếu PZ, giữ file lead chung, gọi nhắc 2 giờ</td>
+<td>Anh gia hạn OA; kịch bản đã duyệt; điều phối sửa lỗi gom Zalo</td>
+<td>Kinh doanh, Đối tác, KPI (số lead)</td>
+</tr>
+<tr>
+<td>Quảng cáo</td>
+<td>Giữ FB đến 24/11, ghi csv, soạn nháp retarget (tắt)</td>
+<td>Kỹ thuật: form + Lead; anh duyệt bật; Video/Hình ảnh: mẫu</td>
+<td>KPI (số ads), điều phối (dựng nháp trên máy MXH)</td>
+</tr>
+<tr>
+<td>Kỹ thuật IT & Web</td>
+<td>Phiếu vá phễu, test sau mỗi bước, kiểm token</td>
+<td>Anh Nam/Huy sửa; anh cho phép</td>
+<td>Quảng cáo (sự kiện Lead), Kinh doanh (file đơn)</td>
+</tr>
+<tr>
+<td>Gói Hội viên</td>
+<td>Câu chung về hạn, giữ phễu và giá</td>
+<td>Kỹ thuật (trang); anh duyệt câu</td>
+<td>Đối tác, Quảng cáo, Video</td>
+</tr>
+<tr>
+<td>Nghiên cứu</td>
+<td>Săn tin hot hằng ngày + góc bán + rủi ro pháp lý câu chữ</td>
+<td>Điều phối chuyển duyệt</td>
+<td>Video, Hình ảnh, Chiến lược (từ 23/11 giao ban 08:00)</td>
+</tr>
+<tr>
+<td>Video / Hình ảnh</td>
+<td>2 clip đã duyệt; ảnh retarget (ô số suất để trống); 2 mẫu «chặn giao dịch»</td>
+<td>Brief từ Quảng cáo / Nghiên cứu</td>
+<td>Quảng cáo (cắt bản ads 9:16 từ v3.1, ADS-05 v3)</td>
+</tr>
+<tr>
+<td>Ngân hàng vay (bot)</td>
+<td>FAQ «kiểm tra trước khi vay» không hứa hạn mức; quy trình giải chấp + mua bán an toàn</td>
+<td>Kinh doanh: giá</td>
+<td>CSKH (FAQ), Kinh doanh (checklist hồ sơ)</td>
+</tr>
+<tr>
+<td>Chiến lược</td>
+<td>Phản biện, xếp gấp / sau / cắt</td>
+<td>Số từ KPI</td>
+<td>Điều phối (14 câu cần anh quyết)</td>
+</tr>
+<tr>
+<td>Báo cáo/KPI</td>
+<td>Sổ ra tiền; bảng 17:30; chấm tuần 28/11</td>
+<td>Anh Tân hoặc anh Thắng xác nhận thu; số csv</td>
+<td>Tất cả (số đo)</td>
+</tr>
+<tr>
+<td>Điều phối</td>
+<td>Giữ ranh quyết, lịch gửi chung, máy MXH, trình anh</td>
+<td>—</td>
+<td>Tất cả</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ba bot chưa nộp ý kiến (A Khoán TTQH, Bảng giá A Bảo, Thẩm định giá): <strong>không chặn kế hoạch</strong>; nhận việc qua <code>bang-ho-tro.md</code> khi cần.</p>
+<hr /></section>
+<section class="sec" id="e-quyet"><h2>(e) Quyết định anh cần chốt (10 mục; ★ = quan trọng nhất tuần này)</h2><div class="tblwrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Quyết định</th>
+<th>Phương án</th>
+<th>Em đề xuất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 ★</td>
+<td><strong>Đợt 3–8 (168 số từ nguồn công khai, chưa có đồng ý)</strong> — có thể vướng NĐ 13/2023 và NĐ 91/2020; nguy cơ Zalo khóa. Routine <code>g-i-tin-m-i-m-i-gi-i-t-3-8-24-26-11</code> <strong>vẫn đang BẬT</strong> (điều phối chưa dừng, việc này của anh)</td>
+<td>(A) Giữ lại: chỉ mở khi đợt 1–2 ra kết quả đến 24/11 và chỉ gửi người từng liên hệ Gnhà · (B) Gửi đúng lịch 24–26/11 · (C) Hủy hẳn</td>
+<td><strong>A</strong> — và anh bảo dừng routine nếu chọn A</td>
+</tr>
+<tr>
+<td>2 ★</td>
+<td><strong>Zalo OA</strong> hết hạn 21/11 (không tính vào ads)</td>
+<td>(A) 6 tháng 1.400.000đ · (B) 1 năm 2.500.000đ · (C) chưa gia hạn</td>
+<td><strong>A</strong> (giữ tiền mặt). Đợt 23/11 gửi từ Zalo cá nhân nên không phụ thuộc OA, nhưng khách nhắn vào OA hiện không ai nhận</td>
+</tr>
+<tr>
+<td>3 ★</td>
+<td><strong>Một bảng trần ads + ads 25–30/11</strong></td>
+<td>(A) Dùng 2.807.700đ làm số trừ trần duy nhất; chỉ duyệt retarget Hội viên 800.000đ, <strong>có điều kiện</strong> (form + Lead + <code>endsAt</code> đã sửa); hoãn 700.000đ và 500.000đ; TikTok giữ nháp tắt · (B) Duyệt cả +2.000.000đ · (C) Không bật gì thêm</td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>4 ★</td>
+<td><strong>Bản tin môi giới 23/11 và thưởng.</strong> Câu hạn chung: «Giá sáng lập 990k áp dụng đến hết 30/11, sau đó 1.990k»; không ghi số suất còn lại. Thưởng Hội viên 25% một cấp, trả sau khi Gnhà đã thu. Thưởng hồ sơ: Đối tác ghi 7–10%, Kinh doanh ghi 25%</td>
+<td>(A) Mẫu cũ · (B) Mẫu cũ + câu chung về hạn; chỉ nêu thưởng Hội viên 25%, <strong>chưa nêu</strong> thưởng hồ sơ · (C) B + chốt luôn 7–10% hồ sơ</td>
+<td><strong>B</strong>; anh chốt riêng mức thưởng hồ sơ trước khi nêu</td>
+</tr>
+<tr>
+<td>5 ★</td>
+<td><strong>Cho anh Nam/anh Huy sửa ngay:</strong> đổi token Strapi (trước 9:00 23/11), <code>endsAt</code>, form 3 ô + Lead, đủ 5 công cụ, link trang chủ; cho xem Google Ads (anh Hưng) và GA4</td>
+<td>(A) Cho toàn bộ ngay · (B) Chỉ token + <code>endsAt</code>, form để sau · (C) Chờ</td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>6 ★</td>
+<td><strong>Khung giá + tạm ứng 50% cho hoàn công / thừa kế / xóa thế chấp; «xem miễn phí ảnh sổ»</strong> để anh Tân báo giá ngay (luồng ra tiền nhanh nhất)</td>
+<td>(A) Duyệt khung giá + tạm ứng 50%; «xem miễn phí» có giới hạn số hồ sơ mỗi ngày (<strong>anh chốt số</strong>) · (B) Duyệt giá, bỏ «xem miễn phí» · (C) Chưa</td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Nhắn nhóm khách đã từng thanh toán</strong> (mẫu xưng «chuyên viên Gnhà», loại trùng 20 khách cũ) và <strong>ai nhận thẻ lead nóng</strong></td>
+<td>(A) Có nhắn; ca gọi theo chốt 21/11: anh Thắng, anh Tân, anh Khoán, chị Loan · (B) Chỉ anh Thắng và anh Tân</td>
+<td><strong>A</strong> (2 người dễ nghẽn quá 2 giờ)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Sổ ra tiền hằng ngày:</strong> ai nhập 1 dòng thực thu</td>
+<td>(A) Anh Tân nhập trước 17:00, anh Thắng soát · (B) Anh Thắng nhập</td>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Giá gói 6tr và VAT</strong> chỉ có ở trang kiểm tra trọn gói, <code>/bang-gia</code> không có. Chiến lược ghi anh đã nói để sau; điều phối đề nghị khớp trước tin môi giới 23/11</td>
+<td>(A) IT khớp trước 9:30 23/11, kịp thì dùng · (B) Tin 23/11 không nêu giá gói 6tr / VAT, khớp <code>/bang-gia</code> trong tuần</td>
+<td><strong>B</strong> (không phụ thuộc IT kịp hay không)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Chữ trên ads / clip và nội dung:</strong> không dùng «vay» / «thế chấp» trong ads (kênh bán dùng «hỗ trợ hồ sơ vay», không «vay nóng»); không ghi «/năm» khi chưa có nguồn; duyệt đăng 2 clip khe 23/11 và kịch bản clip Luật Đất đai</td>
+<td>(A) Duyệt cả ba · (B) Chỉ clip, giữ chữ như cũ</td>
+<td><strong>A</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Chỉ anh quyết, em không tự làm:</strong> tiền (OA, ads), đăng công khai / bật ads, nhắn khách và môi giới, xóa dữ liệu.</p>
+<hr /></section>
+<section class="sec" id="nguon"><h2>Nguồn</h2><ul>
+<li><code>/workspace/kho-gnha/hop/2211-dong-tien/de-bai.md</code>; <code>y-kien/*.md</code> (12 file, gồm «Góp ý chéo»); <code>y-kien/chien-luoc-phan-bien-tong.md</code></li>
+<li><code>/workspace/kho-gnha/ke-hoach-chung.md</code>, <code>he-thong-van-hanh-lien-phong.md</code></li>
+<li><code>/workspace/content/fb-ads-hoi-vien/len-quang-cao/theo-doi-theo-gio.csv</code> (Agent Quảng cáo) — nguồn duy nhất cho số ads</li>
+<li>Báo cáo ngày số 14, 15; kế hoạch ra tiền Hội viên tuần 23–28/11 (hóa đơn FB 872.300đ, nạp TikTok 1.320.000đ)</li>
+</ul></section>
+
+<footer class="foot">
+  <div>Gnhà · Hotline 1900 58 88 57 · Zalo 090 1627939 · 700.000 người dùng</div>
+  <div>Tài liệu nội bộ. Agent chỉ đưa ý kiến; anh Thắng quyết. Không có thông tin khách.</div>
+</footer>
+</main>
+</body>
+</html>
