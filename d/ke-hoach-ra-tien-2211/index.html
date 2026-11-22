@@ -118,6 +118,8 @@ dl.kv dd{margin:2px 0 0;color:var(--nau);font-size:14.5px}
 .hero .lead p{margin:0 0 10px}
 .hero .lead{max-width:80ch}
 td,th{font-size:13px}
+.oknote{margin:16px 0 0;background:#f3faf6;border:1px solid #1a7f4e;border-radius:14px;padding:12px 16px;font-size:14px;color:var(--nau)}
+.oknote b{color:#145c38}
 
 </style>
 </head>
@@ -126,28 +128,73 @@ td,th{font-size:13px}
   <img class="logo" src="data:image/png;base64,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" alt="Gnhà">
   <div class="brand"><h1>Gnhà</h1><p>Kế hoạch ra tiền · Nội bộ</p></div>
   <div class="sp"></div>
-  <span class="chip">22/11/2026 · Asia/Saigon</span>
+  <span class="chip">Đã chốt 22/11 15:52 · Asia/Saigon</span>
 </header>
-<nav class="tabs"><a class="t" href="#a-so">Số thật bây giờ</a><a class="t" href="#b-gap">GẤP (23–24/11) và ĐỂ SAU</a><a class="t" href="#c-lich">Lịch theo ngày, tuần, tháng</a><a class="t" href="#d-phoi-hop">Phối hợp giữa các phòng</a><a class="t" href="#e-quyet">Quyết định anh cần chốt (10 </a><a class="t" href="#nguon">Nguồn</a></nav>
+<nav class="tabs"><a class="t" href="#qd-anh">Quyết định 15:52</a><a class="t" href="#a-so">Số thật bây giờ</a><a class="t" href="#b-gap">GẤP và ĐỂ SAU</a><a class="t" href="#c-lich">Lịch ngày, tuần, tháng</a><a class="t" href="#d-phoi-hop">Phối hợp giữa các phòng</a><a class="t" href="#e-quyet">Đã chốt / còn mở</a><a class="t" href="#nguon">Nguồn</a></nav>
 <main class="wrap">
 <section class="hero">
-  <p class="kicker">Họp liên phòng 22/11/2026 · 12 phòng · Chiến lược phản biện</p>
-  <h2>Bán cho người <em>đã biết Gnhà</em>,<br>vá phễu, rồi mới chạy thêm ads</h2>
+  <p class="kicker">Họp liên phòng 22/11/2026 · Anh Thắng chốt 6 quyết định lúc 15:52</p>
+  <h2>Bán cho người <em>đã biết Gnhà</em>,<br>vá phễu, rồi mới bật thêm ads</h2>
   <div class="lead">
-<p><strong>Một đoạn:</strong> 36 ý của 12 phòng gộp thành <strong>4 luồng bán + 2 việc nền</strong>. Tiền gần nhất trong 7–14 ngày đến từ người <strong>đã biết Gnhà</strong> (khách cũ, khách đã từng trả tiền, môi giới đã duyệt), không đến từ kênh mới. Nút thắt không phải thiếu ý tưởng: (1) chỉ 2 người chốt, (2) phễu web thủng, (3) không ai ghi tiền thu thật mỗi ngày. Chạy 2 luồng bán từ 23/11, vá phễu song song, <strong>không bật thêm ads mới trước khi có form + sự kiện Lead</strong>.</p>
+<p><strong>Một đoạn:</strong> 36 ý của 12 phòng gộp thành <strong>4 luồng bán + 2 việc nền</strong>. Tiền gần nhất trong 7–14 ngày đến từ người <strong>đã biết Gnhà</strong> (khách cũ, khách đã từng trả tiền, môi giới đã duyệt), không đến từ kênh mới. Nút thắt không phải thiếu ý tưởng: (1) chỉ 2 người chốt, (2) phễu web thủng, (3) không ai ghi tiền thu thật mỗi ngày. Chạy luồng bán từ 23/11 (đợt 1–2, rồi đợt 3–8 theo lịch đã chốt), vá phễu song song. Anh đã duyệt thêm 2tr ads: Quảng cáo <strong>dựng sẵn</strong>, <strong>anh tự bấm bật và tự trả tiền</strong>. Vẫn vá form + sự kiện Lead trước khi anh bật, để khỏi đổ tiền vào trang thủng.</p>
 <hr /></div>
   <div class="stats">
     <div class="stat"><b>888.325đ</b><span>FB chi đến 21/11 16:10</span></div>
     <div class="stat"><b>1.530</b><span>Lượt xem trang đích</span></div>
     <div class="stat"><b>0/50 · 0đ</b><span>Hội viên · thực thu</span></div>
-    <div class="stat"><b>2.807.700đ</b><span>Còn trong trần 5tr tháng 11</span></div>
+    <div class="stat"><b>+2tr ads</b><span>Anh duyệt, tự bấm bật</span></div>
   </div>
 </section>
 <section class="sec" style="padding-bottom:6px"><blockquote>
-<p>Nội bộ · Soạn <strong>22/11/2026 ~14:00 (Asia/Saigon, UTC+7)</strong> · Điều phối tổng hợp từ 12 phòng + Chiến lược phản biện tổng.<br />
-Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 file <code>y-kien/</code>, <code>chien-luoc-phan-bien-tong.md</code>), <code>ke-hoach-chung.md</code>, <code>he-thong-van-hanh-lien-phong.md</code>.<br />
-<strong>Agent chỉ đưa ý kiến; anh Thắng quyết.</strong> Không nhắn khách, không đăng, không chi tiền, không đổi routine từ file này. Không bịa số: chỗ chưa có ghi «chưa có số». Chữ <strong>GIẢ ĐỊNH</strong> = mục tiêu để đo, không phải dữ kiện.</p>
+<p>Nội bộ · Soạn <strong>22/11/2026 ~14:00</strong>, cập nhật theo quyết định anh <strong>22/11/2026 15:52 (Asia/Saigon, UTC+7)</strong>. Điều phối tổng hợp từ 12 phòng + Chiến lược phản biện tổng.
+Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 file <code>y-kien/</code>, <code>chien-luoc-phan-bien-tong.md</code>), <code>ke-hoach-chung.md</code>, <code>he-thong-van-hanh-lien-phong.md</code>.
+<strong>Sáu quyết định chính dưới đây là lời anh Thắng chốt trên phiếu 15:52</strong>, không phải agent nói hộ. Agent không nhắn khách, không đăng, không chi tiền, không tự bật ads từ file này. Không bịa số: chỗ chưa có ghi «chưa có số». Chữ <strong>GIẢ ĐỊNH</strong> = mục tiêu để đo, không phải dữ kiện.</p>
 </blockquote></section>
+<section class="sec" id="qd-anh" style="border:2px solid #1a7f4e;background:#f3faf6"><h2>Quyết định anh Thắng 22/11 15:52 (Asia/Saigon, UTC+7)</h2><p>Anh chốt bằng phiếu, <strong>lời của anh</strong>:</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc</th>
+<th>Anh chốt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Đợt môi giới 3–8 (168 số từ nguồn công khai, chưa có đồng ý; đã báo rủi ro có thể vướng NĐ 13/2023 và NĐ 91/2020)</td>
+<td><strong>Cho chạy như lịch 24–26/11.</strong> Routine <code>g-i-tin-m-i-m-i-gi-i-t-3-8-24-26-11</code> <strong>giữ BẬT</strong>.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Zalo OA hết hạn 21/11</td>
+<td><strong>Gia hạn 6 tháng, 1.400.000đ.</strong> Anh tự thanh toán; không ai khác trả hộ.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ads 25–30/11 (tháng còn 2.807.700đ trong trần 5tr)</td>
+<td><strong>Duyệt thêm 2.000.000đ</strong> theo đề xuất Quảng cáo (800.000đ retarget Hội viên + 700.000đ gói kiểm tra + 500.000đ Google Ads). Nằm <strong>trong</strong> 2.807.700đ, không cộng ngoài trần. Phòng Quảng cáo được dựng sẵn; <strong>anh tự bấm bật và tự trả tiền</strong>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tin môi giới 23/11</td>
+<td><strong>Thêm thưởng hồ sơ 7–10%</strong> (bản Đối tác), <strong>cùng</strong> thưởng giới thiệu 25% cho Hội viên. Câu hạn chung: «Giá sáng lập 990k áp dụng đến hết 30/11, sau đó 1.990k». Không ghi số suất còn lại.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Anh Nam / anh Huy sửa web</td>
+<td><strong>Sửa cả bộ:</strong> đổi token Strapi (trước 9:00 23/11), <code>endsAt</code>, form 3 ô + sự kiện Lead, đủ 5 công cụ, link trang chủ, quyền GA4 / Google Ads.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Hồ sơ hoàn công, thừa kế, xóa thế chấp</td>
+<td><strong>Chưa duyệt khung giá.</strong> Anh Tân báo giá từng ca.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Chưa chốt trong phiếu lần này (còn mở ở mục e): nhắn nhóm khách đã từng thanh toán và ca nhận lead nóng; ai nhập Sổ ra tiền; khớp giá 6tr + VAT trên <code>/bang-gia</code>; duyệt chữ ads / 2 clip.</p>
+<p><strong>Chỉ anh làm tay, agent không làm hộ:</strong> thanh toán gia hạn OA; bật ads và trả tiền ads.</p>
+<hr /></section>
 <section class="sec" id="a-so"><h2>(a) Số thật bây giờ</h2><div class="tblwrap"><table>
 <thead>
 <tr>
@@ -199,14 +246,14 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </tr>
 <tr>
 <td>Zalo OA</td>
-<td>Gói Nâng cao hết hạn cuối 21/11; chưa thấy xác nhận gia hạn</td>
-<td>Báo cáo số 14, CSKH</td>
+<td>Anh chốt gia hạn 6 tháng 1.400.000đ lúc 15:52; <strong>chưa có xác nhận anh đã thanh toán</strong></td>
+<td>Phiếu 15:52; báo cáo số 14, CSKH</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Đọc thẳng:</strong> đã chi gần 900k để kéo 1.530 lượt vào trang Hội viên, ra 0 lead, 0đ. Trang không có form, nút đăng ký bắt đăng nhập, đồng hồ ưu đãi tắt sớm một ngày. Chạy thêm ads vào trang này là đốt tiền.</p>
-<h3>Một bảng trần ads chung (thay hai bảng đang lệch)</h3>
-<p>Hai phòng tính khác nhau vì <strong>đếm ở hai điểm</strong>, cùng một trần tháng 5.000.000đ (anh chốt 21/11 15:03). Dùng <strong>một bảng</strong>, không cộng dồn:</p>
+<p><strong>Đọc thẳng:</strong> đã chi gần 900k để kéo 1.530 lượt vào trang Hội viên, ra 0 lead, 0đ. Trang không có form, nút đăng ký bắt đăng nhập, đồng hồ ưu đãi tắt sớm một ngày. Anh đã duyệt thêm 2tr ads: dựng sẵn được, nên vá phễu trước khi anh bấm bật.</p>
+<h3>Một bảng trần ads chung</h3>
+<p>Hai phòng từng tính khác nhau vì <strong>đếm ở hai điểm</strong>, cùng một trần tháng 5.000.000đ (anh chốt 21/11 15:03). Dùng <strong>một bảng</strong>, không cộng dồn. Anh chốt 15:52: duyệt thêm 2.000.000đ, nằm trong số còn lại.</p>
 <div class="tblwrap"><table>
 <thead>
 <tr>
@@ -227,7 +274,7 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <td>Báo cáo số 15 (kế toán)</td>
 </tr>
 <tr>
-<td><strong>Còn lại (đề xuất làm số trừ trần duy nhất)</strong></td>
+<td><strong>Còn lại (số trừ trần)</strong></td>
 <td><strong>2.807.700đ</strong></td>
 <td>5.000.000đ − 2.192.300đ</td>
 </tr>
@@ -254,7 +301,7 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <tr>
 <td>TikTok đã nạp, chưa chi</td>
 <td>1.200.000đ</td>
-<td>Đã tính trong «đã xuất»; theo cách đếm đề xuất, chi từ số dư này <strong>không trừ thêm</strong> vào 2.807.700đ</td>
+<td>Đã tính trong «đã xuất»; chi từ số dư này <strong>không trừ thêm</strong> vào 2.807.700đ</td>
 </tr>
 <tr>
 <td>Trần ngày đề xuất 23–30/11 (Hội viên)</td>
@@ -262,15 +309,15 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <td>Chỉ là <strong>trần</strong>, không phải ngân sách phải chi. Tổng không vượt phần còn lại</td>
 </tr>
 <tr>
-<td>Quảng cáo đề xuất thêm</td>
-<td>+800.000đ retarget Hội viên · +700.000đ gói kiểm tra · +500.000đ Google Ads (= 2.000.000đ)</td>
-<td>Chiến lược khuyến nghị: <strong>chỉ 800.000đ retarget, có điều kiện</strong>; hoãn 700.000đ và 500.000đ. 800.000đ nằm <strong>trong</strong> 2.807.700đ, không phải khoản thêm</td>
+<td>Ads thêm, anh duyệt 15:52</td>
+<td><strong>+2.000.000đ</strong> = 800.000đ retarget Hội viên + 700.000đ gói kiểm tra + 500.000đ Google Ads</td>
+<td>Nằm <strong>trong</strong> 2.807.700đ, không phải khoản thêm ngoài trần. Quảng cáo dựng sẵn; <strong>anh tự bấm bật và tự trả tiền</strong></td>
 </tr>
 </tbody>
 </table></div>
 <p>Quy tắc: số ads chỉ lấy từ csv của Agent Quảng cáo; không có nguồn thì «chưa có số», <strong>không bao giờ ghi 0</strong>. Không nạp thêm TikTok, không tăng trần tháng. Khi có thực thu đã vào tài khoản và anh xác nhận, kế hoạch ra tiền cũ cho phép trích thêm khoảng 20% số đó cho marketing — chỉ sau khi tiền về, <strong>anh xác nhận lại</strong> quy tắc này cho tháng 12.</p>
 <hr /></section>
-<section class="sec" id="b-gap"><h2>(b) GẤP (23–24/11) và ĐỂ SAU</h2><h3>GẤP — làm ngay, trước hoặc trong 24/11</h3>
+<section class="sec" id="b-gap"><h2>(b) GẤP (23–24/11) và ĐỂ SAU</h2><h3>GẤP — làm ngay, trước hoặc trong 24/11 (và đợt 3–8 đúng lịch 24–26/11)</h3>
 <div class="tblwrap"><table>
 <thead>
 <tr>
@@ -284,24 +331,24 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <tbody>
 <tr>
 <td>1</td>
-<td><strong>Đổi token Strapi lộ trong JS công khai (KT-1811-01, P0 bảo mật).</strong> Gỡ khỏi bundle, đổi token. Không in token ra file hay tin</td>
-<td>Kỹ thuật (kiểm lại bằng curl) + anh Nam/anh Huy sửa; anh cho phép</td>
+<td><strong>Đổi token Strapi lộ trong JS công khai (KT-1811-01, P0 bảo mật).</strong> Gỡ khỏi bundle, đổi token. Không in token ra file hay tin. Anh đã cho Nam/Huy sửa cả bộ lúc 15:52</td>
+<td>Kỹ thuật (kiểm lại bằng curl) + anh Nam/anh Huy sửa</td>
 <td><strong>Trước 9:00 23/11</strong> (bài số 11 đăng qua chính Strapi này)</td>
 <td>Kỹ thuật kiểm chỉ đọc: token cũ không còn trong JS → ghi vào mục lục E</td>
 </tr>
 <tr>
 <td>2</td>
-<td><strong>Quyết gia hạn Zalo OA</strong> (chi tiền)</td>
-<td>Anh Thắng</td>
-<td>Trước 8:00 23/11</td>
-<td>Anh báo đã gia hạn → CSKH + điều phối kiểm hộp tin OA</td>
+<td><strong>Gia hạn Zalo OA 6 tháng, 1.400.000đ</strong> — anh đã chốt; <strong>anh tự thanh toán</strong>, không ai khác trả hộ</td>
+<td>Anh Thắng (tự trả)</td>
+<td>Khi anh thanh toán xong, báo lại</td>
+<td>CSKH + điều phối kiểm hộp tin OA sau khi anh báo đã gia hạn</td>
 </tr>
 <tr>
 <td>3</td>
-<td><strong>Anh chọn bản tin môi giới đợt 1–2</strong> (câu hạn chung, nêu thưởng gì)</td>
-<td>Đối tác soạn 2 bản; anh duyệt</td>
-<td>Trước 9:00 23/11</td>
-<td>Có «đã duyệt» của anh trước khi gửi</td>
+<td><strong>Soạn bản tin môi giới theo chốt 15:52:</strong> câu hạn chung «990k đến hết 30/11, sau đó 1.990k»; thưởng giới thiệu 25% Hội viên; <strong>thêm thưởng hồ sơ 7–10%</strong>; không ghi số suất còn lại. Loại trùng người nhận giữa các nhóm. Một người chịu trách nhiệm mỗi lần gửi</td>
+<td>Đối tác soạn; chị Loan gửi</td>
+<td>Trước 9:00 23/11 (bản tin); gửi đúng giờ bên dưới</td>
+<td>Bản tin đủ 4 ý đã chốt; danh sách đã loại trùng</td>
 </tr>
 <tr>
 <td>4</td>
@@ -327,37 +374,44 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <tr>
 <td>7</td>
 <td><strong>Mỗi lead gọi trong 2 giờ làm việc</strong>; ngoài giờ thì sáng hôm sau</td>
-<td>CSKH tạo thẻ lead (09:05 / 12:05 / 17:05); ca gọi theo anh chốt</td>
+<td>CSKH tạo thẻ lead (09:05 / 12:05 / 17:05); ca gọi theo chốt 21/11</td>
 <td>Từ 23/11</td>
 <td>% lead được nhận ca trong 2 giờ (đích 100%)</td>
 </tr>
 <tr>
 <td>8</td>
-<td><strong>Vá phễu trang Hội viên theo thứ tự:</strong> (1) <code>endsAt</code> → <code>2026-12-01T00:00+07:00</code>; (2) form 3 ô không bắt đăng nhập + sự kiện Lead, hoặc tạm đổi CTA sang Zalo/hotline/<code>/dang-ky</code> giữ ref + UTM; (3) đủ 5 công cụ ở khối đầu; (4) link thật tới Hội viên và hoàn công trên trang chủ (cả điện thoại), sửa 404</td>
-<td>Kỹ thuật lập phiếu + test; anh Nam/anh Huy sửa; anh cho phép</td>
-<td><code>endsAt</code> <strong>bắt buộc trước 29/11</strong>, tốt nhất 23–25/11; form + Lead sớm nhất có thể</td>
+<td><strong>Vá phễu trang Hội viên theo thứ tự (anh đã cho sửa cả bộ 15:52):</strong> (1) <code>endsAt</code> → <code>2026-12-01T00:00+07:00</code>; (2) form 3 ô không bắt đăng nhập + sự kiện Lead, hoặc tạm đổi CTA sang Zalo/hotline/<code>/dang-ky</code> giữ ref + UTM; (3) đủ 5 công cụ ở khối đầu; (4) link thật tới Hội viên và hoàn công trên trang chủ (cả điện thoại), sửa 404; (5) quyền đọc Google Ads (anh Hưng) và GA4</td>
+<td>Kỹ thuật lập phiếu + test; anh Nam/anh Huy sửa</td>
+<td><code>endsAt</code> và form + Lead <strong>sớm nhất 23–25/11</strong>, <code>endsAt</code> bắt buộc trước 29/11</td>
 <td>Kỹ thuật test gửi form khi chưa đăng nhập; csv có sự kiện Lead</td>
 </tr>
 <tr>
 <td>9</td>
-<td><strong>Đăng 2 clip đã duyệt</strong> (ND-03 v2 «Tra đúng thửa» 11:20; v3.1 «Kiểm tra 5 thứ trước khi đặt cọc» 19:20)</td>
+<td><strong>Đăng 2 clip đã duyệt</strong> (ND-03 v2 «Tra đúng thửa» 11:20; v3.1 «Kiểm tra 5 thứ trước khi đặt cọc» 19:20) — lịch giữ nguyên, <strong>chờ anh duyệt chữ / clip nếu chưa duyệt</strong></td>
 <td>Dựng & Đăng video; điều phối thao tác máy MXH; anh duyệt</td>
 <td>23/11</td>
 <td>Đăng đúng giờ; số tin nhắn / SĐT từ clip (CSKH đếm)</td>
 </tr>
 <tr>
 <td>10</td>
-<td><strong>Xin quyền đọc Google Ads (anh Hưng) và GA4</strong>; IT xuất file đơn gói kiểm tra từ gnha.vn</td>
-<td>Anh Thắng cho phép; điều phối chuyển; IT xuất</td>
-<td>Trước 24/11</td>
-<td>Có số Google Ads vào Sổ ra tiền; nếu không có file đơn thì gạch luồng gọi lại khách gói kiểm tra khỏi 7 ngày</td>
+<td><strong>IT xuất file đơn gói kiểm tra từ gnha.vn</strong>; Quảng cáo <strong>dựng sẵn</strong> gói +2.000.000đ (retarget 800.000đ, gói kiểm tra 700.000đ, Google Ads 500.000đ), <strong>không tự bật</strong></td>
+<td>IT xuất file; Quảng cáo dựng; <strong>anh tự bấm bật</strong></td>
+<td>Dựng trong tuần; bật khi anh bấm</td>
+<td>Có bản dựng + ID chiến dịch trình anh; có số Google Ads vào Sổ khi được quyền đọc</td>
 </tr>
 <tr>
 <td>11</td>
-<td><strong>Mốc kiểm 24/11:</strong> so số thật của đợt 1–2, phiếu ký / tạm ứng, chi FB so với tin nhắn / SĐT nhận được. Quyết giữ hay dừng FB đang chạy theo <strong>tin nhắn / SĐT thực nhận</strong>, không theo CTR / CPC</td>
+<td><strong>Mốc kiểm 24/11:</strong> so số thật của đợt 1–2, phiếu ký / tạm ứng, chi FB so với tin nhắn / SĐT nhận được. Đợt 3–8 <strong>vẫn chạy như lịch đã chốt</strong>, trừ khi anh ra lệnh mới</td>
 <td>KPI đo; Chiến lược phản biện; điều phối trình anh</td>
 <td>24/11</td>
 <td>Sổ ra tiền + csv</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Gửi đợt môi giới 3–8 như lịch 24–26/11</strong> (anh chốt cho chạy; routine giữ BẬT). Loại trùng với đợt 1–2 và các nhóm khác. Một người gửi. Vẫn ghi rủi ro pháp lý đã báo</td>
+<td>Đối tác (file, nhật ký); chị Loan gửi</td>
+<td>24–26/11</td>
+<td>Số tin đã gửi; số trả lời; số SĐT; số tiền thu</td>
 </tr>
 </tbody>
 </table></div>
@@ -371,16 +425,6 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Ads gói kiểm tra / «chặn giao dịch» (700.000đ đề xuất)</td>
-<td>Chưa có sự kiện Lead; câu chữ dịch vụ chưa được anh Tân duyệt</td>
-<td>Quảng cáo</td>
-</tr>
-<tr>
-<td>Google Ads: dựng lại cấu trúc / chi thêm (500.000đ đề xuất)</td>
-<td>Việc gấp là <strong>đọc báo cáo</strong>, chưa có số; sửa khi chưa xem dễ phá nguồn đang ra tiền</td>
-<td>Quảng cáo + anh Hưng</td>
-</tr>
 <tr>
 <td>Landing mới xóa thế chấp / hỗ trợ hồ sơ vay</td>
 <td>Dùng tạm trang dịch vụ sẵn có + CTA</td>
@@ -397,13 +441,18 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <td>Hình ảnh, Video</td>
 </tr>
 <tr>
-<td>Sửa lệch giá <code>/bang-gia</code></td>
-<td>Xem quyết định số 9</td>
+<td>Sửa lệch giá <code>/bang-gia</code> (6tr + VAT)</td>
+<td>Anh chưa chốt trong phiếu 15:52; tin 23/11 không nêu giá 6tr / VAT</td>
 <td>Kỹ thuật</td>
 </tr>
 <tr>
-<td><strong>CẮT</strong> khỏi 14 ngày: gửi đợt 3–8 cho người chưa từng biết Gnhà; bật ads mới khi chưa có form + Lead; ghi số suất còn lại / đếm ngược suất (đang 0/50); «xem miễn phí» không giới hạn; nạp thêm TikTok; tăng trần tháng</td>
-<td>Rủi ro pháp lý, đốt tiền, hoặc tốn giờ 2 người chốt</td>
+<td>Khung giá + tạm ứng 50% + «xem miễn phí ảnh sổ»</td>
+<td>Anh chốt 15:52: <strong>chưa duyệt khung</strong>; anh Tân báo giá từng ca</td>
+<td>Kinh doanh Pháp lý, anh Tân</td>
+</tr>
+<tr>
+<td><strong>CẮT</strong> khỏi 14 ngày: ghi số suất còn lại / đếm ngược suất (đang 0/50); nạp thêm TikTok; tăng trần tháng; agent tự bật ads hoặc tự thanh toán OA / ads</td>
+<td>Đốt tiền, hoặc việc chỉ anh làm tay</td>
 <td>Điều phối giữ ranh</td>
 </tr>
 </tbody>
@@ -420,18 +469,18 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </thead>
 <tbody>
 <tr>
-<td>Trước 8:00</td>
-<td>Anh quyết gia hạn OA</td>
+<td>Khi anh xếp được</td>
+<td>Anh tự thanh toán gia hạn OA 6 tháng 1.400.000đ (đã chốt; không ai trả hộ)</td>
 <td>Anh Thắng</td>
 </tr>
 <tr>
 <td>Trước 9:00</td>
-<td>Đổi token Strapi · anh duyệt bản tin môi giới</td>
-<td>Anh Nam/Huy · anh Thắng</td>
+<td>Đổi token Strapi · Đối tác hoàn thiện bản tin (25% + 7–10%, câu hạn chung)</td>
+<td>Anh Nam/Huy · Đối tác</td>
 </tr>
 <tr>
 <td>07:30–07:45</td>
-<td>Anh duyệt bộ nội dung và clip</td>
+<td>Anh duyệt bộ nội dung và clip (nếu chưa duyệt)</td>
 <td>Anh Thắng</td>
 </tr>
 <tr>
@@ -481,17 +530,23 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </tr>
 </tbody>
 </table></div>
-<h3>Tuần 23–29/11 (tối đa 3 P0; chờ anh chốt)</h3>
+<h3>Ngày 24–26/11</h3>
+<ul>
+<li>24/11: KPI đo đợt 1–2 (Sổ ra tiền + csv). Đợt 3 bắt đầu theo lịch đã chốt.</li>
+<li>24–26/11: gửi môi giới đợt 3–8 như lịch (routine giữ BẬT). Loại trùng. Một người gửi.</li>
+<li>Quảng cáo tiếp tục dựng +2tr; không tự bật.</li>
+</ul>
+<h3>Tuần 23–29/11 (tối đa 3 P0; 6 quyết định chính đã chốt 15:52)</h3>
 <ol>
-<li><strong>Bán cho người đã biết Gnhà:</strong> khách cũ + môi giới đợt 1–2 + nhóm khách đã từng trả tiền (đã loại trùng).</li>
-<li><strong>Vá phễu trang Hội viên</strong> (<code>endsAt</code>, form + Lead, 5 công cụ, link trang chủ) và đổi token — mọi tin và mọi đồng ads đều đổ vào trang này.</li>
+<li><strong>Bán cho người đã biết Gnhà:</strong> khách cũ + môi giới đợt 1–2 (23/11) + đợt 3–8 (24–26/11, đã chốt cho chạy) + nhóm khách đã từng trả tiền (đã loại trùng; phần nhắn nhóm này <strong>chưa chốt</strong> trong phiếu 15:52).</li>
+<li><strong>Vá phễu trang Hội viên</strong> (<code>endsAt</code>, form + Lead, 5 công cụ, link trang chủ) và đổi token — anh đã cho Nam/Huy sửa cả bộ. Mọi tin và mọi đồng ads đều đổ vào trang này.</li>
 <li><strong>Tiếp nhận lead trong 2 giờ + Sổ ra tiền hằng ngày</strong> — không có thì không chấm được ý nào ra tiền.</li>
 </ol>
 <p>Thứ Hai họp tuần theo <code>he-thong-van-hanh-lien-phong.md</code>, lấy kết quả này (không mở vòng ý trùng). Thứ Bảy 28/11 KPI chấm phiếu tuần.</p>
 <h3>Tháng đến 30/11</h3>
 <ul>
-<li>24/11: mốc kiểm đợt 1–2. Nếu <strong>0 SĐT và 0đ</strong> thì <strong>không</strong> mở đợt 3–8, dồn sức vá phễu + luồng khách cũ.</li>
-<li>25–30/11: nếu trang đã vá (form + Lead + <code>endsAt</code>) và anh duyệt: bật <strong>retarget Hội viên tối đa 800.000đ</strong> trong bảng trần chung. Chưa vá thì không bật.</li>
+<li>24/11: mốc kiểm đợt 1–2. Đợt 3–8 <strong>vẫn chạy như lịch đã chốt</strong>, trừ khi anh ra lệnh mới. KPI vẫn đo SĐT / tiền thu để trình anh.</li>
+<li>25–30/11: Quảng cáo đã được duyệt dựng +2.000.000đ trong trần còn lại; <strong>anh tự bấm bật</strong>. Nên bật sau khi form + Lead + <code>endsAt</code> đã sửa.</li>
 <li>26–30/11: nhắc người đã để SĐT / đã hỏi, dùng câu chung đã duyệt, không hối. Kiểm đồng hồ trang ngày 29/11 và 30/11.</li>
 <li>Mục tiêu đã chốt: <strong>50 suất Hội viên 990k hoặc hết 30/11</strong>. Mốc tuần (3 / 5 / 10 suất) trong các file phòng là <strong>GIẢ ĐỊNH</strong>, anh chưa chốt làm KPI → <strong>anh chốt số</strong>. Mục tiêu duy nhất Chiến lược đề xuất đo: <strong>≥ 1 phiếu ký + tạm ứng 23–28/11 (GIẢ ĐỊNH)</strong>.</li>
 </ul>
@@ -516,38 +571,38 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 <tbody>
 <tr>
 <td>Đối tác & Khách cũ</td>
-<td>Một danh sách, một người liên hệ, một bộ tin cho môi giới; nhật ký trả lời</td>
+<td>Một danh sách, một người liên hệ, một bộ tin (có 25% Hội viên + 7–10% hồ sơ); nhật ký; đợt 1–2 ngày 23/11 và đợt 3–8 ngày 24–26/11; loại trùng</td>
 <td>Kinh doanh: phần tin về dịch vụ; CSKH: loại trùng nhóm đã thanh toán với 20 khách cũ; điều phối: máy gửi</td>
 <td>Kinh doanh, KPI: cột «nguồn giới thiệu»</td>
 </tr>
 <tr>
 <td>Kinh doanh Pháp lý</td>
-<td>Kịch bản theo giai đoạn giao dịch; phiếu nhận hồ sơ (5 câu sàng lọc); khung giá + tạm ứng chờ anh duyệt</td>
-<td>Anh Tân duyệt phần pháp lý; anh Thắng duyệt giá; IT xuất file đơn</td>
+<td>Kịch bản theo giai đoạn giao dịch; phiếu nhận hồ sơ (5 câu sàng lọc). <strong>Chưa có khung giá</strong> — anh Tân báo giá từng ca</td>
+<td>Anh Tân báo giá từng ca; IT xuất file đơn</td>
 <td>CSKH (kịch bản trả lời), Quảng cáo (câu chữ), Ngân hàng vay (giá)</td>
 </tr>
 <tr>
 <td>CSKH Zalo</td>
-<td>Thẻ lead, phiếu PZ, giữ file lead chung, gọi nhắc 2 giờ</td>
-<td>Anh gia hạn OA; kịch bản đã duyệt; điều phối sửa lỗi gom Zalo</td>
+<td>Thẻ lead, phiếu PZ, giữ file lead chung, gọi nhắc 2 giờ; hỗ trợ gửi tin đã chốt</td>
+<td>Anh tự gia hạn OA (chờ anh thanh toán); kịch bản đã duyệt; điều phối sửa lỗi gom Zalo</td>
 <td>Kinh doanh, Đối tác, KPI (số lead)</td>
 </tr>
 <tr>
 <td>Quảng cáo</td>
-<td>Giữ FB đến 24/11, ghi csv, soạn nháp retarget (tắt)</td>
-<td>Kỹ thuật: form + Lead; anh duyệt bật; Video/Hình ảnh: mẫu</td>
+<td>Giữ FB đến 24/11, ghi csv, <strong>dựng sẵn</strong> gói +2tr (không tự bật)</td>
+<td>Kỹ thuật: form + Lead; <strong>anh tự bấm bật</strong>; Video/Hình ảnh: mẫu</td>
 <td>KPI (số ads), điều phối (dựng nháp trên máy MXH)</td>
 </tr>
 <tr>
 <td>Kỹ thuật IT & Web</td>
-<td>Phiếu vá phễu, test sau mỗi bước, kiểm token</td>
-<td>Anh Nam/Huy sửa; anh cho phép</td>
+<td>Vá cả bộ đã được anh cho phép: token, <code>endsAt</code>, form + Lead, 5 công cụ, link trang chủ, quyền GA4/Ads; test sau mỗi bước</td>
+<td>Anh Nam/Huy sửa (đã được cho phép 15:52)</td>
 <td>Quảng cáo (sự kiện Lead), Kinh doanh (file đơn)</td>
 </tr>
 <tr>
 <td>Gói Hội viên</td>
-<td>Câu chung về hạn, giữ phễu và giá</td>
-<td>Kỹ thuật (trang); anh duyệt câu</td>
+<td>Câu chung về hạn; giữ phễu và giá; tin môi giới dùng câu đã chốt</td>
+<td>Kỹ thuật (trang đang vá cả bộ)</td>
 <td>Đối tác, Quảng cáo, Video</td>
 </tr>
 <tr>
@@ -558,25 +613,25 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </tr>
 <tr>
 <td>Video / Hình ảnh</td>
-<td>2 clip đã duyệt; ảnh retarget (ô số suất để trống); 2 mẫu «chặn giao dịch»</td>
+<td>2 clip (chờ anh duyệt nếu chưa); ảnh retarget (ô số suất để trống); 2 mẫu «chặn giao dịch»</td>
 <td>Brief từ Quảng cáo / Nghiên cứu</td>
 <td>Quảng cáo (cắt bản ads 9:16 từ v3.1, ADS-05 v3)</td>
 </tr>
 <tr>
 <td>Ngân hàng vay (bot)</td>
 <td>FAQ «kiểm tra trước khi vay» không hứa hạn mức; quy trình giải chấp + mua bán an toàn</td>
-<td>Kinh doanh: giá</td>
+<td>Kinh doanh: giá từng ca (chưa có khung)</td>
 <td>CSKH (FAQ), Kinh doanh (checklist hồ sơ)</td>
 </tr>
 <tr>
 <td>Chiến lược</td>
 <td>Phản biện, xếp gấp / sau / cắt</td>
 <td>Số từ KPI</td>
-<td>Điều phối (14 câu cần anh quyết)</td>
+<td>Điều phối</td>
 </tr>
 <tr>
 <td>Báo cáo/KPI</td>
-<td>Sổ ra tiền; bảng 17:30; chấm tuần 28/11</td>
+<td>Sổ ra tiền; bảng 17:30; <strong>đo mốc 24/11</strong>; chấm tuần 28/11</td>
 <td>Anh Tân hoặc anh Thắng xác nhận thu; số csv</td>
 <td>Tất cả (số đo)</td>
 </tr>
@@ -590,90 +645,91 @@ Nguồn: <code>/workspace/kho-gnha/hop/2211-dong-tien/</code> (đề bài, 12 fi
 </table></div>
 <p>Ba bot chưa nộp ý kiến (A Khoán TTQH, Bảng giá A Bảo, Thẩm định giá): <strong>không chặn kế hoạch</strong>; nhận việc qua <code>bang-ho-tro.md</code> khi cần.</p>
 <hr /></section>
-<section class="sec" id="e-quyet"><h2>(e) Quyết định anh cần chốt (10 mục; ★ = quan trọng nhất tuần này)</h2><div class="tblwrap"><table>
+<section class="sec" id="e-quyet"><h2>(e) Quyết định — 6 mục đã chốt, 4 mục còn mở</h2><div class="tblwrap"><table>
 <thead>
 <tr>
 <th>#</th>
 <th>Quyết định</th>
-<th>Phương án</th>
-<th>Em đề xuất</th>
+<th>Phương án đã nêu</th>
+<th>Kết quả 15:52</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1 ★</td>
-<td><strong>Đợt 3–8 (168 số từ nguồn công khai, chưa có đồng ý)</strong> — có thể vướng NĐ 13/2023 và NĐ 91/2020; nguy cơ Zalo khóa. Routine <code>g-i-tin-m-i-m-i-gi-i-t-3-8-24-26-11</code> <strong>vẫn đang BẬT</strong> (điều phối chưa dừng, việc này của anh)</td>
-<td>(A) Giữ lại: chỉ mở khi đợt 1–2 ra kết quả đến 24/11 và chỉ gửi người từng liên hệ Gnhà · (B) Gửi đúng lịch 24–26/11 · (C) Hủy hẳn</td>
-<td><strong>A</strong> — và anh bảo dừng routine nếu chọn A</td>
+<td>Đợt 3–8 (168 số từ nguồn công khai, chưa có đồng ý; rủi ro NĐ 13/2023 và NĐ 91/2020). Routine vẫn BẬT</td>
+<td>(A) Giữ lại, chỉ gửi người từng liên hệ · (B) Gửi đúng lịch 24–26/11 · (C) Hủy hẳn</td>
+<td><strong>ĐÃ CHỐT B</strong> — cho chạy như lịch 24–26/11; routine giữ BẬT</td>
 </tr>
 <tr>
 <td>2 ★</td>
-<td><strong>Zalo OA</strong> hết hạn 21/11 (không tính vào ads)</td>
+<td>Zalo OA hết hạn 21/11 (không tính vào ads)</td>
 <td>(A) 6 tháng 1.400.000đ · (B) 1 năm 2.500.000đ · (C) chưa gia hạn</td>
-<td><strong>A</strong> (giữ tiền mặt). Đợt 23/11 gửi từ Zalo cá nhân nên không phụ thuộc OA, nhưng khách nhắn vào OA hiện không ai nhận</td>
+<td><strong>ĐÃ CHỐT A</strong> — anh tự thanh toán, không ai trả hộ</td>
 </tr>
 <tr>
 <td>3 ★</td>
-<td><strong>Một bảng trần ads + ads 25–30/11</strong></td>
-<td>(A) Dùng 2.807.700đ làm số trừ trần duy nhất; chỉ duyệt retarget Hội viên 800.000đ, <strong>có điều kiện</strong> (form + Lead + <code>endsAt</code> đã sửa); hoãn 700.000đ và 500.000đ; TikTok giữ nháp tắt · (B) Duyệt cả +2.000.000đ · (C) Không bật gì thêm</td>
-<td><strong>A</strong></td>
+<td>Một bảng trần ads + ads 25–30/11</td>
+<td>(A) Chỉ 800.000đ retarget, có điều kiện · (B) Duyệt cả +2.000.000đ · (C) Không bật gì thêm</td>
+<td><strong>ĐÃ CHỐT B</strong> — duyệt +2tr trong 2.807.700đ còn lại; Quảng cáo dựng, anh tự bấm bật và tự trả tiền</td>
 </tr>
 <tr>
 <td>4 ★</td>
-<td><strong>Bản tin môi giới 23/11 và thưởng.</strong> Câu hạn chung: «Giá sáng lập 990k áp dụng đến hết 30/11, sau đó 1.990k»; không ghi số suất còn lại. Thưởng Hội viên 25% một cấp, trả sau khi Gnhà đã thu. Thưởng hồ sơ: Đối tác ghi 7–10%, Kinh doanh ghi 25%</td>
-<td>(A) Mẫu cũ · (B) Mẫu cũ + câu chung về hạn; chỉ nêu thưởng Hội viên 25%, <strong>chưa nêu</strong> thưởng hồ sơ · (C) B + chốt luôn 7–10% hồ sơ</td>
-<td><strong>B</strong>; anh chốt riêng mức thưởng hồ sơ trước khi nêu</td>
+<td>Bản tin môi giới 23/11 và thưởng</td>
+<td>(A) Mẫu cũ · (B) Mẫu cũ + câu hạn; chỉ 25% Hội viên · (C) B + chốt 7–10% hồ sơ</td>
+<td><strong>ĐÃ CHỐT C</strong> — câu hạn chung; thưởng giới thiệu 25% Hội viên <strong>và</strong> thưởng hồ sơ 7–10%</td>
 </tr>
 <tr>
 <td>5 ★</td>
-<td><strong>Cho anh Nam/anh Huy sửa ngay:</strong> đổi token Strapi (trước 9:00 23/11), <code>endsAt</code>, form 3 ô + Lead, đủ 5 công cụ, link trang chủ; cho xem Google Ads (anh Hưng) và GA4</td>
-<td>(A) Cho toàn bộ ngay · (B) Chỉ token + <code>endsAt</code>, form để sau · (C) Chờ</td>
-<td><strong>A</strong></td>
+<td>Cho anh Nam/anh Huy sửa web</td>
+<td>(A) Cả bộ ngay · (B) Chỉ token + <code>endsAt</code> · (C) Chờ</td>
+<td><strong>ĐÃ CHỐT A</strong> — sửa cả bộ, token trước 9:00 23/11</td>
 </tr>
 <tr>
 <td>6 ★</td>
-<td><strong>Khung giá + tạm ứng 50% cho hoàn công / thừa kế / xóa thế chấp; «xem miễn phí ảnh sổ»</strong> để anh Tân báo giá ngay (luồng ra tiền nhanh nhất)</td>
-<td>(A) Duyệt khung giá + tạm ứng 50%; «xem miễn phí» có giới hạn số hồ sơ mỗi ngày (<strong>anh chốt số</strong>) · (B) Duyệt giá, bỏ «xem miễn phí» · (C) Chưa</td>
-<td><strong>A</strong></td>
+<td>Khung giá + tạm ứng 50%; «xem miễn phí ảnh sổ»</td>
+<td>(A) Duyệt khung + tạm ứng 50%, «xem miễn phí» có hạn · (B) Duyệt giá, bỏ «xem miễn phí» · (C) Chưa</td>
+<td><strong>ĐÃ CHỐT C</strong> — chưa duyệt khung giá; anh Tân báo giá từng ca</td>
 </tr>
 <tr>
 <td>7</td>
-<td><strong>Nhắn nhóm khách đã từng thanh toán</strong> (mẫu xưng «chuyên viên Gnhà», loại trùng 20 khách cũ) và <strong>ai nhận thẻ lead nóng</strong></td>
-<td>(A) Có nhắn; ca gọi theo chốt 21/11: anh Thắng, anh Tân, anh Khoán, chị Loan · (B) Chỉ anh Thắng và anh Tân</td>
-<td><strong>A</strong> (2 người dễ nghẽn quá 2 giờ)</td>
+<td>Nhắn nhóm khách đã từng thanh toán (mẫu xưng «chuyên viên Gnhà», loại trùng 20 khách cũ) và ai nhận thẻ lead nóng</td>
+<td>(A) Có nhắn; ca gọi: anh Thắng, anh Tân, anh Khoán, chị Loan · (B) Chỉ anh Thắng và anh Tân</td>
+<td><strong>Chưa chốt</strong></td>
 </tr>
 <tr>
 <td>8</td>
-<td><strong>Sổ ra tiền hằng ngày:</strong> ai nhập 1 dòng thực thu</td>
+<td>Sổ ra tiền hằng ngày: ai nhập 1 dòng thực thu</td>
 <td>(A) Anh Tân nhập trước 17:00, anh Thắng soát · (B) Anh Thắng nhập</td>
-<td><strong>A</strong></td>
+<td><strong>Chưa chốt</strong></td>
 </tr>
 <tr>
 <td>9</td>
-<td><strong>Giá gói 6tr và VAT</strong> chỉ có ở trang kiểm tra trọn gói, <code>/bang-gia</code> không có. Chiến lược ghi anh đã nói để sau; điều phối đề nghị khớp trước tin môi giới 23/11</td>
-<td>(A) IT khớp trước 9:30 23/11, kịp thì dùng · (B) Tin 23/11 không nêu giá gói 6tr / VAT, khớp <code>/bang-gia</code> trong tuần</td>
-<td><strong>B</strong> (không phụ thuộc IT kịp hay không)</td>
+<td>Giá gói 6tr và VAT chỉ có ở trang kiểm tra trọn gói, <code>/bang-gia</code> không có</td>
+<td>(A) IT khớp trước 9:30 23/11 · (B) Tin 23/11 không nêu 6tr / VAT, khớp <code>/bang-gia</code> trong tuần</td>
+<td><strong>Chưa chốt</strong> (tin 23/11 vẫn không nêu 6tr / VAT cho đến khi anh nói khác)</td>
 </tr>
 <tr>
 <td>10</td>
-<td><strong>Chữ trên ads / clip và nội dung:</strong> không dùng «vay» / «thế chấp» trong ads (kênh bán dùng «hỗ trợ hồ sơ vay», không «vay nóng»); không ghi «/năm» khi chưa có nguồn; duyệt đăng 2 clip khe 23/11 và kịch bản clip Luật Đất đai</td>
+<td>Chữ trên ads / clip: không dùng «vay» / «thế chấp» trong ads; không ghi «/năm» khi chưa có nguồn; duyệt đăng 2 clip khe 23/11 và kịch bản Luật Đất đai</td>
 <td>(A) Duyệt cả ba · (B) Chỉ clip, giữ chữ như cũ</td>
-<td><strong>A</strong></td>
+<td><strong>Chưa chốt</strong></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Chỉ anh quyết, em không tự làm:</strong> tiền (OA, ads), đăng công khai / bật ads, nhắn khách và môi giới, xóa dữ liệu.</p>
+<p><strong>Chỉ anh quyết / anh làm tay, em không tự làm:</strong> tiền (OA, ads), đăng công khai / bật ads, nhắn khách và môi giới, xóa dữ liệu.</p>
 <hr /></section>
 <section class="sec" id="nguon"><h2>Nguồn</h2><ul>
 <li><code>/workspace/kho-gnha/hop/2211-dong-tien/de-bai.md</code>; <code>y-kien/*.md</code> (12 file, gồm «Góp ý chéo»); <code>y-kien/chien-luoc-phan-bien-tong.md</code></li>
 <li><code>/workspace/kho-gnha/ke-hoach-chung.md</code>, <code>he-thong-van-hanh-lien-phong.md</code></li>
 <li><code>/workspace/content/fb-ads-hoi-vien/len-quang-cao/theo-doi-theo-gio.csv</code> (Agent Quảng cáo) — nguồn duy nhất cho số ads</li>
 <li>Báo cáo ngày số 14, 15; kế hoạch ra tiền Hội viên tuần 23–28/11 (hóa đơn FB 872.300đ, nạp TikTok 1.320.000đ)</li>
+<li>Phiếu anh Thắng 22/11/2026 15:52 (Asia/Saigon): 6 quyết định chính ghi ở đầu file</li>
 </ul></section>
 
 <footer class="foot">
   <div>Gnhà · Hotline 1900 58 88 57 · Zalo 090 1627939 · 700.000 người dùng</div>
-  <div>Tài liệu nội bộ. Agent chỉ đưa ý kiến; anh Thắng quyết. Không có thông tin khách.</div>
+  <div>Tài liệu nội bộ. Sáu quyết định chính là lời anh Thắng chốt 22/11 15:52. Không có thông tin khách.</div>
 </footer>
 </main>
 </body>
