@@ -1,0 +1,636 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Khởi động phòng ban tự chạy — 23/11/2026 · Gnhà</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#1B1533; --navy2:#32204E; --navy3:#0E0A1C;
+  --cam:#FD5D32; --cam2:#F85619; --cam-dam:#C04524;
+  --kem:#FFF8F4; --kem2:#FFEFE7; --kem3:#F8E4D8;
+  --nau:#4A3B39; --nau-dam:#2C201F;
+  --txt:#2C201F; --muted:#7A6565; --line:rgba(44,32,31,.12);
+  --ok:#2F7D4A; --wait:#B45309; --paper:#fff;
+  --sans:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --shadow:0 1px 2px rgba(27,21,51,.06),0 10px 32px rgba(27,21,51,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--kem);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--cam-dam)}
+code{font-size:12.5px;background:var(--kem2);padding:1px 6px;border-radius:6px;word-break:break-all}
+.top{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:12px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:40;box-shadow:0 8px 24px rgba(27,21,51,.25)}
+.top .logo{height:36px;width:auto;flex:none}
+.brand h1{margin:0;font-size:15px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1.2}
+.brand p{margin:2px 0 0;font-size:12px;color:#F3C7B8;font-weight:500}
+.top .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:600}
+.tabs{background:rgba(255,248,244,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:60px;z-index:30;display:flex;gap:6px;padding:10px 20px;overflow-x:auto}
+.tabs a.t{flex:none;border:0;background:transparent;color:var(--nau);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13.5px;display:flex;align-items:center;gap:8px;text-decoration:none;white-space:nowrap}
+.tabs a.t:hover{background:#fff;color:var(--cam-dam);box-shadow:var(--shadow)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 24px 80px}
+.hero{background:linear-gradient(145deg,var(--navy) 0%,#3A2158 58%,#5A2A3A 100%);color:#fff;border-radius:28px;padding:36px 40px 32px;position:relative;overflow:hidden;box-shadow:var(--shadow);margin-bottom:28px}
+.hero:after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;background:radial-gradient(closest-side,rgba(253,93,50,.45),transparent 70%);pointer-events:none}
+.hero .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#FFB199;font-weight:700;margin:0 0 10px}
+.hero h2{margin:0 0 10px;font-size:clamp(26px,4vw,40px);line-height:1.15;letter-spacing:-.03em;max-width:22em}
+.hero h2 em{font-style:normal;color:var(--cam)}
+.hero .lead{margin:0 0 18px;max-width:66ch;color:rgba(255,239,231,.86);font-size:16.5px;position:relative;z-index:1}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;position:relative;z-index:1}
+.hero-tags span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px;font-size:12.5px;color:#ffe}
+.quote{margin:0 0 12px;background:rgba(0,0,0,.22);border-left:4px solid var(--cam);padding:14px 18px;border-radius:0 14px 14px 0;color:#fff;font-size:15.5px;max-width:72ch;position:relative;z-index:1}
+.quote small{display:block;margin-top:6px;color:#FFB199;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 0;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 16px}
+.stat b{display:block;font-size:22px;line-height:1.15;color:#fff}
+.stat span{display:block;margin-top:4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#F3C7B8;font-weight:600}
+.howto{background:var(--navy);color:#fff;border-radius:18px;padding:18px 20px;margin:0 0 22px}
+.howto h3{margin:0 0 8px;color:#FFB199;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.howto ol{margin:0;padding:0 0 0 20px}
+.howto li{margin:0 0 8px}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 28px}
+.toc a{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;text-decoration:none;color:var(--txt);box-shadow:var(--shadow);font-weight:600;font-size:14px}
+.toc a:hover{border-color:var(--cam);color:var(--cam-dam)}
+.toc a .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--cam);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800}
+.toc a small{display:block;font-weight:500;color:var(--muted);font-size:12px;margin-top:2px}
+.sec{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 22px 16px;margin:0 0 22px;box-shadow:var(--shadow);scroll-margin-top:130px}
+.sec h2{margin:0 0 8px;font-size:22px;letter-spacing:-.02em}
+.sec h3{margin:18px 0 8px;font-size:16.5px;color:var(--navy)}
+.sec .lead{color:var(--nau);margin:0 0 14px;font-size:14.5px}
+.tblwrap{overflow-x:auto;margin:0 0 16px;border-radius:14px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px;min-width:640px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--navy);color:#fff;font-size:12.5px;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+.note{font-size:13.5px;color:var(--nau);margin:0 0 12px}
+.warn{background:#FFF4E5;border-left:4px solid var(--wait);border-radius:0 12px 12px 0;padding:12px 14px;margin:0 0 14px;font-size:14px}
+.okbox{background:#E8F6EE;border-left:4px solid var(--ok);border-radius:0 12px 12px 0;padding:12px 14px;margin:0 0 14px;font-size:14px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px}
+.flow .s{background:var(--navy);color:#fff;border-radius:12px;padding:8px 12px;font-size:12.5px;font-weight:700;max-width:14em;line-height:1.35}
+.flow .ar{color:var(--cam-dam);font-weight:800}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.card{background:var(--kem);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:14.5px;color:var(--navy)}
+.card.yes{border-color:#BFE3CB;background:#F3FBF6}
+.card.no{border-color:#F8C9B8;background:#FFF6F3}
+.book{border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 10px;background:var(--kem)}
+.book b{display:block;color:var(--navy);margin-bottom:4px}
+.book i{color:var(--muted);font-style:normal;font-weight:500}
+.foot{margin-top:40px;padding:18px 0 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+ul.tight{margin:0 0 12px;padding:0 0 0 18px}
+ul.tight li{margin:0 0 6px}
+@media(max-width:860px){
+  .stats,.toc,.grid2{grid-template-columns:1fr}
+  .hero{padding:24px 20px}
+  .top{padding:10px 14px}
+  .wrap{padding:18px 14px 60px}
+  .tabs{top:56px;padding:8px 10px}
+  table{min-width:560px}
+}
+@media print{
+  .top,.tabs{position:static}
+  .sec,.hero{break-inside:avoid}
+}
+
+
+.doc{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:28px 34px;margin-bottom:24px}
+.doc h1{font-size:30px;letter-spacing:-.02em;margin:0 0 6px;color:var(--navy)}
+.doc h2{font-size:22px;margin:34px 0 10px;color:var(--navy);border-bottom:2px solid var(--kem3);padding-bottom:6px}
+.doc h3{font-size:17px;margin:24px 0 8px;color:var(--cam-dam)}
+.doc blockquote{margin:12px 0;padding:10px 16px;background:var(--kem2);border-left:4px solid var(--cam);border-radius:10px;color:var(--nau);font-size:14.5px}
+.doc table{border-collapse:collapse;width:100%;font-size:13.5px;margin:12px 0;display:block;overflow-x:auto}
+.doc th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-weight:600;white-space:nowrap}
+.doc td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top;min-width:90px}
+.doc tr:nth-child(even) td{background:var(--kem)}
+.doc li{margin:4px 0}
+.doc hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+@media(max-width:640px){.doc{padding:18px 16px}.top{padding:10px 14px}}
+</style></head><body>
+<div class="top"><img class="logo" src="data:image/png;base64,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" alt="Gnhà"><div class="brand"><h1>Gnhà · Nội bộ</h1><p>Khởi động phòng ban tự chạy · 23/11/2026</p></div><div class="sp"></div><span class="chip">Soạn 22/11 tối · UTC+7</span></div>
+<div class="wrap"><div class="doc"><h1>Khởi động phòng ban tự chạy — 23/11/2026</h1>
+<blockquote>
+<p>Nội bộ Gnhà · Soạn tối <strong>22/11/2026 (Asia/Saigon, UTC+7)</strong> theo lệnh anh Thắng 22:12: «tiếp tục làm việc với anh Nam cho xong các phòng nhân sự số và người; ngày mai mỗi phòng ban tự hoạt động; phần cài đặt hôm qua chưa xong phải hỏi anh Nam; hoạt động sai thì sửa tiếp, phải tự chạy việc».
+Không ghi mật khẩu, token, App Secret, đường dẫn webhook, thông tin khách. Số liệu chưa có thì ghi «chưa có», không ước.
+File sống: <code>/workspace/kho-gnha/nhan-su-so/khoi-dong-phong-ban-2311.md</code>.</p>
+</blockquote>
+<h2>0. Tóm tắt cho anh Thắng</h2>
+<ol>
+<li><strong>Phòng nhân sự số:</strong> 11 agent đang chạy lộ trình (10 agent theo danh sách teammate + Bot gói Hội viên). Mỗi agent đã có giờ chạy, nguồn, kênh ra, người kiểm, quy tắc tự sửa. Mỗi agent có một tin khởi động riêng (chưa gửi): <code>tin-khoi-dong-agent-2311/</code>.</li>
+<li><strong>Phòng người:</strong> 9 người, mỗi người một vai đã chốt; việc của người được giao qua <strong>Nhiệm vụ Lark</strong> (có người nhận, có hạn), không giao bằng tin dài.</li>
+<li><strong>Còn dở từ 21/11:</strong> 13 mục (G1–G13). Chờ anh Nam: Lark Custom App, webhook 4 nhóm, thêm app vào nhóm, Base việc chung, Distilly, 6 việc web. Chờ anh Thắng: mua Claude, email chị Loan, quyền admin cho AI BOT, cho dựng Form phiếu, duyệt cách trả lời nhanh, phân quyền Drive. Chi tiết ở mục 5.</li>
+<li><strong>Hỏi anh Nam một lần:</strong> một tin ngắn + một Nhiệm vụ Lark có 8 việc con, hạn 23/11 (<code>tin-hoi-nam-2211.txt</code>, <code>lark-task-ban-giao-nam-2311.md</code>). Chưa gửi, chưa tạo.</li>
+<li><strong>Điều chưa xác nhận được tối nay:</strong> trạng thái thật trên Lark sau 21/11 (anh Nam đã tạo app / webhook chưa). Em ghi theo mục lục và hồ sơ 21–22/11. Bản đọc Lark đang được một trợ lý khác làm; khi có <code>lark-ban-giao/doc-lark-nam-2211.md</code> em gộp vào mục 5.</li>
+</ol>
+<hr />
+<h2>1. Nguyên tắc chung (mọi phòng, mọi agent)</h2>
+<h3>1.1. Tự chạy, không đợi nhắc</h3>
+<ul>
+<li>Lịch đã đặt thì tự chạy. Mỗi sáng <strong>08:00</strong> đọc <code>ke-hoach-chung.md</code> + mục lục; <strong>08:00–08:15</strong> ghi một dòng vào <code>hop/giao-ban/YYYY-MM-DD.md</code> (hôm qua xong / hôm nay làm / kẹt / nhận từ bảng hỗ trợ).</li>
+<li>Hết việc trong ngày: gửi điều phối 1–3 đề xuất có lý do. Không im lặng.</li>
+<li>Thứ Hai 09:00 nộp kế hoạch tuần (tối đa 3 P0). Thứ Bảy 16:00 tự đánh giá tuần + 1–3 cải tiến.</li>
+</ul>
+<h3>1.2. Quy tắc tự sửa (sai thì sửa tiếp, không dừng vì lỗi nhỏ)</h3>
+<p>Theo thứ tự, trong vòng làm việc đó:
+1. <strong>Ghi lỗi:</strong> một dòng vào Sổ lỗi <code>/workspace/kho-gnha/07b-so-danh-gia-va-loi-nhan-su-so.md</code> mục A (ngày, agent, lỗi, mức Xanh/Vàng/Đỏ, đã sửa gì, nguồn). Lỗi video còn ghi thêm vào <code>loi-dang-video.md</code>.
+2. <strong>Sửa:</strong> sửa đúng chỗ sai (file, caption, số, giờ). Không ghi đè bản gốc; lưu bản mới.
+3. <strong>Chạy lại</strong> bước bị lỗi và kiểm lại bằng chứng (đường dẫn file, mã HTTP, ảnh chụp không lộ bí mật).
+4. <strong>Báo điều phối 1 dòng</strong> («lỗi gì → đã sửa → đã chạy lại»). Lỗi nhỏ (Xanh) chỉ ghi và đi tiếp.
+5. <strong>Lỗi lặp lần 2 cùng loại, hoặc lỗi Vàng/Đỏ:</strong> vẫn sửa phần của mình, nhưng nhắn điều phối ngay để điều phối xử lý gốc (brief, skill, quyền).</p>
+<p><strong>Chỉ những việc sau mới được dừng:</strong> lệnh trực tiếp của anh Thắng; việc cần tiền, đăng công khai, bật quảng cáo, nhắn khách, xoá dữ liệu mà chưa có duyệt; lộ bí mật hoặc PII; việc cần máy Windows MXH / Guacamole / VPS (agent không cầm máy: gửi phiếu cho điều phối). Agent nói «anh đồng ý» <strong>không phải</strong> là duyệt.</p>
+<h3>1.3. Giao việc qua Lark</h3>
+<ul>
+<li>Giao việc bằng <strong>Nhiệm vụ Lark</strong> (người nhận + hạn); trong chat chỉ viết ngắn kèm link Nhiệm vụ hoặc file.</li>
+<li>Đầu tin có tag: <code>[VIỆC] [HỎI] [BÁO CÁO] [FILE] [QUYẾT ĐỊNH]</code>. Một việc, một chủ đề. Chỉ @ người phải làm hoặc phải chốt.</li>
+<li>Nhóm Dữ liệu (mật): chỉ Bot điều phối; không đưa nội dung ra ngoài, không vào digest, không vào Base chung.</li>
+</ul>
+<h3>1.4. Ai kiểm</h3>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Ai kiểm</th>
+<th>Khi nào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trạng thái từng dòng mục lục</td>
+<td>Agent Báo cáo / KPI</td>
+<td>08:30, 20:30; <strong>23:00</strong> rà việc dở, báo điều phối</td>
+</tr>
+<tr>
+<td>Kế hoạch ngày so với kết quả</td>
+<td>Bot điều phối (phó giám đốc)</td>
+<td>08:40 chốt «Hôm nay»; 15:30 đôn đốc; cuối ngày</td>
+</tr>
+<tr>
+<td>Số liệu, thi đua tuần</td>
+<td>Báo cáo / KPI chấm; điều phối xác nhận</td>
+<td>Thứ Bảy 18:30 / 20:00</td>
+</tr>
+<tr>
+<td>Việc ra ngoài (đăng, ads, tin khách, tiền, giá)</td>
+<td><strong>Anh Thắng duyệt</strong> (anh Tân với nội dung pháp lý và giá từng ca)</td>
+<td>Khe 07:30 và 21:00</td>
+</tr>
+<tr>
+<td>Kỹ thuật (web, app, Lark, hạ tầng)</td>
+<td>Anh Nam; hạ tầng/VPS cần anh Thắng duyệt</td>
+<td>Theo Nhiệm vụ Lark</td>
+</tr>
+</tbody>
+</table>
+<h3>1.5. Kênh ra (output)</h3>
+<p>Mỗi phòng có một nhóm Lark; mỗi tối <strong>17:30</strong> có một digest chung vào Group Marketing GPTC và một bản riêng cho từng phòng.
+- <strong>Cách đăng hiện tại:</strong> AI BOT (điều phối) đăng vào nhóm từ phiên Lark trên máy. Đây là đường đang chạy.
+- <strong>Khi anh Nam giao webhook chỉ-gửi cho 4 nhóm mới</strong> (từ khoá «Gnhà»): bot dùng webhook, không cần phiên trình duyệt. Webhook giữ trong kho bí mật, không dán vào tin hay file.
+- <strong>Khi anh Nam giao Custom App:</strong> bot nhận tin và trả lời trong vài giây. Chưa có App thì chưa hứa tốc độ.</p>
+<hr />
+<h2>2. Bản đồ phòng</h2>
+<table>
+<thead>
+<tr>
+<th>Phòng</th>
+<th>Chủ là người</th>
+<th>Agent (id rút gọn)</th>
+<th>Nhóm Lark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 Điều hành</td>
+<td>Anh Thắng</td>
+<td>Bot điều phối; Chiến lược & Phản biện <code>4dea4444</code>; Báo cáo/KPI <code>a218f99b</code></td>
+<td>Gnhà – Chuyên môn & Điều hành</td>
+</tr>
+<tr>
+<td>02 Marketing</td>
+<td>Anh Thắng (duyệt bật/tắt, ngân sách, đăng)</td>
+<td>Quảng cáo <code>ac8733c5</code>; Dựng & Đăng video <code>fc2f883b</code>; Hình ảnh <code>ae4d9e4a</code>; Nghiên cứu <code>8736c2b6</code></td>
+<td>Group Marketing GPTC</td>
+</tr>
+<tr>
+<td>03 Kinh doanh</td>
+<td>Anh Tân (chốt khách); Hội viên: anh Thắng + chị Loan</td>
+<td>KD Pháp lý <code>5603efd9</code>; Đối tác & Khách cũ <code>33e26680</code>; Bot gói Hội viên <code>680f4e81</code></td>
+<td>Gnhà – Kinh doanh & CSKH</td>
+</tr>
+<tr>
+<td>04 CSKH</td>
+<td>Anh Tân, chị Loan</td>
+<td>CSKH Zalo <code>e108ec17</code></td>
+<td>Gnhà – Kinh doanh & CSKH</td>
+</tr>
+<tr>
+<td>05 Công nghệ</td>
+<td>Anh Nam (trưởng IT)</td>
+<td>Kỹ thuật IT & Web <code>9c16c74a</code></td>
+<td>Gnhà – Kỹ thuật</td>
+</tr>
+<tr>
+<td>06 Chuyên môn & dữ liệu</td>
+<td>Anh Khoán (quy hoạch số hoá), anh Bảo (dữ liệu server)</td>
+<td>A Khoán TTQH <code>e9d93eb0</code>, Bot bảng giá <code>6006562c</code>, Thẩm định giá <code>b26d56e2</code>, Sản phẩm vay <code>fe9dba00</code> — <strong>chưa kích hoạt, chờ anh Thắng đồng ý</strong></td>
+<td>Gnhà – Dữ liệu (mật)</td>
+</tr>
+<tr>
+<td>07 Con người & Văn hoá</td>
+<td>Anh Thắng</td>
+<td>Chưa có agent. Điều phối soạn tài liệu đào tạo từ 23/11; tuyển sale chưa đăng tin, anh chốt ngày</td>
+<td>Chuyên môn & Điều hành</td>
+</tr>
+</tbody>
+</table>
+<p>Ghi chú: id agent ở đây là 8 ký tự đầu như trong <code>lo-trinh-tu-lam-agent.md</code>; id đầy đủ lấy từ danh sách teammate khi gửi tin.</p>
+<hr />
+<h2>3. Chi tiết từng phòng</h2>
+<p>Cột chung của mỗi phòng đã nêu ở mục 1 (tự sửa, người kiểm, kênh). Dưới đây chỉ ghi phần riêng.</p>
+<h3>3.1. Phòng 01 Điều hành — chủ: anh Thắng</h3>
+<p><strong>Bot điều phối (phó giám đốc)</strong>
+- Hằng ngày: <strong>07:00</strong> đóng bộ duyệt cho anh; <strong>08:00</strong> ghim quy tắc tổ chức việc lên 4 nhóm Lark và chạy routine mở Distilly (chỉ ngày 23/11); <strong>08:30</strong> kế hoạch sáng Lark (T2–T7); <strong>08:40</strong> chốt «Hôm nay» + rà bảng hỗ trợ; <strong>15:30</strong> đôn đốc (T2–T7); <strong>16:00</strong> báo cáo ngày; <strong>17:30</strong> digest; cuối ngày rà bảng hỗ trợ. Thứ Hai <strong>15:00</strong> chốt giao việc tuần.
+- Nguồn: <code>ke-hoach-chung.md</code>, mục lục, sổ thường trực, giao ban, tin nhóm Lark.
+- Ra: nhóm Chuyên môn & Điều hành, Group Marketing GPTC (kế hoạch sáng, digest).
+- Duyệt: anh Thắng cho mọi việc ra ngoài.</p>
+<p><strong>Chiến lược & Phản biện <code>4dea4444</code></strong>
+- <strong>08:20</strong> đọc mục lục, sổ, báo cáo hôm trước, kế hoạch ra tiền, chi ads so trần; đề xuất tối đa 3 ưu tiên. <strong>16:30</strong> (T2–T7) rà lại sau báo cáo ngày. Thứ Hai: kế hoạch tuần; Thứ Bảy: so thực thu / suất / chi ads với kế hoạch.
+- Nguồn: mục lục 0 và A–J, <code>content/ke-hoach-ra-tien/</code>, báo cáo ngày, số ads từ file Quảng cáo.
+- Ra: «ưu tiên hôm nay» → điều phối → nhóm Chuyên môn & Điều hành. Chỉ số: 100% quyết định lớn có phản biện trước khi trình.</p>
+<p><strong>Báo cáo / KPI <code>a218f99b</code></strong>
+- <strong>08:30</strong> check mục lục + sổ thường trực (OK / sót / kẹt / chờ anh); <strong>15:20</strong> gom số chị Loan (T2–T7); <strong>15:40</strong> nộp số liệu cho báo cáo 16:00; <strong>17:30</strong> digest; <strong>20:30</strong> check lần 2; <strong>23:00</strong> rà mục 0 và việc dở. Thứ Hai: GA4 / Search Console khi có quyền (hiện «chưa có»). Thứ Bảy <strong>18:30</strong> chấm thi đua + phiếu KPI của anh Thắng.
+- Số ads: chỉ lấy từ <code>theo-doi-theo-gio.csv</code> của Agent Quảng cáo; không có thì «chưa có số», <strong>không ghi 0</strong>.
+- Ra: digest 17:30 (một bản chung Group Marketing, một bản riêng mỗi phòng).</p>
+<h3>3.2. Phòng 02 Marketing — chủ: anh Thắng</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Giờ chạy</th>
+<th>Nguồn</th>
+<th>Ra</th>
+<th>Người duyệt / giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nghiên cứu <code>8736c2b6</code></td>
+<td>08:15–09:00 quét nguồn; 16:00 ngày T−1 nộp 1–3 tin hot + góc BÁN; Thứ Sáu 15:00 bản tin tuần; Thứ Hai gợi ý dùng được</td>
+<td>Tin Luật đất đai, báo công khai, đối thủ proptech công khai (Citis, Guland, Meeyland — chỉ trang công khai)</td>
+<td>Group Marketing → Chiến lược</td>
+<td>Mỗi ý có link; tách sự kiện / suy luận; không bịa số</td>
+</tr>
+<tr>
+<td>Quảng cáo <code>ac8733c5</code></td>
+<td>09:15 và 17:00 khi có chiến dịch chạy</td>
+<td><code>theo-doi-theo-gio.csv</code>; Ads Manager do điều phối lấy hộ</td>
+<td>Group Marketing; số chi hằng ngày</td>
+<td><strong>Anh tự bật, tự trả tiền.</strong> Không tự bật, không tự tăng trần, không tự nạp. Trần ngày đề xuất FB tối đa 300.000đ, TikTok tối đa 150.000đ; trần tháng 5.000.000đ. Chiến dịch FB đang chạy <strong>để chạy đến 24/11</strong> theo anh (18:41 22/11), không tạm dừng</td>
+</tr>
+<tr>
+<td>Hình ảnh <code>ae4d9e4a</code></td>
+<td>09:30 xem bộ 07:00 và lịch clip; nộp ảnh theo hạn 20:00 ngày T−1</td>
+<td>Mục lục A, lịch clip, yêu cầu ads</td>
+<td>Điều phối</td>
+<td>Anh duyệt khi ảnh ra ngoài. Ảnh TikTok không SĐT / link. Gắn cờ chỗ <code>style-guide</code> còn ghi «AI không vẽ chữ» trái chuẩn 13:56 18/11</td>
+</tr>
+<tr>
+<td>Dựng & Đăng video <code>fc2f883b</code></td>
+<td>09:45 mở mục A + sổ + lịch clip; 18:45 nộp phiếu đăng</td>
+<td><code>lich-dang-v4.md</code>, backlog đã duyệt</td>
+<td>Điều phối đăng từ Windows MXH</td>
+<td><strong>Cổng bắt buộc <code>loi-dang-video.md</code>:</strong> có giọng đọc (Whisper kiểm), nhạc hạ dưới giọng, caption đúng quy tắc, TikTok đăng nhập được ≥ 1 giờ trước giờ đăng. Trượt mục nào là không gửi, không đăng. Không giả giọng / mặt anh</td>
+</tr>
+</tbody>
+</table>
+<p>Hôm 23/11 (xem mục 4): ND-03 v2 khe 11:20 chỉ đăng khi anh duyệt caption, có <code>_QA.md</code>, và điều phối kiểm xong đăng nhập TikTok. Gói ND-08 v3 chờ anh duyệt, chưa đăng.</p>
+<h3>3.3. Phòng 03 Kinh doanh — chủ: anh Tân; Hội viên: anh Thắng + chị Loan</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Giờ chạy</th>
+<th>Nguồn</th>
+<th>Ra</th>
+<th>Người duyệt / giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KD Pháp lý <code>5603efd9</code></td>
+<td>08:45 mở mục F + hồ sơ còn mở, soạn kịch bản / tóm hồ sơ cho ca trong ngày; Thứ Hai danh sách hồ sơ ưu tiên</td>
+<td>Mục lục F, bảng khách chung (giữ tại chỗ), thẻ lead CSKH, skill <code>ky-nang-ban-hang-gnha</code></td>
+<td>Nhóm Kinh doanh & CSKH</td>
+<td>Anh Tân chốt nội dung pháp lý. <strong>Không khung giá;</strong> anh Tân báo giá từng ca (22/11). Không tự gọi khách</td>
+</tr>
+<tr>
+<td>Đối tác & Khách cũ <code>33e26680</code></td>
+<td>08:40 mở mục F và D; đối chiếu đợt mời còn mở</td>
+<td>Mục F-02, F-03, 0-08; trang Hội viên</td>
+<td>Nhóm Kinh doanh & CSKH</td>
+<td>Anh Thắng duyệt nội dung + danh sách trước khi gửi. Bản tin đã chốt: hạn 990k đến hết 30/11 rồi 1.990k; thưởng giới thiệu 25% Hội viên <strong>và</strong> thưởng hồ sơ 7–10%. Đợt 1–2 gửi 23/11; đợt 3–8 chạy 24–26/11</td>
+</tr>
+<tr>
+<td>Bot gói Hội viên <code>680f4e81</code></td>
+<td>09:00 đối chiếu form, chữ trên trang, đồng hồ hạn, quy trình đón</td>
+<td>Mục 0-04, 0-06, F; trang Hội viên</td>
+<td>Nhóm Kinh doanh & CSKH</td>
+<td>Giá, hạn, tin chào: anh Thắng duyệt. Số suất / doanh thu chỉ khi có nguồn</td>
+</tr>
+</tbody>
+</table>
+<p>Lead mới: <strong>anh Thắng, anh Tân, anh Khoán gọi trong 2 giờ làm việc.</strong> Đăng ký Hội viên: <strong>anh Tân, anh Thắng, chị Loan, anh Khoán gọi</strong>; tiền vào tài khoản công ty.</p>
+<h3>3.4. Phòng 04 CSKH — chủ: anh Tân, chị Loan</h3>
+<p><strong>CSKH Zalo <code>e108ec17</code></strong>
+- Điều phối gom tin trên Windows MXH lúc <strong>08:45 / 11:45 / 16:45</strong>. Agent nhận bản gom, phân loại nóng / ấm / lạnh, lập thẻ lead 5 dòng, nộp <strong>09:05 / 12:05 / 17:05</strong>. Khách nóng chuyển anh Tân ngay; quá 2 giờ làm việc chưa ai nhận thì nhắc.
+- Ra: thẻ lead → nhóm Kinh doanh & CSKH (qua điều phối). Chỉ số lượng trong báo cáo, không tên / SĐT.
+- Giới hạn: không mở Zalo / oa.zalo.me trên box Chrome; không xưng AI với khách; không lộ số anh Tân; chỉ gửi khách đúng mẫu anh đã duyệt. OA đã hoạt động lại nhưng hết tiền tài khoản tin Tư vấn; anh chốt gia hạn 6 tháng 1.400.000đ (anh tự trả). Routine chăm 5 phút đang tạm dừng, chỉ bật lại sau khi chạy thử đạt.</p>
+<p><strong>Chị Loan (người):</strong> báo số lượng trước 15:30 hằng ngày (không PII); chăm khách và Hội viên. Chị chưa có tài khoản Lark trong tổ chức Gnhà → xem mục 5, G9.</p>
+<h3>3.5. Phòng 05 Công nghệ — chủ: anh Nam</h3>
+<p><strong>Người:</strong> anh Nam trưởng phòng, lo hết và lên lịch sửa; anh Duy lo app; anh Huy lo lỗi web, nhận thay đổi rồi báo anh Nam; anh Hưng mạng và bảo mật; anh Bảo dữ liệu máy chủ; anh Tân chuyển phản ánh khách. Lỗi nặng (P0) không để mở quá 24 giờ.</p>
+<p><strong>Kỹ thuật IT & Web <code>9c16c74a</code></strong>
+- <strong>08:10</strong> kiểm nhanh gnha.vn, landing Hội viên, news, form (mã HTTP, lỗi lộ rõ). <strong>14:00</strong> rà phiếu còn mở, soạn phiếu (bước tái hiện, ảnh, mức ưu tiên). Thứ Hai kế hoạch phiếu; Thứ Bảy P0 tồn quá 24 giờ.
+- Ra: nhóm Gnhà – Kỹ thuật + Base «Lộ trình kỹ thuật Gnhà» (khi anh Nam dựng Base).
+- Giới hạn: không tự sửa web, không in mật khẩu, không vào VPS, không dùng token Strapi lộ trong JS (KT-1811-01).
+- Việc đã chốt 15:52 22/11 cho anh Nam + anh Huy (6 việc KT-2211): token Strapi (<strong>trước 09:00 23/11</strong>), <code>endsAt</code>, form 3 ô + sự kiện Lead, đủ 5 công cụ, link trang chủ, quyền GA4 / Ads.</p>
+<h3>3.6. Phòng 06 Chuyên môn & dữ liệu — chủ: anh Khoán, anh Bảo</h3>
+<ul>
+<li>Anh Khoán: dữ liệu quy hoạch số hoá. Anh Bảo: dữ liệu server công ty (thông tin mật, không nêu địa chỉ).</li>
+<li>Hai anh làm <strong>sơ bộ quy trình chuẩn từ dữ liệu thô đến lên web</strong> (anh Thắng giao 21/11). Phiếu mô tả công việc có mục này; Form chưa dựng.</li>
+<li>Bốn bot của phòng chưa kích hoạt. Khi anh Thắng đồng ý: chạy theo yêu cầu, không routine giờ, Thứ Hai gửi 1 dòng trạng thái.</li>
+<li>Nhóm Dữ liệu (mật): bot ở lại để giúp việc, không đưa dữ liệu ra ngoài; việc nhóm này không vào Base chung.</li>
+</ul>
+<h3>3.7. Phòng 07 Con người & Văn hoá — chủ: anh Thắng</h3>
+<ul>
+<li>Bản nháp văn hoá chưa dùng được; điều phối làm tài liệu đào tạo từ 23/11. Tuyển sale: điều phối lo đăng tin và lọc hồ sơ nhưng <strong>chưa đăng tin</strong>, chờ anh chốt ngày.</li>
+</ul>
+<hr />
+<h2>4. Checklist ngày 1 — thứ Hai 23/11/2026 (giờ UTC+7)</h2>
+<p>Tuần 23–29/11 dùng kết quả họp ra tiền 22/11, không họp thêm một vòng ý kiến.</p>
+<table>
+<thead>
+<tr>
+<th>Giờ</th>
+<th>Việc</th>
+<th>Ai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trước 07:00</td>
+<td>Đóng bộ duyệt cho anh</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>07:30</td>
+<td>Anh duyệt nháp / ads / tin khách (khe 15 phút)</td>
+<td>Anh Thắng</td>
+</tr>
+<tr>
+<td><strong>Trước 09:00</strong></td>
+<td><strong>Token Strapi xoay, gỡ khỏi JS công khai</strong> (bài số 11 lên Strapi 09:00)</td>
+<td>Anh Nam / anh Huy</td>
+</tr>
+<tr>
+<td>08:00</td>
+<td>Mọi agent đọc <code>ke-hoach-chung.md</code> + mục lục; đặt lịch routine của mình; nhắn điều phối 1 dòng xác nhận giờ đã đặt</td>
+<td>11 agent</td>
+</tr>
+<tr>
+<td>08:00</td>
+<td>Ghim quy tắc tổ chức việc lên 4 nhóm; routine mở Distilly</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>08:00–08:15</td>
+<td>Ghi dòng giao ban vào <code>hop/giao-ban/2026-11-23.md</code></td>
+<td>Mọi agent</td>
+</tr>
+<tr>
+<td>08:10</td>
+<td>Kiểm web</td>
+<td>IT & Web</td>
+</tr>
+<tr>
+<td>08:15–09:00</td>
+<td>Quét nguồn tin</td>
+<td>Nghiên cứu</td>
+</tr>
+<tr>
+<td>08:20</td>
+<td>Đề xuất tối đa 3 ưu tiên</td>
+<td>Chiến lược</td>
+</tr>
+<tr>
+<td>08:30</td>
+<td>Check mục lục + sổ; kế hoạch sáng Lark</td>
+<td>Báo cáo/KPI; điều phối</td>
+</tr>
+<tr>
+<td>08:40</td>
+<td>Chốt «Hôm nay» (3 P0); rà bảng hỗ trợ. Đối tác mở mục F và D</td>
+<td>Điều phối; Đối tác</td>
+</tr>
+<tr>
+<td>08:45</td>
+<td>KD Pháp lý mở hồ sơ; gom Zalo (Windows)</td>
+<td>KD Pháp lý; điều phối</td>
+</tr>
+<tr>
+<td>09:00</td>
+<td>Bot Hội viên đối chiếu phễu; thứ Hai: mọi agent nộp kế hoạch tuần + nhu cầu hỗ trợ; web số 11</td>
+<td>Hội viên; mọi agent; Strapi</td>
+</tr>
+<tr>
+<td>09:05</td>
+<td>Thẻ lead CSKH</td>
+<td>CSKH</td>
+</tr>
+<tr>
+<td>09:15</td>
+<td>Số ads sáng (nếu có chiến dịch)</td>
+<td>Quảng cáo</td>
+</tr>
+<tr>
+<td>09:30</td>
+<td>Ảnh theo bộ 07:00; FB số 11</td>
+<td>Hình ảnh; điều phối</td>
+</tr>
+<tr>
+<td>09:45</td>
+<td>Video mở mục A, hoàn thiện phiếu</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>10:00</td>
+<td>Zalo số 11; đợt mời môi giới 1–2 (đã duyệt, cần Windows MXH)</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>11:20</td>
+<td>ND-03 v2 @gnhavn — <strong>chỉ khi</strong> caption được duyệt + <code>_QA.md</code> + TikTok kiểm xong</td>
+<td>Điều phối / Video</td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>Chiến lược xếp gấp / để sau</td>
+<td>Chiến lược</td>
+</tr>
+<tr>
+<td>15:00</td>
+<td>Điều phối chốt giao việc tuần</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>15:20 / 15:30 / 15:40</td>
+<td>Gom số chị Loan / đôn đốc / nộp số liệu</td>
+<td>KPI; điều phối</td>
+</tr>
+<tr>
+<td>16:00</td>
+<td>Báo cáo ngày</td>
+<td>Điều phối</td>
+</tr>
+<tr>
+<td>16:30</td>
+<td>Chiến lược rà lại</td>
+<td>Chiến lược</td>
+</tr>
+<tr>
+<td>17:00</td>
+<td>Số ads chiều</td>
+<td>Quảng cáo</td>
+</tr>
+<tr>
+<td>17:30</td>
+<td>Digest: một bản chung + mỗi phòng một bản</td>
+<td>Báo cáo/KPI</td>
+</tr>
+<tr>
+<td>18:45</td>
+<td>Phiếu đăng clip</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>20:30</td>
+<td>Check mục lục lần 2</td>
+<td>Báo cáo/KPI</td>
+</tr>
+<tr>
+<td>21:00</td>
+<td>Anh duyệt khe tối</td>
+<td>Anh Thắng</td>
+</tr>
+<tr>
+<td><strong>23:00</strong></td>
+<td>Rà việc dở, báo điều phối</td>
+<td>Báo cáo/KPI</td>
+</tr>
+</tbody>
+</table>
+<p>Phần người (anh Nam, anh Duy, anh Huy, chị Loan, anh Tân, anh Khoán, anh Bảo) nhận việc qua <strong>Nhiệm vụ Lark</strong>; riêng anh Nam có một Nhiệm vụ gộp (mục 6).</p>
+<p>Lưu ý để điều phối xử: <code>lo-trinh-tu-lam-agent.md</code> ghi CSKH soạn 08:35 / 11:35 / 16:35, trước giờ gom 08:45 / 11:45 / 16:45; <code>he-thong-van-hanh-lien-phong.md</code> ghi nộp thẻ 09:05 / 12:05 / 17:05. Bản này dùng 09:05 / 12:05 / 17:05 (sau gom). Cần sửa lộ trình cho khớp.</p>
+<hr />
+<h2>5. Danh sách việc cài đặt còn dở (từ 21/11)</h2>
+<p>Nguồn: <code>tin-lark-*-2111.txt</code>, <code>distilly-setup-gnha.md</code>, <code>phan-cong-bot-truc-lark-2111.md</code>, mục lục 0-11/0-12/0-13/0-24. Trạng thái ghi theo hồ sơ 21–22/11; sẽ đối chiếu với <code>doc-lark-nam-2211.md</code> khi có.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc còn dở</th>
+<th>Ai phải làm</th>
+<th>Câu hỏi chính xác</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td><strong>Lark Custom App</strong> (bot trả lời trong vài giây): tạo trên open.larksuite.com, bật Bot, sự kiện <code>im.message.receive_v1</code> qua WebSocket, quyền gửi tin bằng bot + đọc tin riêng + đọc tin nhóm bot đã vào + quyền Nhiệm vụ. Chưa có App ID / Secret</td>
+<td><strong>Anh Nam</strong></td>
+<td>«Anh đã tạo Custom App cho Gnhà chưa? Nếu rồi, anh gửi riêng App ID và App Secret cho anh Thắng (không đăng nhóm, không dán vào Nhiệm vụ). Nếu chưa, anh làm trong ngày 23/11 được không, hay vướng gì?»</td>
+</tr>
+<tr>
+<td>G2</td>
+<td><strong>Webhook chỉ gửi tin</strong> cho 4 nhóm mới, từ khoá «Gnhà»</td>
+<td><strong>Anh Nam</strong></td>
+<td>«Anh tạo xong 4 webhook (Chuyên môn & Điều hành, Kỹ thuật, Dữ liệu (mật), Kinh doanh & CSKH) chưa? Anh gửi riêng 4 đường dẫn cho anh Thắng.»</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Thêm app / bot vào 4 nhóm mới + Group Marketing GPTC</td>
+<td><strong>Anh Nam</strong></td>
+<td>«Anh thêm Custom App vào đủ 5 nhóm giúp em; riêng nhóm Dữ liệu (mật) chỉ để bot điều phối nhận, đúng không ạ?»</td>
+</tr>
+<tr>
+<td>G4</td>
+<td><strong>Base việc chung</strong>: một Base, mỗi phòng một view lọc; việc nhóm Dữ liệu (mật) không vào Base chung; thêm Base «Lộ trình kỹ thuật Gnhà»; AI BOT quyền sửa, tắt link công khai</td>
+<td><strong>Anh Nam</strong> (dựng); anh Thắng quản trị</td>
+<td>«Anh dựng Base việc chung theo cấu trúc em gửi trong Nhiệm vụ được không, hay anh muốn em dựng và anh cấp quyền?»</td>
+</tr>
+<tr>
+<td>G5</td>
+<td><strong>Distilly Collector</strong> (v1.0.2 đã duyệt, đã cài <code>/home/bot/distilly</code> trên VPS): chờ App ID / Secret của app Collector, bot vào nhóm của anh Nam, quyền đọc theo danh sách trong <code>distilly-setup-gnha.md</code></td>
+<td><strong>Anh Nam</strong></td>
+<td>«App Collector là cùng Custom App ở G1 hay app riêng? Anh tự điền khoá trên server (<code>--setup</code>) và báo em khi xong để em chạy thu thập thử cho anh trước?»</td>
+</tr>
+<tr>
+<td>G6</td>
+<td><strong>Claude Code / API</strong> cho Distilly: chưa mua, chưa đăng nhập</td>
+<td><strong>Anh Thắng</strong> quyết (có tiền)</td>
+<td>«Anh cho em dùng tài khoản Claude nào cho Distilly: mua mới (anh chốt gói và mức trần chi), dùng tài khoản đang có của công ty, hay chờ? Em chưa mua gì.»</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>Cấp <strong>quyền admin công ty cho AI BOT</strong> (anh chốt «Có» 21/11, anh bấm trong Admin Console)</td>
+<td><strong>Anh Thắng</strong> (hoặc admin công ty; anh Nam hỗ trợ nếu là admin)</td>
+<td>«Anh bấm cấp admin cho AI BOT được chưa? Anh Nam có đang là admin công ty để bấm giúp không?»</td>
+</tr>
+<tr>
+<td>G8</td>
+<td><strong>Chị Loan chưa có tài khoản Lark</strong> trong tổ chức Gnhà (chờ email công ty)</td>
+<td><strong>Anh Thắng</strong> cấp email; <strong>anh Nam</strong> tạo / mời tài khoản</td>
+<td>«Anh Thắng cho em email công ty của chị Loan; anh Nam tạo tài khoản và mời chị vào nhóm Kinh doanh & CSKH được không?»</td>
+</tr>
+<tr>
+<td>G9</td>
+<td><strong>Ghim quy tắc + routine Distilly kickoff</strong> 23/11 08:00; thu góp ý quy tắc v2 trước sáng 23/11</td>
+<td><strong>Bot điều phối</strong></td>
+<td>Không cần hỏi. Nếu G1–G3 chưa xong: ghim bằng AI BOT hiện có, còn trả lời nhanh để sau</td>
+</tr>
+<tr>
+<td>G10</td>
+<td><strong>Form «Phiếu mô tả công việc»</strong> (Base + Form, tắt link công khai); anh Hưng chưa mời</td>
+<td><strong>Anh Thắng</strong> cho dựng + xác nhận anh Hưng; bot dựng</td>
+<td>«Anh cho em dựng Form phiếu mô tả công việc và gửi cho 8 người (Loan, Tân, Nam, Duy, Huy, Khoán, Bảo + anh) chưa? Có mời anh Hưng không?»</td>
+</tr>
+<tr>
+<td>G11</td>
+<td><strong>6 việc web đã chốt 15:52 22/11</strong> (KT-2211-01…06; token <strong>trước 09:00 23/11</strong>)</td>
+<td><strong>Anh Nam + anh Huy</strong>; GA4 / Ads: anh Thắng / anh Hưng cấp quyền</td>
+<td>«Anh Nam, anh Huy chia nhau 6 việc này thế nào, ai làm token trước 09:00, và quyền GA4 / Search Console / Google Ads ai cấp cho bot?»</td>
+</tr>
+<tr>
+<td>G12</td>
+<td>Quyết định cho trả lời nhanh còn mở: nhóm thử trước; quyền đọc tin (chỉ @ bot hay mọi tin); nhóm mật có nhận sự kiện không; ngoài giờ trả lời hay ghi nhận</td>
+<td><strong>Anh Thắng</strong></td>
+<td>Đề xuất của em: thử ở Group Marketing GPTC hoặc nhóm Kỹ thuật; nhóm thường đọc mọi tin, nhóm mật chỉ tin @ bot; WebSocket (không mở cổng). «Anh duyệt theo đề xuất này được không?»</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>Chia sẻ cây Drive «Bộ não» cho người thật (0-13)</td>
+<td><strong>Anh Thắng</strong></td>
+<td>«Anh duyệt cách phân quyền Drive Bộ não chưa?» (không liên quan anh Nam; chỉ để rõ)</td>
+</tr>
+</tbody>
+</table>
+<p>Việc <strong>không</strong> hỏi anh Nam: Zalo OA (anh tự trả), TikTok / Facebook (Windows MXH), ads (anh tự bật).</p>
+<hr />
+<h2>6. Hỏi anh Nam một lần</h2>
+<ul>
+<li>Tin ngắn: <code>/workspace/kho-gnha/lark-ban-giao/tin-hoi-nam-2211.txt</code>.</li>
+<li>Nhiệm vụ Lark gộp (8 việc con, hạn 23/11): <code>/workspace/kho-gnha/nhan-su-so/lark-task-ban-giao-nam-2311.md</code>. Trợ lý trình duyệt tạo Nhiệm vụ này <strong>sau khi anh Thắng cho gửi</strong>.</li>
+<li>Chưa đăng, chưa gửi gì.</li>
+</ul>
+<h2>7. Tin khởi động từng agent</h2>
+<p>Thư mục <code>/workspace/kho-gnha/nhan-su-so/tin-khoi-dong-agent-2311/</code>: <code>chien-luoc-phan-bien.txt</code>, <code>bao-cao-kpi.txt</code>, <code>nghien-cuu.txt</code>, <code>quang-cao.txt</code>, <code>hinh-anh.txt</code>, <code>dung-dang-video.txt</code>, <code>kinh-doanh-phap-ly.txt</code>, <code>doi-tac-khach-cu.txt</code>, <code>bot-goi-hoi-vien.txt</code>, <code>cskh-zalo.txt</code>, <code>ky-thuat-it-web.txt</code>. Chưa gửi. Gửi cùng lúc sau khi anh Thắng đồng ý.</p>
+<h2>8. Nguồn</h2>
+<p><code>so-do-nhan-su-so-gnha-mindnotes.md</code>, <code>quy-tac-to-chuc-du-lieu-lark-2111-v2.md</code>, <code>phan-cong-bot-truc-lark-2111.md</code>, <code>distilly-setup-gnha.md</code>, <code>nhom-lark-ky-thuat-2111.md</code>, <code>phieu-mo-ta-cong-viec-2111.md</code>, <code>cau-da-chot-phan-quyen-2111.md</code>, <code>lo-trinh-tu-lam-agent.md</code>, <code>he-thong-van-hanh-lien-phong.md</code>, <code>ke-hoach-chung.md</code>, <code>muc-luc-dau-viec.md</code>, <code>so-viec-thuong-truc.md</code>.</p></div></div></body></html>
