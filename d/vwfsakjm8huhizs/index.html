@@ -199,6 +199,130 @@ footer p{margin-top:8px}
   .tl{max-width:860px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.si{transition:none}}
+
+body{font-size:17px;line-height:1.7}
+.wrap{padding-left:18px;padding-right:18px}
+@media (max-width:719px){
+  .chips{position:static;background:var(--page)}
+  .wrap{max-width:38em;margin-left:auto;margin-right:auto}
+}
+.sec-fold{background:transparent;border:0;box-shadow:none;border-radius:0}
+.sec-fold>summary{
+  list-style:none;cursor:pointer;
+  display:block;padding:14px 4px 10px;
+}
+.sec-fold>summary::-webkit-details-marker{display:none}
+.sec-fold>summary h2{display:inline;font-size:26px;line-height:1.25}
+.sec-fold>summary .eyebrow{display:block}
+.sec-fold>summary .sub{margin-top:8px;color:var(--brown)}
+.sec-fold>summary:after{
+  content:"▾ Mở mục này";
+  display:inline-block;margin-top:10px;
+  font-size:15px;font-weight:700;color:var(--orange-ink);
+}
+details.sec-fold[open]>summary:after{content:"▴ Đang mở — vuốt xuống hoặc bấm Thu gọn"}
+.sec-body{padding:4px 0 8px}
+/* Override the page-level ul,ol{list-style:none;margin:0} for reading lists */
+.sec-body ul:not(.nl),.prose ul,.block-card ul{list-style:disc;padding-left:1.35em;margin:0.7em 0}
+.sec-body ol:not(.nl),.prose ol,.block-card ol{list-style:decimal;padding-left:1.35em;margin:0.7em 0}
+.sec-body li,.block-card li{margin:0.5em 0;line-height:1.7}
+.block-card h3{font-size:18px;font-weight:800;margin:0 0 8px;color:var(--orange-ink)}
+.hero h1,.brand .t{overflow-wrap:anywhere;white-space:normal}
+
+/*__UX_CSS__*/
+/* Gnhà — đọc dễ trên điện thoại + nút thu gọn cho mọi <details> */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:clip}
+body{font-size:17px;line-height:1.7}
+img,svg,video,iframe,table{max-width:100%;height:auto}
+h1,h2,h3,h4,h5,
+.brand .t,.hero h1,header.top h1,.card h3,summary,.col-h h2{
+  overflow:visible !important;
+  text-overflow:unset !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.prose,.body,.sec-body,.tomtat,.kmeta,.lead,p.note,.need{
+  max-width:38em;
+}
+.prose p,.body p,.sec-body p,.tomtat p{margin:0.75em 0}
+.prose ul,.body ul,.sec-body ul,.tomtat ul,
+.footnote ul{
+  list-style:disc;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose ol,.body ol,.sec-body ol:not(.nl),.tomtat ol,
+.footnote ol{
+  list-style:decimal;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose li,.body li,.sec-body li,.tomtat li,.footnote li{
+  margin:0.45em 0;
+  line-height:1.7;
+}
+.body h2,.body h3,.prose h2,.prose h3{
+  background:var(--kem, var(--cream, #FFEFE7));
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:14px;
+  padding:10px 14px;
+  margin:18px 0 10px;
+  font-size:1.05em;
+  line-height:1.4;
+}
+.body h3,.prose h3{background:#fff;border-color:#F1D9CC}
+.block-card,.tomtat{
+  background:#fff;
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:18px;
+  padding:16px 18px;
+  margin:12px 0;
+  box-shadow:0 2px 8px rgba(74,59,57,.07);
+}
+.stat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.stat-chip{
+  display:inline-flex;flex-direction:column;gap:2px;
+  background:#FFF8F4;border:1px solid #F1D9CC;border-radius:14px;
+  padding:10px 14px;min-width:6.5em;
+}
+.stat-chip .n{font-weight:800;font-size:22px;color:#B8330F;line-height:1.1}
+.stat-chip .l{font-size:13px;color:#5E4646;line-height:1.35}
+details>summary{cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open]:not(:has(details[open]))>summary{
+  position:sticky;
+  top:0;
+  z-index:15;
+  background:var(--trang, var(--white, #fff));
+  box-shadow:0 1px 0 var(--vien, var(--line, #F1D9CC));
+}
+.thu-gon{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin:16px 0 4px;
+  padding:10px 18px;
+  min-height:44px;
+  border-radius:999px;
+  border:1.5px solid var(--vien, var(--line, #F1D9CC));
+  background:var(--kem, var(--cream, #FFEFE7));
+  color:var(--dam, var(--dark, #4A3B39));
+  font:inherit;font-weight:700;font-size:15px;
+  cursor:pointer;
+}
+.thu-gon:focus-visible{outline:3px solid #FD5D32;outline-offset:3px}
+details.chi-tiet{margin-top:10px;border-top:1px dashed var(--vien, var(--line, #F1D9CC));padding-top:8px}
+details.chi-tiet>summary{
+  list-style:none;font-weight:700;color:#B8330F;padding:8px 0;cursor:pointer;
+}
+.tomtat .dung-khi{margin:0 0 10px}
+.tomtat .dung-khi b{color:#B8330F}
+.name-only{padding:10px 8px;border-top:1px solid var(--vien, var(--line, #F1D9CC));color:var(--nau, #5E4646)}
+@media (max-width:719px){
+  .search,.chips-nav,.filters{position:static !important}
+  .wrap{padding-left:18px;padding-right:18px}
+}
+
 </style>
 </head>
 <body id="top">
@@ -212,6 +336,7 @@ footer p{margin-top:8px}
 <nav class="chips" aria-label="Mục lục">
   <div class="scroll">
     <a class="chip first" href="#top">Mục lục</a>
+    <a class="chip" href="#tom-tat-anh"><b>00</b>Đọc 1 phút</a>
     <a class="chip" href="#tom-tat"><b>01</b>Tóm tắt</a>
     <a class="chip" href="#hien-trang"><b>02</b>Hiện trạng</a>
     <a class="chip" href="#mot-cau"><b>03</b>Một câu</a>
@@ -224,6 +349,60 @@ footer p{margin-top:8px}
 </nav>
 
 <main>
+
+<section class="sec" id="tom-tat-anh" style="padding-top:18px">
+  <div class="wrap">
+    <details class="sec-fold" open>
+      <summary>
+        <span class="eyebrow">00 · Tóm tắt cho anh Thắng</span>
+        <h2>Tóm tắt cho anh Thắng (đọc 1 phút)</h2>
+        <p class="sub">Mục tiêu, số thật đo ngày 29/11/2026, 5 việc quan trọng nhất tuần này.</p>
+      </summary>
+      <div class="sec-body">
+        <article class="block-card">
+          <h3>Mục tiêu</h3>
+          <p>Trong 7 ngày làm cho Google, các AI và mạng xã hội hiểu cùng một câu về Gnhà: <em>«nền tảng pháp lý nhà đất, tra cứu theo từng thửa, có luật sư rà soát, do Công ty Cổ phần Gnhà vận hành, thương hiệu thuộc Công ty TNHH Pháp Lý Giải Pháp Tài Chính (hoạt động từ 2015)»</em>. Sau đó dùng cộng đồng AI (Fanpage, thử thách, bộ prompt miễn phí, cổng MCP) để người làm AI tự nhắc tên Gnhà.</p>
+        </article>
+        <article class="block-card">
+          <h3>Số thật đo ngày 29/11/2026</h3>
+          <p style="margin:0 0 8px;color:var(--brown);font-size:15px">Nguồn ghi ở mục 1.</p>
+          <div class="stat-chips">
+            <div class="stat-chip"><span class="n">10.925</span><span class="l">lượt bấm Google về gnha.vn (21–27/11)</span></div>
+            <div class="stat-chip"><span class="n">204.892</span><span class="l">lượt hiện, vị trí TB 6,68</span></div>
+            <div class="stat-chip"><span class="n">1</span><span class="l">lượt bấm / 28 ngày ở cụm pháp lý trước đặt cọc</span></div>
+            <div class="stat-chip"><span class="n">0/3</span><span class="l">AI nhắc đúng khi không gõ tên Gnhà (ChatGPT, Claude)</span></div>
+            <div class="stat-chip"><span class="n">404</span><span class="l">trang gnha.vn/llms.txt</span></div>
+          </div>
+          <ul>
+            <li>Google đã đưa về gnha.vn <b>10.925 lượt bấm / 204.892 lượt hiện</b> trong 21–27/11 (vị trí trung bình 6,68). Phần lớn là tra cứu quy hoạch theo tỉnh. Nhóm từ khóa pháp lý trước đặt cọc (ngăn chặn, kiểm tra pháp lý, đặt cọc) <b>gần như trống</b>: trong các từ khóa theo dõi (mục 5.5), cụm này chỉ có 1 lượt bấm trong 28 ngày.</li>
+            <li>AI nhắc đúng Gnhà khi người hỏi <b>đã gõ tên Gnhà</b> (ChatGPT 3/6, Claude 3/6, Google AI 2/6, Gemini 1/6) nhưng <b>0/3 khi không gõ tên</b> trên ChatGPT và Claude. Google và Gemini từng hiểu «Gnhà» thành chữ «nhà».</li>
+            <li>Lỗi niềm tin các AI nêu: hai tên pháp nhân, mốc năm lệch nhau (2015 / 2021 / 2022), câu «hơn 15 năm», số liệu khách tự mâu thuẫn, câu quá mạnh («hàng đầu»). Trang web <b>vẫn còn</b> các lỗi này (mục 1.3).</li>
+            <li>Trang gnha.vn/llms.txt trả 404; trang thử thách và trang cho AI chưa có; cổng MCP chưa mở.</li>
+          </ul>
+        </article>
+        <article class="block-card">
+          <h3>5 việc quan trọng nhất tuần này</h3>
+          <ol>
+            <li><b>Thứ Hai 30/11, anh Huy làm gấp 3 việc:</b> sửa «15 năm» trên meta và JSON-LD (t100094) trước 10:30, đặt llms.txt trước 11:30, mở cổng MCP giai đoạn 1 trước 17:00 (t100095). Tin Lark gửi 08:00 (mục 3).</li>
+            <li><b>Đo ĐIỂM GỐC trước khi web đổi:</b> 20 câu × 7 AI = 140 ô, sáng 30/11, để cuối tuần biết thật là có tiến bộ hay không (mục 5).</li>
+            <li><b>Một câu định nghĩa thống nhất ở mọi nơi:</b> trang chủ, Giới thiệu, Bảng giá, bio Facebook, TikTok, YouTube, Zalo OA, Google Business Profile; dọn hết câu mâu thuẫn trước 02/12 (mục 2).</li>
+            <li><b>Mở Fanpage «Gnhà AI – Pháp lý nhà đất» + Thử thách «Hỏi AI một thửa đất» + bộ 12 prompt miễn phí</b> (30/11–02/12), 10 bài trong tuần (mục 4).</li>
+            <li><b>Lấp chỗ trống Google:</b> cụm bài cha–con «Kiểm tra pháp lý nhà đất trước khi đặt cọc» (3 bài trong tuần), cùng JSON-LD hỏi đáp (t100107) lên sản xuất 02/12 (mục 7, 8).</li>
+          </ol>
+        </article>
+        <article class="block-card">
+          <h3>Việc còn cần anh Thắng</h3>
+          <p>Chỉ chi tiền sau khi có báo giá bằng văn bản (Phát Lộc đang xin báo giá creator; ChatGPT Business lấy từ trang chính thức), và gửi hồ sơ báo chí ra ngoài từng nơi nhận. Các việc khác ở mục 10 anh đã quyết ngày 29/11.</p>
+        </article>
+        <article class="block-card">
+          <h3>Lưu ý trung thực về llms.txt</h3>
+          <p>Google Search công bố không dùng file này; OpenAI, Anthropic, Perplexity, Bing chưa có tuyên bố chính thức là có đọc (tra cứu 29/11/2026). File vẫn nên làm vì rẻ, nhưng sức nặng thật nằm ở: trang web có định nghĩa rõ, dữ liệu có cấu trúc, bài của bên thứ ba nhắc Gnhà, và cổng MCP. Kế hoạch dồn công vào bốn thứ đó.</p>
+        </article>
+      </div>
+    </details>
+  </div>
+</section>
+
 <section class="sec" id="tom-tat" style="padding-top:18px">
   <div class="wrap">
     <div class="hero">
@@ -239,6 +418,12 @@ footer p{margin-top:8px}
         <div class="bn"><div class="n">30</div><div class="l">ngày lộ trình<span class="s">30/11–29/12</span></div></div>
       </div>
     </div>
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">01 · Tóm tắt</span>
+        <h2>5 việc quan trọng nhất tuần này</h2>
+      </summary>
+      <div class="sec-body">
 
     <div style="margin-top:34px"><span class="eyebrow">01 · Tóm tắt</span>
     <h2>5 việc quan trọng nhất tuần này</h2></div>
@@ -250,15 +435,22 @@ footer p{margin-top:8px}
       <li><div class="ic c5">5</div><div><h3>Lấp chỗ trống trên Google</h3><p>Cụm bài cha–con «Kiểm tra pháp lý nhà đất trước khi đặt cọc» (3 bài trong tuần), cùng JSON-LD hỏi đáp (t100107) lên sản xuất 02/12.</p></div></li>
     </ol>
     <div class="callout" style="margin-top:18px"><div class="ci">!</div><div><b>Việc cần anh Thắng duyệt</b>Chi tiền chỉ sau khi có báo giá bằng văn bản. Hồ sơ báo chí gửi ra ngoài chỉ khi anh duyệt từng nơi nhận. Các việc khác anh đã quyết ngày 29/11.</div></div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="hien-trang">
   <div class="wrap">
-    <span class="eyebrow">02 · Nhóm A · Bức tranh tổng</span>
-    <h2>Hiện trạng và điểm gốc: số thật, không bịa</h2>
-    <p class="sub">Số đo ngày 29/11/2026 từ Google Search Console, Google Analytics 4 và các lần hỏi AI ngày 27–28/11.</p>
-    <div class="msg"><span class="eyebrow">Thông điệp</span><p>Google đã đưa nhiều người về gnha.vn, nhưng chủ đề pháp lý trước đặt cọc gần như trống. AI chỉ nhắc đúng Gnhà khi người hỏi đã gõ tên Gnhà.</p></div>
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">02 · Nhóm A · Bức tranh tổng</span>
+        <h2>Hiện trạng và điểm gốc: số thật, không bịa</h2>
+        <p class="sub">Số đo ngày 29/11/2026 từ Google Search Console, Google Analytics 4 và các lần hỏi AI ngày 27–28/11.</p>
+      </summary>
+      <div class="sec-body">
+<div class="msg"><span class="eyebrow">Thông điệp</span><p>Google đã đưa nhiều người về gnha.vn, nhưng chủ đề pháp lý trước đặt cọc gần như trống. AI chỉ nhắc đúng Gnhà khi người hỏi đã gõ tên Gnhà.</p></div>
 
     <div class="grid g4">
       <div class="stat"><div class="n">10.925</div><div class="l">lượt bấm, 21–27/11</div></div>
@@ -307,15 +499,22 @@ footer p{margin-top:8px}
     </div>
 
     <div class="callout"><div class="ci">i</div><div><b>Lưu ý trung thực về llms.txt</b>Google Search công bố không dùng file này; OpenAI, Anthropic, Perplexity, Bing chưa có tuyên bố chính thức là có đọc (tra cứu 29/11/2026). File vẫn nên làm vì rẻ. Sức nặng thật nằm ở: trang web có định nghĩa rõ, dữ liệu có cấu trúc, bài của bên thứ ba nhắc Gnhà và cổng MCP.</div></div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="mot-cau">
   <div class="wrap">
-    <span class="eyebrow">03 · Nhóm C · Định nghĩa chuẩn</span>
-    <h2>Một câu về Gnhà, dùng thống nhất mọi nơi</h2>
-    <p class="sub">Các khối chữ chuẩn do Phúc Trí và Công Lý duyệt 09:30 ngày 30/11, sau đó đóng băng. Ai muốn sửa phải qua điều phối.</p>
-    <div class="msg"><span class="eyebrow">Câu sở hữu (dán nguyên văn)</span><p>Gnhà là thương hiệu của Công ty TNHH Pháp Lý Giải Pháp Tài Chính (hoạt động từ 2015), do Công ty Cổ phần Gnhà vận hành.</p></div>
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">03 · Nhóm C · Định nghĩa chuẩn</span>
+        <h2>Một câu về Gnhà, dùng thống nhất mọi nơi</h2>
+        <p class="sub">Các khối chữ chuẩn do Phúc Trí và Công Lý duyệt 09:30 ngày 30/11, sau đó đóng băng. Ai muốn sửa phải qua điều phối.</p>
+      </summary>
+      <div class="sec-body">
+<div class="msg"><span class="eyebrow">Câu sở hữu (dán nguyên văn)</span><p>Gnhà là thương hiệu của Công ty TNHH Pháp Lý Giải Pháp Tài Chính (hoạt động từ 2015), do Công ty Cổ phần Gnhà vận hành.</p></div>
     <div class="msg" style="border-left-color:var(--dark)"><span class="eyebrow" style="color:var(--dark)">Câu 1 · một câu định nghĩa</span><p>Gnhà là nền tảng pháp lý nhà đất: tra cứu thông tin pháp lý bất động sản theo từng thửa, kèm luật sư rà soát ở các gói có chuyên viên.</p></div>
     <div class="msg" style="border-left-color:var(--brown)"><span class="eyebrow" style="color:var(--brown)">Khẩu hiệu cho cộng đồng AI</span><p>«Gnhà – nền tảng pháp lý nhà đất vận hành bằng cả một đội AI.» Nhóm Zalo công ty và nhóm môi giới thì bỏ cụm «vận hành bằng cả một đội AI».</p></div>
 
@@ -336,16 +535,22 @@ footer p{margin-top:8px}
       <li><div class="ic c4">4</div><div><h3>Facebook Page, TikTok, YouTube, Zalo OA, Lemon8, Google Business Profile</h3><p>Phát Lộc, Mỹ Mỹ cập nhật bio; Thu Hà kiểm khớp bản chuẩn 100%.</p><span class="tag">01–02/12</span></div></li>
       <li><div class="ic c5">5</div><div><h3>Bài «Gnhà là gì?» đã đăng</h3><p>Kim Quý thêm câu sở hữu chuẩn ở đoạn đầu và FAQPage; Công Lý kiểm.</p><span class="tag">02/12</span></div></li>
     </ol>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="lich-7-ngay">
   <div class="wrap">
-    <span class="eyebrow">04 · Nhóm D · Lịch 7 ngày</span>
-    <h2>Bảng việc theo ngày, 30/11–06/12</h2>
-    <p class="sub">Giờ Việt Nam. Mỗi mốc có người làm và người kiểm. Chi tiết từng phòng ở mục 05.</p>
-
-    <div class="sim" id="sim">
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">04 · Nhóm D · Lịch 7 ngày</span>
+        <h2>Bảng việc theo ngày, 30/11–06/12</h2>
+        <p class="sub">Giờ Việt Nam. Mỗi mốc có người làm và người kiểm. Chi tiết từng phòng ở mục 05.</p>
+      </summary>
+      <div class="sec-body">
+<div class="sim" id="sim">
       <span class="eyebrow">Mô phỏng thứ Hai 30/11</span>
       <h3>Một ngày làm việc, từ 08:00 đến 20:00</h3>
       <div class="clockrow">
@@ -381,15 +586,22 @@ footer p{margin-top:8px}
         <ul><li><b>11:30</b><span>Bài #10 «Gọi các nhà làm AI cùng Gnhà», chỉ khi cổng MCP đã nghiệm thu; nếu chưa xong thì thay bằng bài hỏi đáp trong tuần.</span></li><li><b>20:00</b><span>Thu Hà tổng hợp tuần vào một bảng, so với chỉ tiêu.</span></li><li><b>Cả ngày</b><span>Phúc Trí và Công Lý soát toàn bộ bài tuần 2.</span></li></ul></div>
     </div>
     <div class="callout ok"><div class="ci">✓</div><div><b>Nhịp từ tuần 2</b>T2 Radar · T3 Thử thách mới · T4 Prompt của tuần · T5 Lời giải · T6 Hỏi đáp trong tuần · T7 Hậu trường · CN Hội viên hoặc câu chuyện ẩn danh (ghi «ví dụ minh họa» nếu dựng).</div></div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="phong-ban">
   <div class="wrap">
-    <span class="eyebrow">05 · Nhóm E · Việc từng phòng</span>
-    <h2>Mỗi phòng làm gì, ai phụ trách, hạn, đo bằng gì</h2>
-    <p class="sub">Bấm vào tên phòng để mở. Mỗi việc có ba ô: người phụ trách, hạn, cách đo.</p>
-    <div class="ctl"><button class="btn p" id="openall" type="button">Mở hết</button><button class="btn s lt" id="closeall" type="button">Thu gọn hết</button></div>
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">05 · Nhóm E · Việc từng phòng</span>
+        <h2>Mỗi phòng làm gì, ai phụ trách, hạn, đo bằng gì</h2>
+        <p class="sub">Bấm vào tên phòng để mở. Mỗi việc có ba ô: người phụ trách, hạn, cách đo.</p>
+      </summary>
+      <div class="sec-body">
+<div class="ctl"><button class="btn p" id="openall" type="button">Mở hết</button><button class="btn s lt" id="closeall" type="button">Thu gọn hết</button></div>
     <div class="acc" id="depts">
 
       <details class="ac" open><summary><div class="ic">W</div><div><h3>Web · anh Huy, anh Nam</h3><p>3 việc gấp thứ Hai, sản xuất 02/12</p></div><span class="chev"></span></summary><div class="tasks">
@@ -464,16 +676,22 @@ footer p{margin-top:8px}
       </div></details>
 
     </div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="chi-so">
   <div class="wrap">
-    <span class="eyebrow">06 · Nhóm F · Chỉ số KPI</span>
-    <h2>Chỉ tiêu 7 ngày và 30 ngày</h2>
-    <p class="sub">Đây là chỉ tiêu đề xuất, xem lại 06/12 sau khi có điểm gốc. Chưa phải kết quả đạt được. AI và Google thay đổi theo ngày nên chỉ dùng để kiểm tra việc làm có tác dụng hay không.</p>
-
-    <div style="margin-top:20px"><span class="eyebrow">Đo bằng vòng</span><h3 style="font-size:22px;margin-top:4px">Mục tiêu về AI nhắc Gnhà</h3></div>
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">06 · Nhóm F · Chỉ số KPI</span>
+        <h2>Chỉ tiêu 7 ngày và 30 ngày</h2>
+        <p class="sub">Đây là chỉ tiêu đề xuất, xem lại 06/12 sau khi có điểm gốc. Chưa phải kết quả đạt được. AI và Google thay đổi theo ngày nên chỉ dùng để kiểm tra việc làm có tác dụng hay không.</p>
+      </summary>
+      <div class="sec-body">
+<div style="margin-top:20px"><span class="eyebrow">Đo bằng vòng</span><h3 style="font-size:22px;margin-top:4px">Mục tiêu về AI nhắc Gnhà</h3></div>
     <div class="rings" style="margin-top:14px">
       <div class="ringcard"><div class="ring" style="--p:71"><i>5/7</i></div><h4>Nhận ra thương hiệu</h4><p>Câu «Gnhà là gì» ở ít nhất 5/7 AI (7 ngày)</p></div>
       <div class="ringcard"><div class="ring dk" style="--p:80"><i>80%</i></div><h4>Gõ tên Gnhà</h4><p>Nhóm A1–A5 đạt điểm ≥ 2 ở ≥ 80% ô (30 ngày)</p></div>
@@ -494,15 +712,22 @@ footer p{margin-top:8px}
     </div>
 
     <div class="callout"><div class="ci">!</div><div><b>Luật dừng</b>12 prompt dưới 20 lượt tải sau 3 ngày ở 2 nhóm: đổi nội dung, không tăng số bài. Bị cảnh báo hoặc khóa tài khoản: dừng ngay và báo điều phối. Chỉ tiêu Hội viên thu từ nguồn này: chưa đặt vì chưa có cơ sở số thật.</div></div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="quy-tac">
   <div class="wrap">
-    <span class="eyebrow">07 · Nhóm G · Quy tắc chạy suốt</span>
-    <h2>Quy tắc và cảnh báo</h2>
-    <p class="sub">Áp dụng cho mọi phòng, suốt 30 ngày.</p>
-    <div class="warns">
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">07 · Nhóm G · Quy tắc chạy suốt</span>
+        <h2>Quy tắc và cảnh báo</h2>
+        <p class="sub">Áp dụng cho mọi phòng, suốt 30 ngày.</p>
+      </summary>
+      <div class="sec-body">
+<div class="warns">
       <div class="wc stop"><div class="wi">✋</div><div><h3>Không chi tiền khi chưa có báo giá bằng văn bản</h3><p>Chỉ chi sau khi anh Thắng duyệt. Xin báo giá chưa phải cam kết.</p></div></div>
       <div class="wc stop"><div class="wi">✋</div><div><h3>Bị cảnh báo hoặc khóa tài khoản thì dừng ngay</h3><p>Báo điều phối. Bài bị nhóm xóa: dừng nhóm đó, không đăng lại.</p></div></div>
       <div class="wc stop"><div class="wi">✋</div><div><h3>Không ghi mật khẩu, mã truy cập hay thông tin khách</h3><p>Không đưa vào file, chat hoặc bình luận dưới bản kế hoạch.</p></div></div>
@@ -523,15 +748,22 @@ footer p{margin-top:8px}
       <details class="ac"><summary><div class="ic c4">!</div><div><h3>Kết quả AI đổi theo ngày</h3><p>Hai lần hỏi cho kết quả khác nhau</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Hỏi hai lần ở các câu quan trọng, ghi giờ, so xu hướng chứ không so từng ô.</h4></div></div></details>
       <details class="ac"><summary><div class="ic c5">!</div><div><h3>Số liệu cộng đồng bị thổi phồng</h3><p>Xuất hiện chữ «hàng nghìn», «đông đảo»</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Chỉ dùng số đo được và ảnh chụp thật.</h4></div></div></details>
     </div>
+  
+      </div>
+    </details>
   </div>
 </section>
 
 <section class="sec" id="lo-trinh">
   <div class="wrap">
-    <span class="eyebrow">08 · Nhóm H · Lộ trình</span>
-    <h2>Lộ trình 30 ngày, 30/11–29/12</h2>
-    <p class="sub">Bốn tuần, bốn giai đoạn: dọn nền, nhân rộng, chứng minh bằng số thật, đo và quyết định.</p>
-    <div class="curve">
+    <details class="sec-fold">
+      <summary>
+        <span class="eyebrow">08 · Nhóm H · Lộ trình</span>
+        <h2>Lộ trình 30 ngày, 30/11–29/12</h2>
+        <p class="sub">Bốn tuần, bốn giai đoạn: dọn nền, nhân rộng, chứng minh bằng số thật, đo và quyết định.</p>
+      </summary>
+      <div class="sec-body">
+<div class="curve">
       <svg viewBox="0 0 640 190" role="img" aria-label="Đường lộ trình 4 tuần đi lên">
         <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FFC2AC"/><stop offset="1" stop-color="#FD5D32"/></linearGradient></defs>
         <path d="M40 150 C 140 150, 160 112, 230 108 S 360 96, 410 64 S 540 30, 600 28" fill="none" stroke="url(#gc)" stroke-width="8" stroke-linecap="round"/>
@@ -556,6 +788,9 @@ footer p{margin-top:8px}
       <p>Mở mục 05, tìm tên phòng, đọc ba ô: người phụ trách, hạn, cách đo. Có góp ý hoặc vướng việc, gửi điều phối Mai Minh trên Lark. Bản này chỉ để xem, không sửa.</p>
       <a class="btn" href="#phong-ban">Xem việc từng phòng →</a><a class="btn l" href="#top">Về đầu trang ↑</a>
     </div>
+  
+      </div>
+    </details>
   </div>
 </section>
 </main>
@@ -598,6 +833,55 @@ footer p{margin-top:8px}
   };
   rs.onclick=function(){clearInterval(timer);timer=null;idx=-1;show(-1);btn.textContent='▶ Chạy mô phỏng';};
 })();
+
+/*__UX_JS__*/
+(function(){
+  function makeBtn(){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='thu-gon';
+    b.textContent='▲ Thu gọn';
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var d=b.closest('details');
+      if(!d)return;
+      d.open=false;
+      var s=d.querySelector('summary');
+      if(s&&s.scrollIntoView)s.scrollIntoView({block:'nearest',behavior:'smooth'});
+    });
+    return b;
+  }
+  function ensureBtn(d){
+    if(!d||!d.open)return;
+    if(d.querySelector(':scope > .thu-gon'))return;
+    var box=d.querySelector(':scope > .sec-body, :scope > .body, :scope > .glist, :scope > .tasks, :scope > .loc-body, :scope > .chi-tiet-body');
+    if(box){
+      if(!box.querySelector(':scope > .thu-gon')) box.appendChild(makeBtn());
+    }else{
+      d.appendChild(makeBtn());
+    }
+  }
+  function closeOthers(d){
+    if(d.classList.contains('loc')||d.classList.contains('chi-tiet'))return;
+    if(d.classList.contains('sec-fold')){
+      document.querySelectorAll('details.sec-fold').forEach(function(s){if(s!==d)s.open=false;});
+      return;
+    }
+    var p=d.parentElement;
+    if(!p)return;
+    Array.prototype.forEach.call(p.children,function(s){
+      if(s!==d && s.tagName==='DETAILS') s.open=false;
+    });
+  }
+  document.addEventListener('toggle',function(e){
+    var d=e.target;
+    if(!d||d.tagName!=='DETAILS')return;
+    if(d.open){closeOthers(d);ensureBtn(d);}
+  },true);
+  document.querySelectorAll('details').forEach(function(d){if(d.open)ensureBtn(d);});
+})();
+
 </script>
 </body>
 </html>
