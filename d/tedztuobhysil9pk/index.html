@@ -23,7 +23,7 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100% }
     body {
       margin: 0; background: var(--page); color: var(--dark);
-      font-family: var(--font); font-size: 16px; line-height: 1.55;
+      font-family: var(--font); font-size: 17px; line-height: 1.7;
     }
     a { color: var(--orange-ink) }
     .wrap { max-width: 1280px; margin: 0 auto; padding: 0 18px }
@@ -43,7 +43,8 @@
     .hero:after { content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%; background:var(--orange); opacity:.22 }
     .hero > * { position: relative; z-index: 1 }
     .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--peach) }
-    .hero h1 { font-size: 30px; line-height: 1.22; font-weight: 800; margin-top: 8px }
+    .hero h1 { font-size: 30px; line-height: 1.25; font-weight: 800; margin-top: 8px; overflow-wrap: anywhere; white-space: normal }
+    .brand .t { overflow-wrap: anywhere; white-space: normal; min-width: 0 }
     .hero h1 em { font-style: normal; color: var(--peach) }
     .hero .lead { margin-top: 12px; color: #f6e7df; font-size: 16px; max-width: 62ch }
     .bignums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px }
@@ -52,18 +53,24 @@
     .bn.cho .n { color: var(--warn) }
     .bn.ok .n { color: var(--ok) }
     .bn .l { margin-top: 8px; font-weight: 600; font-size: 14px }
-    .filters {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(255,248,244,.94); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line); margin: 0 -18px; padding: 10px 18px 12px;
+    details.loc {
+      position: static;
+      background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      margin: 0 0 16px; box-shadow: var(--shadow-s);
     }
-    .filters p { font-size: 13px; font-weight: 700; color: var(--brown); margin-bottom: 8px }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px }
+    details.loc > summary {
+      list-style: none; cursor: pointer; font-weight: 700; font-size: 16px;
+      padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    details.loc > summary::-webkit-details-marker { display: none }
+    details.loc .loc-body { padding: 0 12px 14px }
+    .loc-label { font-size: 13px; font-weight: 700; color: var(--brown); margin: 8px 4px 6px }
+    .chips { display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px }
     .chip {
       appearance: none; cursor: pointer; border-radius: 999px;
       background: var(--white); border: 1.5px solid var(--line);
       padding: 7px 14px; font-weight: 600; font-size: 14px; color: var(--dark);
-      font-family: inherit;
+      font-family: inherit; flex: 0 0 auto; white-space: nowrap;
     }
     .chip small { color: var(--brown); font-weight: 700 }
     .chip.on { background: var(--orange); border-color: var(--orange); color: #1f1210 }
@@ -97,10 +104,25 @@
     .badge { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; border-radius: 999px; padding: 3px 8px }
     .badge.late { background: var(--latebg); color: var(--late) }
     .badge.ok { background: var(--okbg); color: var(--ok) }
-    .card h3 { font-size: 16px; font-weight: 700; margin-top: 8px; line-height: 1.35 }
-    .card dl { margin-top: 10px; display: grid; gap: 4px; font-size: 13px }
+    .card h3 { font-size: 17px; font-weight: 700; margin-top: 8px; line-height: 1.45; overflow-wrap: anywhere; white-space: normal }
+    .card dl { margin-top: 10px; display: grid; gap: 4px; font-size: 14px }
     .card dt { color: var(--brown); font-weight: 600; display: inline; margin-right: 6px }
-    .card dd { display: inline; margin: 0; font-weight: 600; white-space: nowrap }
+    .card dd { display: inline; margin: 0; font-weight: 600; white-space: normal; overflow-wrap: anywhere }
+    .badge.muc-lam-ngay { background: #FDECEC; color: #9B1C1C }
+    .badge.muc-gap { background: #FFF3B0; color: #7A5C00 }
+    .badge.muc-binh-thuong { background: #E8F1FA; color: #1D4E89 }
+    .badge.muc-co-the-cho { background: #EEEEEE; color: #5E4646 }
+    #chips-muc .chip[data-muc="Làm ngay"] { background:#FDECEC; border-color:#E8A0A0; color:#9B1C1C }
+    #chips-muc .chip[data-muc="Gấp"] { background:#FFF3B0; border-color:#E6D15A; color:#7A5C00 }
+    #chips-muc .chip[data-muc="Bình thường"] { background:#E8F1FA; border-color:#A9C7E6; color:#1D4E89 }
+    #chips-muc .chip[data-muc="Có thể chờ"] { background:#EEEEEE; border-color:#CCCCCC; color:#5E4646 }
+    #chips-muc .chip[data-muc="Làm ngay"].on,
+    #chips-muc .chip[data-muc="Gấp"].on,
+    #chips-muc .chip[data-muc="Bình thường"].on,
+    #chips-muc .chip[data-muc="Có thể chờ"].on { box-shadow:0 0 0 2px #4A3B39 }
+
+    .badge.loai-moi { background: var(--okbg); color: var(--ok) }
+    .badge.loai-cu { background: #F0E8E8; color: #6B4A4A }
     .card dd.late { color: var(--late) }
     .need { margin-top: 10px; background: var(--warnbg); border-left: 4px solid var(--orange); border-radius: 10px; padding: 8px 10px; font-size: 14px }
     .note { margin-top: 8px; font-size: 13px; color: var(--brown) }
@@ -120,6 +142,99 @@
       .bignums { grid-template-columns: 1fr; }
       .hero h1 { font-size: 24px }
     }
+    /* Gnhà — đọc dễ trên điện thoại + nút thu gọn cho mọi <details> */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:clip}
+body{font-size:17px;line-height:1.7}
+img,svg,video,iframe,table{max-width:100%;height:auto}
+h1,h2,h3,h4,h5,
+.brand .t,.hero h1,header.top h1,.card h3,summary,.col-h h2{
+  overflow:visible !important;
+  text-overflow:unset !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.prose,.body,.sec-body,.tomtat,.kmeta,.lead,p.note,.need{
+  max-width:38em;
+}
+.prose p,.body p,.sec-body p,.tomtat p{margin:0.75em 0}
+.prose ul,.body ul,.sec-body ul,.tomtat ul,
+.footnote ul{
+  list-style:disc;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose ol,.body ol,.sec-body ol:not(.nl),.tomtat ol,
+.footnote ol{
+  list-style:decimal;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose li,.body li,.sec-body li,.tomtat li,.footnote li{
+  margin:0.45em 0;
+  line-height:1.7;
+}
+.body h2,.body h3,.prose h2,.prose h3{
+  background:var(--kem, var(--cream, #FFEFE7));
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:14px;
+  padding:10px 14px;
+  margin:18px 0 10px;
+  font-size:1.05em;
+  line-height:1.4;
+}
+.body h3,.prose h3{background:#fff;border-color:#F1D9CC}
+.block-card,.tomtat{
+  background:#fff;
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:18px;
+  padding:16px 18px;
+  margin:12px 0;
+  box-shadow:0 2px 8px rgba(74,59,57,.07);
+}
+.stat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.stat-chip{
+  display:inline-flex;flex-direction:column;gap:2px;
+  background:#FFF8F4;border:1px solid #F1D9CC;border-radius:14px;
+  padding:10px 14px;min-width:6.5em;
+}
+.stat-chip .n{font-weight:800;font-size:22px;color:#B8330F;line-height:1.1}
+.stat-chip .l{font-size:13px;color:#5E4646;line-height:1.35}
+details>summary{cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open]:not(:has(details[open]))>summary{
+  position:sticky;
+  top:0;
+  z-index:15;
+  background:var(--trang, var(--white, #fff));
+  box-shadow:0 1px 0 var(--vien, var(--line, #F1D9CC));
+}
+.thu-gon{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin:16px 0 4px;
+  padding:10px 18px;
+  min-height:44px;
+  border-radius:999px;
+  border:1.5px solid var(--vien, var(--line, #F1D9CC));
+  background:var(--kem, var(--cream, #FFEFE7));
+  color:var(--dam, var(--dark, #4A3B39));
+  font:inherit;font-weight:700;font-size:15px;
+  cursor:pointer;
+}
+.thu-gon:focus-visible{outline:3px solid #FD5D32;outline-offset:3px}
+details.chi-tiet{margin-top:10px;border-top:1px dashed var(--vien, var(--line, #F1D9CC));padding-top:8px}
+details.chi-tiet>summary{
+  list-style:none;font-weight:700;color:#B8330F;padding:8px 0;cursor:pointer;
+}
+.tomtat .dung-khi{margin:0 0 10px}
+.tomtat .dung-khi b{color:#B8330F}
+.name-only{padding:10px 8px;border-top:1px solid var(--vien, var(--line, #F1D9CC));color:var(--nau, #5E4646)}
+@media (max-width:719px){
+  .search,.chips-nav,.filters{position:static !important}
+  .wrap{padding-left:18px;padding-right:18px}
+}
+
   </style>
 </head>
 <body>
@@ -134,17 +249,28 @@
     <section class="hero">
       <div class="eyebrow">Hệ tổ chức 6 điểm · áp dụng từ 02:05 29/11/2026</div>
       <h1>Sổ việc <em>ba cột</em></h1>
-      <p class="lead">Đang làm · Chờ anh Thắng · Xong. Mỗi việc có mã GN để anh nhắc. Cột giữa ghi rõ anh cần làm gì trong một câu. Cập nhật: Chủ nhật 29/11/2026 02:15 (giờ VN, UTC+7).</p>
+      <p class="lead">Đang làm · Chờ anh Thắng · Xong. Mỗi việc có mã GN để anh nhắc. Cột giữa ghi rõ anh cần làm gì trong một câu. Cập nhật: Chủ nhật 29/11/2026 03:05 (giờ VN, UTC+7).</p>
       <div class="bignums">
         <div class="bn"><div class="n">17</div><div class="l">Đang làm</div></div>
         <div class="bn cho"><div class="n">8</div><div class="l">Chờ anh Thắng</div></div>
         <div class="bn ok"><div class="n">7</div><div class="l">Xong (28–29/11)</div></div>
       </div>
     </section>
-    <div class="filters">
-      <p>Lọc theo phòng</p>
-      <div class="chips"><button type="button" class="chip on" data-filter="*">Tất cả</button><button type="button" class="chip" data-filter="Đối tác &amp; Khách cũ">Đối tác &amp; Khách cũ <small>1</small></button><button type="button" class="chip" data-filter="CSKH">CSKH <small>2</small></button><button type="button" class="chip" data-filter="Hội viên">Hội viên <small>2</small></button><button type="button" class="chip" data-filter="Hình ảnh">Hình ảnh <small>2</small></button><button type="button" class="chip" data-filter="Video">Video <small>4</small></button><button type="button" class="chip" data-filter="Quảng cáo">Quảng cáo <small>5</small></button><button type="button" class="chip" data-filter="Báo cáo/KPI">Báo cáo/KPI <small>4</small></button><button type="button" class="chip" data-filter="Nghiên cứu">Nghiên cứu <small>4</small></button><button type="button" class="chip" data-filter="IT &amp; Web">IT &amp; Web <small>10</small></button><button type="button" class="chip" data-filter="Điều phối">Điều phối <small>13</small></button><button type="button" class="chip" data-filter="Chiến lược &amp; Phản biện">Chiến lược &amp; Phản biện <small>1</small></button><button type="button" class="chip" data-filter="Anh Thắng">Anh Thắng <small>8</small></button><button type="button" class="chip" data-filter="Kế toán">Kế toán <small>1</small></button></div>
-    </div>
+    <details class="loc">
+      <summary><span id="loc-label">Lọc ▾</span></summary>
+      <div class="loc-body">
+        <p class="loc-label">Mức gấp</p>
+        <div class="chips" id="chips-muc">
+          <button type="button" class="chip on" data-muc="*">Tất cả</button>
+          <button type="button" class="chip" data-muc="Làm ngay">Làm ngay</button>
+          <button type="button" class="chip" data-muc="Gấp">Gấp</button>
+          <button type="button" class="chip" data-muc="Bình thường">Bình thường</button>
+          <button type="button" class="chip" data-muc="Có thể chờ">Có thể chờ</button>
+        </div>
+        <p class="loc-label">Lọc theo phòng</p>
+        <div class="chips" id="chips-phong"><button type="button" class="chip on" data-filter="*">Tất cả</button><button type="button" class="chip" data-filter="Đối tác &amp; Khách cũ">Đối tác &amp; Khách cũ <small>1</small></button><button type="button" class="chip" data-filter="CSKH">CSKH <small>2</small></button><button type="button" class="chip" data-filter="Hội viên">Hội viên <small>2</small></button><button type="button" class="chip" data-filter="Hình ảnh">Hình ảnh <small>2</small></button><button type="button" class="chip" data-filter="Video">Video <small>4</small></button><button type="button" class="chip" data-filter="Quảng cáo">Quảng cáo <small>5</small></button><button type="button" class="chip" data-filter="Báo cáo/KPI">Báo cáo/KPI <small>4</small></button><button type="button" class="chip" data-filter="Nghiên cứu">Nghiên cứu <small>4</small></button><button type="button" class="chip" data-filter="IT &amp; Web">IT &amp; Web <small>10</small></button><button type="button" class="chip" data-filter="Điều phối">Điều phối <small>13</small></button><button type="button" class="chip" data-filter="Chiến lược &amp; Phản biện">Chiến lược &amp; Phản biện <small>1</small></button><button type="button" class="chip" data-filter="Anh Thắng">Anh Thắng <small>8</small></button><button type="button" class="chip" data-filter="Kế toán">Kế toán <small>1</small></button></div>
+      </div>
+    </details>
     <div class="board">
       
 <section class="col col-dang_lam" id="cot-dang_lam">
@@ -153,190 +279,15 @@
     <span class="count" data-cot-count="dang_lam">17</span>
   </header>
   <div class="stack">
-<article class="card" data-phong="Đối tác &amp; Khách cũ CSKH Hội viên Hình ảnh Video Quảng cáo Báo cáo/KPI" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-59</span>
-    
-  </header>
-  <h3>Seeding Hội viên theo từng bộ phận, đo hằng ngày đến hết 30/11</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Đối tác &amp; Khách cũ, CSKH, Hội viên, Hình ảnh, Video, Quảng cáo, Báo cáo/KPI</dd></div>
-    <div><dt>Hạn</dt><dd class="">17:15 30/11</dd></div>
-  </dl>
-  
-  <p class="note">Thu Hà đo 17:15 hằng ngày. Đợt mời môi giới 6/7/8 đã dời sang từ 01/12.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/seeding-hoi-vien-2711/">Kế hoạch seeding 27/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/01-dieu-hanh/ke-hoach-seeding-theo-bo-phan-2811.md">Kế hoạch theo bộ phận 28/11</span></div>
-  <div class="goc">Mã gốc: BCLM-59</div>
-</article>
-
-<article class="card" data-phong="Nghiên cứu IT &amp; Web" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-58</span>
-    
-  </header>
-  <h3>Đăng cụm bài SEO/GEO Hội viên: C1-P ngày 29/11, C5-P ngày 30/11</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Nghiên cứu, IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="">C1-P 29/11; C5-P 30/11</dd></div>
-  </dl>
-  
-  <p class="note">Ba bài đã viết lại, Gemini chấm đạt. C7-P đã giao đăng trước đó.</p>
-  <div class="links"><span class="path" title="/workspace/content/seo-geo-hoi-vien-2027/">Cụm bài SEO/GEO Hội viên</span></div>
-  <div class="goc">Mã gốc: BCLM-58</div>
-</article>
-
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-201</span>
-    
-  </header>
-  <h3>P0 trang Hội viên: đổi mốc giá sáng lập sang 01/12, viết đúng câu giá, bỏ cụm đếm suất</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="">20:00 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Anh Huy làm, anh Nam theo dõi, Vĩnh An đo lại 20:30 29/11. Nếu không sửa, giá sáng lập tắt lúc 00:00 ngày 30/11, lệch «đến hết 30/11». Form 3 ô không nằm trong phiếu này.</p>
-  <div class="links"><a href="https://applink.larksuite.com/client/todo/detail?guid=ba887b93-beef-4403-b543-959b5fc92239&amp;suite_entity_num=t100106" target="_blank" rel="noopener noreferrer">Task Lark t100106</a> · <span class="path" title="/workspace/kho-gnha/lark-tasks/cho-tao/20261128-16xx-p0-endsat-hoi-vien.txt">Mô tả P0</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/05-cong-nghe/do-trang-hoi-vien/20261128-1630.md">Đo trang 16:37 28/11</span></div>
-  <div class="goc">Mã gốc: t100106</div>
-</article>
-
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-202</span>
-    <span class="badge late">Quá hạn</span>
-  </header>
-  <h3>Đưa form 3 ô, sự kiện Lead và nút giữ suất lên trang Hội viên (bản production)</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="late">17:00 30/11</dd></div>
-  </dl>
-  
-  <p class="note">Hạn trên giao diện Lark vẫn 17:00 26/11 (đã quá hạn); hạn mới 17:00 30/11 do Mai Minh chốt 16:29 28/11. Đo 16:30 28/11: chưa có form, nút «Đăng ký giữ suất» vẫn về trang đăng nhập. Gộp theo dõi với t100073 / t100083. t100071 chuyển «Không làm» vì trùng.</p>
-  <div class="links"><a href="https://applink.larksuite.com/client/todo/detail?guid=0ba0c5d5-fe73-4cc9-932b-7cc5d5ca00fd&amp;suite_entity_num=t100077" target="_blank" rel="noopener noreferrer">Task Lark t100077</a></div>
-  <div class="goc">Mã gốc: t100077</div>
-</article>
-
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-203</span>
-    <span class="badge late">Quá hạn</span>
-  </header>
-  <h3>Sửa link Facebook và Messenger trên web thành trang chính thức</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="late">17:00 26/11</dd></div>
-  </dl>
-  
-  <p class="note">Phụ trách duynguyen. Cập nhật 25/11: Messenger chưa đạt, thiếu link m.me trên dev và production. Không có bình luận mới sau 25/11 16:27.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/lark-tasks/lark-tasks-20261128-1703.csv">Xuất Lark Tasks 28/11 17:03</span></div>
-  <div class="goc">Mã gốc: t100075</div>
-</article>
-
-<article class="card" data-phong="Video Điều phối" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-204</span>
-    
-  </header>
-  <h3>Đăng Shorts clip Hội viên 990k bản v16g lúc 11:20 ngày 29/11</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Video, Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">11:20 29/11</dd></div>
-  </dl>
-  
-  <p class="note">28/11 chưa đăng vì máy Windows MXH ở màn hình đăng nhập (18:20). Mai Minh dời sang 29/11 11:20. Cần mở máy trước 11:00 (được tự đăng nhập, không hỏi anh).</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/so-viec-thuong-truc.md">Sổ thường trực</span></div>
-  <div class="goc">Mã gốc: 0-27</div>
-</article>
-
-<article class="card" data-phong="Video" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-205</span>
-    
-  </header>
-  <h3>Bù clip TikTok @gnhavn còn thiếu, mỗi ngày một clip khi tài khoản sẵn</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Video</dd></div>
-    <div><dt>Hạn</dt><dd class="">Khi tài khoản sẵn</dd></div>
-  </dl>
-  
-  <p class="note">Hai clip bù đã sẵn, giữ lại. Không nhắc việc chuyển tài khoản. 28/11 không dùng TikTok (chỉ Shorts).</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/so-viec-thuong-truc.md">Sổ thường trực</span></div>
-  <div class="goc">Mã gốc: A-05</div>
-</article>
-
-<article class="card" data-phong="Quảng cáo Chiến lược &amp; Phản biện" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-206</span>
-    
-  </header>
-  <h3>Sửa thư mời quản trị nhóm, chấm lại đạt từ 8 điểm, chỉ gửi khi đã có bộ 12 prompt miễn phí</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Quảng cáo, Chiến lược &amp; Phản biện</dd></div>
-    <div><dt>Hạn</dt><dd class="">Chấm lại trước 08:00 29/11; gửi sau khi có link prompt</dd></div>
-  </dl>
-  
-  <p class="note">Phúc Trí chấm 7,5/10 lúc 02:10 29/11, chưa đạt. Đã hạ trần Messenger xuống tối đa 5 tin/tài khoản/ngày, cách nhau ít nhất 2 giờ; mỗi nhóm một câu mở; bỏ tên miền ở tin đầu; định vị «nền tảng tra cứu thông tin pháp lý nhà đất và đăng tin chính chủ». Chưa gửi. Nếu bộ 12 prompt chưa sẵn lúc 08:30 thì hoãn và báo điều phối.</p>
-  <div class="links"><span class="path" title="/workspace/content/seeding/thu-moi-admin-nhom-ai-nhap-20261129.md">Nháp thư mời (mẫu M1)</span> · <span class="path" title="/workspace/content/seeding/phuc-tri/phan-bien-20261129.md">Phiếu phản biện 02:10 29/11</span></div>
-  <div class="goc">Mã gốc: tin-20261129-thu-moi</div>
-</article>
-
-<article class="card" data-phong="Nghiên cứu Quảng cáo" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-207</span>
-    
-  </header>
-  <h3>Hoàn thiện bộ 12 prompt miễn phí và có link để gửi kèm thư mời</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Nghiên cứu, Quảng cáo</dd></div>
-    <div><dt>Hạn</dt><dd class="">Trước 08:30 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Điều kiện để gửi thư mời GN-206. Đến lúc dựng sổ chưa thấy file/link bộ 12 prompt.</p>
-  
-  
-</article>
-
-<article class="card" data-phong="Điều phối" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-209</span>
-    
-  </header>
-  <h3>Hoàn tất thư viện skill các phòng: mỗi phòng có skill, giữ lịch sử trước/sau, không xoá</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">Trong ngày 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Anh dặn lập mọi thứ thành skill; skill đổi hoặc ngưng thì giữ lịch sử, đánh dấu «ngưng» chứ không xoá. Đang nhập vào thư viện.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/">Thư mục skill nhập 29/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/danh-muc-skill.md">Danh mục skill</span></div>
-  <div class="goc">Mã gốc: t2519u t2520u</div>
-</article>
-
-<article class="card" data-phong="Điều phối" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-210</span>
-    
-  </header>
-  <h3>Đưa bản HTML kế hoạch AI-first vào tài liệu cho anh xem (chưa đăng công khai)</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">Trong ngày 29/11</dd></div>
-  </dl>
-  
-  <p class="note">File HTML đã dựng xong 01:59 29/11 (xem GN-235). Việc còn lại là đưa vào tài liệu anh xem được, chưa đăng công khai.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/ke-hoach-trinh-bay-20261129.html">Bản HTML kế hoạch 29/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/huong-dan-nhap-lark-doc-20261129.md">Hướng dẫn nhập Lark Doc</span></div>
-  <div class="goc">Mã gốc: t2517u t2518u</div>
-</article>
-
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-212</span>
-    <span class="badge late">Quá hạn</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
   </header>
   <h3>Chốt sơ đồ nhân sự (người và nhân sự số) và đổi tên các nhóm Lark còn lại</h3>
   <dl>
     <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 20/11</dd></div>
     <div><dt>Hạn</dt><dd class="late">23/11 (đã quá hạn)</dd></div>
   </dl>
   
@@ -345,30 +296,15 @@
   <div class="goc">Mã gốc: t100013 t100069 t100070</div>
 </article>
 
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
-  <header>
-    <span class="ma">GN-213</span>
-    <span class="badge late">Quá hạn</span>
-  </header>
-  <h3>Dựng Distilly trên server thật, thêm collector vào nhóm, mở PR sau thí điểm</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="late">24/11 (đã quá hạn)</dd></div>
-  </dl>
-  
-  <p class="note">t100014 đang làm, 5/6 việc con. t100020 mở PR sau thí điểm. t100025 thêm collector, đang backlog, chờ thông tin server.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/lark-tasks/lark-tasks-20261128-1703.csv">Xuất Lark Tasks 28/11 17:03</span></div>
-  <div class="goc">Mã gốc: t100014 t100020 t100025</div>
-</article>
-
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-214</span>
-    <span class="badge late">Quá hạn</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
   </header>
   <h3>Tạo tài khoản Lark cho chị Loan</h3>
   <dl>
     <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 20/11</dd></div>
     <div><dt>Hạn</dt><dd class="late">17:00 23/11 (đã quá hạn)</dd></div>
   </dl>
   
@@ -377,14 +313,15 @@
   <div class="goc">Mã gốc: t100026</div>
 </article>
 
-<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam">
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-215</span>
-    <span class="badge late">Quá hạn</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
   </header>
   <h3>Hoàn thành các việc tồn sửa web đã chốt 22/11 (chia việc với anh Huy)</h3>
   <dl>
     <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="late">17:00 23/11 (đã quá hạn)</dd></div>
   </dl>
   
@@ -393,14 +330,219 @@
   <div class="goc">Mã gốc: t100021 t100027</div>
 </article>
 
-<article class="card" data-phong="Báo cáo/KPI Điều phối" data-cot="dang_lam">
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
+  <header>
+    <span class="ma">GN-213</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
+  </header>
+  <h3>Dựng Distilly trên server thật, thêm collector vào nhóm, mở PR sau thí điểm</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 20/11</dd></div>
+    <div><dt>Hạn</dt><dd class="late">24/11 (đã quá hạn)</dd></div>
+  </dl>
+  
+  <p class="note">t100014 đang làm, 5/6 việc con. t100020 mở PR sau thí điểm. t100025 thêm collector, đang backlog, chờ thông tin server.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/lark-tasks/lark-tasks-20261128-1703.csv">Xuất Lark Tasks 28/11 17:03</span></div>
+  <div class="goc">Mã gốc: t100014 t100020 t100025</div>
+</article>
+
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
+  <header>
+    <span class="ma">GN-203</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
+  </header>
+  <h3>Sửa link Facebook và Messenger trên web thành trang chính thức</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 22/11</dd></div>
+    <div><dt>Hạn</dt><dd class="late">17:00 26/11</dd></div>
+  </dl>
+  
+  <p class="note">Phụ trách duynguyen. Cập nhật 25/11: Messenger chưa đạt, thiếu link m.me trên dev và production. Không có bình luận mới sau 25/11 16:27.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/lark-tasks/lark-tasks-20261128-1703.csv">Xuất Lark Tasks 28/11 17:03</span></div>
+  <div class="goc">Mã gốc: t100075</div>
+</article>
+
+<article class="card" data-phong="Quảng cáo Chiến lược &amp; Phản biện" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-206</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Sửa thư mời quản trị nhóm, chấm lại đạt từ 8 điểm, chỉ gửi khi đã có bộ 12 prompt miễn phí</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Quảng cáo, Chiến lược &amp; Phản biện</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:10 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Chấm lại trước 08:00 29/11; gửi sau khi có link prompt</dd></div>
+  </dl>
+  
+  <p class="note">Phúc Trí chấm 7,5/10 lúc 02:10 29/11, chưa đạt. Đã hạ trần Messenger xuống tối đa 5 tin/tài khoản/ngày, cách nhau ít nhất 2 giờ; mỗi nhóm một câu mở; bỏ tên miền ở tin đầu; định vị «nền tảng tra cứu thông tin pháp lý nhà đất và đăng tin chính chủ». Chưa gửi. Nếu bộ 12 prompt chưa sẵn lúc 08:30 thì hoãn và báo điều phối.</p>
+  <div class="links"><span class="path" title="/workspace/content/seeding/thu-moi-admin-nhom-ai-nhap-20261129.md">Nháp thư mời (mẫu M1)</span> · <span class="path" title="/workspace/content/seeding/phuc-tri/phan-bien-20261129.md">Phiếu phản biện 02:10 29/11</span></div>
+  <div class="goc">Mã gốc: tin-20261129-thu-moi</div>
+</article>
+
+<article class="card" data-phong="Nghiên cứu Quảng cáo" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-207</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Hoàn thiện bộ 12 prompt miễn phí và có link để gửi kèm thư mời</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Nghiên cứu, Quảng cáo</dd></div>
+    <div><dt>Ngày giao</dt><dd>00:30 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Trước 08:30 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Điều kiện để gửi thư mời GN-206. Đến lúc dựng sổ chưa thấy file/link bộ 12 prompt.</p>
+  
+  
+</article>
+
+<article class="card" data-phong="Nghiên cứu IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-58</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Đăng cụm bài SEO/GEO Hội viên: C1-P ngày 29/11, C5-P ngày 30/11</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Nghiên cứu, IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:55 27/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">C1-P 29/11; C5-P 30/11</dd></div>
+  </dl>
+  
+  <p class="note">Ba bài đã viết lại, Gemini chấm đạt. C7-P đã giao đăng trước đó.</p>
+  <div class="links"><span class="path" title="/workspace/content/seo-geo-hoi-vien-2027/">Cụm bài SEO/GEO Hội viên</span></div>
+  <div class="goc">Mã gốc: BCLM-58</div>
+</article>
+
+<article class="card" data-phong="Video Điều phối" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-204</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Đăng Shorts clip Hội viên 990k bản v16g lúc 11:20 ngày 29/11</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Video, Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>23:10 28/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">11:20 29/11</dd></div>
+  </dl>
+  
+  <p class="note">28/11 chưa đăng vì máy Windows MXH ở màn hình đăng nhập (18:20). Mai Minh dời sang 29/11 11:20. Cần mở máy trước 11:00 (được tự đăng nhập, không hỏi anh).</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/so-viec-thuong-truc.md">Sổ thường trực</span></div>
+  <div class="goc">Mã gốc: 0-27</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-209</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Hoàn tất thư viện skill các phòng: mỗi phòng có skill, giữ lịch sử trước/sau, không xoá</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:20 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Trong ngày 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh dặn lập mọi thứ thành skill; skill đổi hoặc ngưng thì giữ lịch sử, đánh dấu «ngưng» chứ không xoá. Đang nhập vào thư viện.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/">Thư mục skill nhập 29/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/danh-muc-skill.md">Danh mục skill</span></div>
+  <div class="goc">Mã gốc: t2519u t2520u</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-210</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Đưa bản HTML kế hoạch AI-first vào tài liệu cho anh xem (chưa đăng công khai)</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:00 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Trong ngày 29/11</dd></div>
+  </dl>
+  
+  <p class="note">File HTML đã dựng xong 01:59 29/11 (xem GN-235). Việc còn lại là đưa vào tài liệu anh xem được, chưa đăng công khai.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/ke-hoach-trinh-bay-20261129.html">Bản HTML kế hoạch 29/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/huong-dan-nhap-lark-doc-20261129.md">Hướng dẫn nhập Lark Doc</span></div>
+  <div class="goc">Mã gốc: t2517u t2518u</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-241</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Dựng bản sổ việc trên Lark cho nhân viên, cùng 3 cột với bản này</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:05 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Trước bản tin 17:30 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh đồng ý 02:05 29/11: có bản Lark cho nhân viên. Lượt này chỉ dựng file, chưa gửi và chưa đăng công khai.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.md">Sổ việc file nội bộ</span></div>
+  <div class="goc">Mã gốc: t2520u</div>
+</article>
+
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-201</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>P0 trang Hội viên: đổi mốc giá sáng lập sang 01/12, viết đúng câu giá, bỏ cụm đếm suất</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>16:40 28/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">20:00 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh Huy làm, anh Nam theo dõi, Vĩnh An đo lại 20:30 29/11. Nếu không sửa, giá sáng lập tắt lúc 00:00 ngày 30/11, lệch «đến hết 30/11». Form 3 ô không nằm trong phiếu này.</p>
+  <div class="links"><a href="https://applink.larksuite.com/client/todo/detail?guid=ba887b93-beef-4403-b543-959b5fc92239&amp;suite_entity_num=t100106" target="_blank" rel="noopener noreferrer">Task Lark t100106</a> · <span class="path" title="/workspace/kho-gnha/lark-tasks/cho-tao/20261128-16xx-p0-endsat-hoi-vien.txt">Mô tả P0</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/05-cong-nghe/do-trang-hoi-vien/20261128-1630.md">Đo trang 16:37 28/11</span></div>
+  <div class="goc">Mã gốc: t100106</div>
+</article>
+
+<article class="card" data-phong="IT &amp; Web" data-cot="dang_lam" data-muc="Làm ngay" data-loai="Việc cũ">
+  <header>
+    <span class="ma">GN-202</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
+  </header>
+  <h3>Đưa form 3 ô, sự kiện Lead và nút giữ suất lên trang Hội viên (bản production)</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>17:00 22/11</dd></div>
+    <div><dt>Hạn</dt><dd class="late">17:00 30/11</dd></div>
+  </dl>
+  
+  <p class="note">Hạn trên giao diện Lark vẫn 17:00 26/11 (đã quá hạn); hạn mới 17:00 30/11 do Mai Minh chốt 16:29 28/11. Đo 16:30 28/11: chưa có form, nút «Đăng ký giữ suất» vẫn về trang đăng nhập. Gộp theo dõi với t100073 / t100083. t100071 chuyển «Không làm» vì trùng.</p>
+  <div class="links"><a href="https://applink.larksuite.com/client/todo/detail?guid=0ba0c5d5-fe73-4cc9-932b-7cc5d5ca00fd&amp;suite_entity_num=t100077" target="_blank" rel="noopener noreferrer">Task Lark t100077</a></div>
+  <div class="goc">Mã gốc: t100077</div>
+</article>
+
+<article class="card" data-phong="Đối tác &amp; Khách cũ CSKH Hội viên Hình ảnh Video Quảng cáo Báo cáo/KPI" data-cot="dang_lam" data-muc="Gấp" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-59</span>
+    <span class="badge muc-gap">Gấp</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Seeding Hội viên theo từng bộ phận, đo hằng ngày đến hết 30/11</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Đối tác &amp; Khách cũ, CSKH, Hội viên, Hình ảnh, Video, Quảng cáo, Báo cáo/KPI</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:45 27/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">17:15 30/11</dd></div>
+  </dl>
+  
+  <p class="note">Thu Hà đo 17:15 hằng ngày. Đợt mời môi giới 6/7/8 đã dời sang từ 01/12.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/seeding-hoi-vien-2711/">Kế hoạch seeding 27/11</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/01-dieu-hanh/ke-hoach-seeding-theo-bo-phan-2811.md">Kế hoạch theo bộ phận 28/11</span></div>
+  <div class="goc">Mã gốc: BCLM-59</div>
+</article>
+
+<article class="card" data-phong="Báo cáo/KPI Điều phối" data-cot="dang_lam" data-muc="Bình thường" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-216</span>
-    
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-cu">Việc cũ</span>
   </header>
   <h3>Bảng kế hoạch ra tiền 30 ngày: đủ 5 dòng hằng ngày, có số thật</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Báo cáo/KPI, Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Hằng ngày</dd></div>
   </dl>
   
@@ -409,20 +551,21 @@
   <div class="goc">Mã gốc: 0-49</div>
 </article>
 
-<article class="card" data-phong="Điều phối" data-cot="dang_lam">
+<article class="card" data-phong="Video" data-cot="dang_lam" data-muc="Có thể chờ" data-loai="Việc cũ">
   <header>
-    <span class="ma">GN-241</span>
-    
+    <span class="ma">GN-205</span>
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-cu">Việc cũ</span>
   </header>
-  <h3>Dựng bản sổ việc trên Lark cho nhân viên, cùng 3 cột với bản này</h3>
+  <h3>Bù clip TikTok @gnhavn còn thiếu, mỗi ngày một clip khi tài khoản sẵn</h3>
   <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">Trước bản tin 17:30 29/11</dd></div>
+    <div><dt>Phòng</dt><dd>Video</dd></div>
+    <div><dt>Ngày giao</dt><dd>20:08 20/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Khi tài khoản sẵn</dd></div>
   </dl>
   
-  <p class="note">Anh đồng ý 02:05 29/11: có bản Lark cho nhân viên. Lượt này chỉ dựng file, chưa gửi và chưa đăng công khai.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.md">Sổ việc file nội bộ</span></div>
-  <div class="goc">Mã gốc: t2520u</div>
+  <p class="note">Hai clip bù đã sẵn, giữ lại. Không nhắc việc chuyển tài khoản. 28/11 không dùng TikTok (chỉ Shorts).</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/so-viec-thuong-truc.md">Sổ thường trực</span></div>
+  <div class="goc">Mã gốc: A-05</div>
 </article>
 </div>
 </section>
@@ -433,14 +576,15 @@
     <span class="count" data-cot-count="cho_anh">8</span>
   </header>
   <div class="stack">
-<article class="card" data-phong="Anh Thắng Video" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Video" data-cot="cho_anh" data-muc="Làm ngay" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-220</span>
-    <span class="badge late">Quá hạn</span>
+    <span class="badge muc-lam-ngay">Làm ngay</span><span class="badge loai-cu">Việc cũ</span><span class="badge late">Quá hạn</span>
   </header>
   <h3>Quay 100 câu hỏi video trong một ngày</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, Video</dd></div>
+    <div><dt>Ngày giao</dt><dd>09:00 26/11</dd></div>
     <div><dt>Hạn</dt><dd class="late">17:00 28/11</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh tự quay 100 câu hỏi theo việc Lark t100092 (hạn 17:00 28/11, đến 17:03 chưa xong).</div>
@@ -449,14 +593,15 @@
   <div class="goc">Mã gốc: t100092</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng Hội viên Kế toán" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Hội viên Kế toán" data-cot="cho_anh" data-muc="Gấp" data-loai="Việc mới giao">
   <header>
     <span class="ma">GN-221</span>
-    
+    <span class="badge muc-gap">Gấp</span><span class="badge loai-moi">Việc mới giao</span>
   </header>
   <h3>Chốt cách tính giá Hội viên khi chuyển khoản ngày 30/11 nhưng xác nhận ngày 01/12</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, Hội viên, Kế toán</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 28/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Trước 30/11</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh chốt một câu: khách chuyển khoản 30/11 mà xác nhận 01/12 thì tính theo giờ chuyển khoản hay theo ngày xác nhận.</div>
@@ -465,30 +610,15 @@
   <div class="goc">Mã gốc: so-giao-viec-28-gia</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng Quảng cáo" data-cot="cho_anh">
-  <header>
-    <span class="ma">GN-222</span>
-    
-  </header>
-  <h3>Duyệt lời nhắn hỏi giá 2 clip TikTok tới 4 creator và chọn tài khoản gửi</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Anh Thắng, Quảng cáo</dd></div>
-    <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
-  </dl>
-  <div class="need"><b>Anh cần:</b> Anh duyệt nội dung tin nhắn hỏi giá và chỉ định tài khoản được gửi; Gnhà chưa cam kết, chưa đặt cọc, chưa chi tiền.</div>
-  <p class="note">Bốn kênh: @luatsumongquynh, @dinhcongthuongvn, @nqs.bds, @tamnhathat — chưa nhắn. Chờ lời anh duyệt (hỏi qua Mai Minh khoảng 01:10 29/11).</p>
-  <div class="links"><span class="path" title="/workspace/content/fb-ads-hoi-vien/bao-gia-creator-20261129.md">Bảng hỏi giá 29/11</span></div>
-  <div class="goc">Mã gốc: bao-gia-creator-20261129</div>
-</article>
-
-<article class="card" data-phong="Anh Thắng Điều phối" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Điều phối" data-cot="cho_anh" data-muc="Gấp" data-loai="Việc mới giao">
   <header>
     <span class="ma">GN-223</span>
-    
+    <span class="badge muc-gap">Gấp</span><span class="badge loai-moi">Việc mới giao</span>
   </header>
   <h3>Chốt có thuê ChatGPT Business 2 chỗ hay không</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>01:00 29/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Nếu muốn hưởng khuyến mãi thì trước 30/11</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh chốt có thuê hay không, chọn Standard hoặc Premium, trả theo tháng hay theo năm; em chưa đăng ký và chưa chi tiền.</div>
@@ -497,14 +627,32 @@
   <div class="goc">Mã gốc: chatgpt-business-20261129</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng IT &amp; Web Báo cáo/KPI" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Quảng cáo" data-cot="cho_anh" data-muc="Có thể chờ" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-222</span>
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-moi">Việc mới giao</span>
+  </header>
+  <h3>Duyệt lời nhắn hỏi giá 2 clip TikTok tới 4 creator và chọn tài khoản gửi</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Anh Thắng, Quảng cáo</dd></div>
+    <div><dt>Ngày giao</dt><dd>01:00 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
+  </dl>
+  <div class="need"><b>Anh cần:</b> Anh duyệt nội dung tin nhắn hỏi giá và chỉ định tài khoản được gửi; Gnhà chưa cam kết, chưa đặt cọc, chưa chi tiền.</div>
+  <p class="note">Bốn kênh: @luatsumongquynh, @dinhcongthuongvn, @nqs.bds, @tamnhathat — chưa nhắn. Chờ lời anh duyệt (hỏi qua Mai Minh khoảng 01:10 29/11).</p>
+  <div class="links"><span class="path" title="/workspace/content/fb-ads-hoi-vien/bao-gia-creator-20261129.md">Bảng hỏi giá 29/11</span></div>
+  <div class="goc">Mã gốc: bao-gia-creator-20261129</div>
+</article>
+
+<article class="card" data-phong="Anh Thắng IT &amp; Web Báo cáo/KPI" data-cot="cho_anh" data-muc="Có thể chờ" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-224</span>
-    
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-cu">Việc cũ</span>
   </header>
   <h3>Cấp quyền xem GA4 và Search Console cho bot để có số báo cáo</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, IT &amp; Web, Báo cáo/KPI</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh cấp quyền xem Google Analytics 4 và Search Console cho tài khoản bot, để KPI có số tuần và chạy được vòng đánh giá lại bài/clip.</div>
@@ -513,14 +661,15 @@
   <div class="goc">Mã gốc: 0-10</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng CSKH" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng CSKH" data-cot="cho_anh" data-muc="Có thể chờ" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-226</span>
-    
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-cu">Việc cũ</span>
   </header>
   <h3>Quét QR Zalo Web Hội Viên Gnha nếu phiên kết bạn vẫn chưa mở</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, CSKH</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh quét QR Zalo Web tài khoản Hội Viên Gnha trên máy Windows nếu phiên gửi lời mời kết bạn vẫn chưa mở.</div>
@@ -529,14 +678,15 @@
   <div class="goc">Mã gốc: 0-18</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng Điều phối" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Điều phối" data-cot="cho_anh" data-muc="Có thể chờ" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-227</span>
-    
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-cu">Việc cũ</span>
   </header>
   <h3>Điền thông tin còn trống cho tin tuyển sale (chưa đăng)</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh điền các chỗ còn trống trên tin tuyển sale (gồm mức lương), sau đó em mới đăng tin và lọc hồ sơ.</div>
@@ -545,14 +695,15 @@
   <div class="goc">Mã gốc: 0-23</div>
 </article>
 
-<article class="card" data-phong="Anh Thắng Quảng cáo" data-cot="cho_anh">
+<article class="card" data-phong="Anh Thắng Quảng cáo" data-cot="cho_anh" data-muc="Có thể chờ" data-loai="Việc cũ">
   <header>
     <span class="ma">GN-228</span>
-    
+    <span class="badge muc-co-the-cho">Có thể chờ</span><span class="badge loai-cu">Việc cũ</span>
   </header>
   <h3>Duyệt nội dung và danh sách email Instantly (chưa gửi, chưa thanh toán)</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Anh Thắng, Quảng cáo</dd></div>
+    <div><dt>Ngày giao</dt><dd>12:00 22/11</dd></div>
     <div><dt>Hạn</dt><dd class="">Khi anh rảnh</dd></div>
   </dl>
   <div class="need"><b>Anh cần:</b> Anh duyệt cả nội dung lẫn danh sách email trước khi gửi; em không bật thanh toán và không gửi khi chưa duyệt.</div>
@@ -569,94 +720,15 @@
     <span class="count" data-cot-count="xong">7</span>
   </header>
   <div class="stack">
-<article class="card" data-phong="Điều phối" data-cot="xong">
-  <header>
-    <span class="ma">GN-208</span>
-    <span class="badge ok">Đã xong</span>
-  </header>
-  <h3>Dựng sổ việc 3 cột, nhật ký trao đổi theo ngày và mẫu bản tin 08:00 / 17:30</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">02:15 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Anh đồng ý hệ 6 điểm lúc 02:05 29/11, áp dụng ngay. File nội bộ, chưa đăng công khai, chưa gửi Lark. Bản Lark cho nhân viên là GN-241.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.md">Sổ việc</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.html">Bản HTML (nội bộ)</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-nhat-ky-trao-doi/">Nhật ký trao đổi</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/mau-ban-tin.md">Mẫu bản tin</span></div>
-  <div class="goc">Mã gốc: t2520u</div>
-</article>
-
-<article class="card" data-phong="Điều phối Nghiên cứu" data-cot="xong">
-  <header>
-    <span class="ma">GN-211</span>
-    <span class="badge ok">Đã xong</span>
-  </header>
-  <h3>Lập kho từ khóa theo từng dịch vụ và lưu thành skill</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối, Nghiên cứu</dd></div>
-    <div><dt>Hạn</dt><dd class="">01:53 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Anh giao khoảng 01:32 29/11 (t2516u): kho từ khóa theo dịch vụ (là gì, giải quyết gì, khi nào, cho ai, khi nào áp dụng), lấy từ Google, GSC và mạng xã hội, dùng cho bài, video, tư vấn và bán hàng.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/kho-tu-khoa/">Kho từ khóa dịch vụ</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/_body/kho-tu-khoa-dich-vu-gnha.md">Skill kho-tu-khoa-dich-vu-gnha</span></div>
-  <div class="goc">Mã gốc: t2516u</div>
-</article>
-
-<article class="card" data-phong="Điều phối" data-cot="xong">
-  <header>
-    <span class="ma">GN-235</span>
-    <span class="badge ok">Đã xong</span>
-  </header>
-  <h3>Dựng bản HTML kế hoạch AI-first dễ đọc, theo cách trình bày trang ABM</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">01:59 29/11</dd></div>
-  </dl>
-  
-  <p class="note">Anh góp ý bản kế hoạch chữ thuần khó đọc, muốn trình bày như trang ABM và tài liệu lớp học 2 ngày Não AI. File đã có, chưa đăng công khai. Việc đưa vào tài liệu anh xem là GN-210.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/ke-hoach-trinh-bay-20261129.html">Bản HTML</span></div>
-  <div class="goc">Mã gốc: t2517u t2518u</div>
-</article>
-
-<article class="card" data-phong="Nghiên cứu Hình ảnh IT &amp; Web" data-cot="xong">
-  <header>
-    <span class="ma">GN-236</span>
-    <span class="badge ok">Đã xong</span>
-  </header>
-  <h3>Bổ sung quy tắc trình bày bài và ảnh trên gnha.vn</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Nghiên cứu, Hình ảnh, IT &amp; Web</dd></div>
-    <div><dt>Hạn</dt><dd class="">18:57 28/11</dd></div>
-  </dl>
-  
-  <p class="note">Lời anh 18:57 28/11: mục lớn là H2 có số, nằm trong khung, có mục lục bấm nhảy; chỉ logo Gnhà; bài cha–bài con và 3–5 link nội bộ; viết «Gnhà» có dấu.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-quy-tac-viet-bai-va-anh.md">Quy tắc viết bài và ảnh</span></div>
-  <div class="goc">Mã gốc: loi-anh-20261128-1857</div>
-</article>
-
-<article class="card" data-phong="Điều phối" data-cot="xong">
-  <header>
-    <span class="ma">GN-237</span>
-    <span class="badge ok">Đã xong</span>
-  </header>
-  <h3>Đồng bộ Bộ não tối 28/11 (WeKnora, repo, bản sao lưu)</h3>
-  <dl>
-    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
-    <div><dt>Hạn</dt><dd class="">21:02 28/11</dd></div>
-  </dl>
-  
-  <p class="note">WeKnora tải 65, gỡ 0; bản sao lưu gnha-20261128-1359Z, 480M, khớp mã kiểm. Không ghi mật khẩu hay token.</p>
-  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/01-dieu-hanh/cho-tong-hop-1730.md">Ghi nhận đồng bộ</span></div>
-  <div class="goc">Mã gốc: BCLM-40</div>
-</article>
-
-<article class="card" data-phong="Điều phối Báo cáo/KPI" data-cot="xong">
+<article class="card" data-phong="Điều phối Báo cáo/KPI" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
   <header>
     <span class="ma">GN-238</span>
-    <span class="badge ok">Đã xong</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
   </header>
   <h3>Chốt kế hoạch seeding theo bộ phận 28/11 và 3 cải tiến tuần của KPI</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Điều phối, Báo cáo/KPI</dd></div>
+    <div><dt>Ngày giao</dt><dd>15:52 28/11</dd></div>
     <div><dt>Hạn</dt><dd class="">15:52 28/11</dd></div>
   </dl>
   
@@ -665,19 +737,105 @@
   <div class="goc">Mã gốc: 0-58</div>
 </article>
 
-<article class="card" data-phong="Điều phối" data-cot="xong">
+<article class="card" data-phong="Nghiên cứu Hình ảnh IT &amp; Web" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-236</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
+  </header>
+  <h3>Bổ sung quy tắc trình bày bài và ảnh trên gnha.vn</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Nghiên cứu, Hình ảnh, IT &amp; Web</dd></div>
+    <div><dt>Ngày giao</dt><dd>18:57 28/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">18:57 28/11</dd></div>
+  </dl>
+  
+  <p class="note">Lời anh 18:57 28/11: mục lớn là H2 có số, nằm trong khung, có mục lục bấm nhảy; chỉ logo Gnhà; bài cha–bài con và 3–5 link nội bộ; viết «Gnhà» có dấu.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-quy-tac-viet-bai-va-anh.md">Quy tắc viết bài và ảnh</span></div>
+  <div class="goc">Mã gốc: loi-anh-20261128-1857</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-237</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
+  </header>
+  <h3>Đồng bộ Bộ não tối 28/11 (WeKnora, repo, bản sao lưu)</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>21:02 28/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">21:02 28/11</dd></div>
+  </dl>
+  
+  <p class="note">WeKnora tải 65, gỡ 0; bản sao lưu gnha-20261128-1359Z, 480M, khớp mã kiểm. Không ghi mật khẩu hay token.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/01-dieu-hanh/cho-tong-hop-1730.md">Ghi nhận đồng bộ</span></div>
+  <div class="goc">Mã gốc: BCLM-40</div>
+</article>
+
+<article class="card" data-phong="Điều phối Nghiên cứu" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-211</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
+  </header>
+  <h3>Lập kho từ khóa theo từng dịch vụ và lưu thành skill</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối, Nghiên cứu</dd></div>
+    <div><dt>Ngày giao</dt><dd>01:30 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">01:53 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh giao khoảng 01:32 29/11 (t2516u): kho từ khóa theo dịch vụ (là gì, giải quyết gì, khi nào, cho ai, khi nào áp dụng), lấy từ Google, GSC và mạng xã hội, dùng cho bài, video, tư vấn và bán hàng.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/kho-tu-khoa/">Kho từ khóa dịch vụ</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/_body/kho-tu-khoa-dich-vu-gnha.md">Skill kho-tu-khoa-dich-vu-gnha</span></div>
+  <div class="goc">Mã gốc: t2516u</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-235</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
+  </header>
+  <h3>Dựng bản HTML kế hoạch AI-first dễ đọc, theo cách trình bày trang ABM</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>01:30 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">01:59 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh góp ý bản kế hoạch chữ thuần khó đọc, muốn trình bày như trang ABM và tài liệu lớp học 2 ngày Não AI. File đã có, chưa đăng công khai. Việc đưa vào tài liệu anh xem là GN-210.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/02-kinh-doanh/ai-first-2711/ke-hoach-trinh-bay-20261129.html">Bản HTML</span></div>
+  <div class="goc">Mã gốc: t2517u t2518u</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
   <header>
     <span class="ma">GN-240</span>
-    <span class="badge ok">Đã xong</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
   </header>
   <h3>Anh đồng ý hệ tổ chức việc 6 điểm, áp dụng từ 02:05 29/11</h3>
   <dl>
     <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:05 29/11</dd></div>
     <div><dt>Hạn</dt><dd class="">02:05 29/11</dd></div>
   </dl>
   
   <p class="note">Sáu điểm: mã việc; sổ 3 cột (Đang làm / Chờ anh / Xong) có bản Lark cho nhân viên; bản tin 08:00 và 17:30; nhật ký trao đổi mỗi đêm; skill giữ lịch sử và đánh dấu ngưng; tiền tố tin tuỳ chọn.</p>
   <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/skill-nhap-20261129/so-viec-va-nhat-ky-trao-doi-gnha/SKILL.md">Skill sổ việc và nhật ký</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-quy-tac-chung.md">Quy tắc chung (điều 17)</span></div>
+  <div class="goc">Mã gốc: t2520u</div>
+</article>
+
+<article class="card" data-phong="Điều phối" data-cot="xong" data-muc="Bình thường" data-loai="Việc mới giao">
+  <header>
+    <span class="ma">GN-208</span>
+    <span class="badge muc-binh-thuong">Bình thường</span><span class="badge loai-moi">Việc mới giao</span><span class="badge ok">Đã xong</span>
+  </header>
+  <h3>Dựng sổ việc 3 cột, nhật ký trao đổi theo ngày và mẫu bản tin 08:00 / 17:30</h3>
+  <dl>
+    <div><dt>Phòng</dt><dd>Điều phối</dd></div>
+    <div><dt>Ngày giao</dt><dd>02:05 29/11</dd></div>
+    <div><dt>Hạn</dt><dd class="">02:15 29/11</dd></div>
+  </dl>
+  
+  <p class="note">Anh đồng ý hệ 6 điểm lúc 02:05 29/11, áp dụng ngay. File nội bộ, chưa đăng công khai, chưa gửi Lark. Bản Lark cho nhân viên là GN-241.</p>
+  <div class="links"><span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.md">Sổ việc</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/so-viec.html">Bản HTML (nội bộ)</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-nhat-ky-trao-doi/">Nhật ký trao đổi</span> · <span class="path" title="/workspace/kho-gnha/bo-nao-thu-2/00-so-viec/mau-ban-tin.md">Mẫu bản tin</span></div>
   <div class="goc">Mã gốc: t2520u</div>
 </article>
 </div>
@@ -694,29 +852,94 @@
     </div>
     <footer>
       <img src="data:image/png;base64,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" alt="Logo Gnhà" width="180" height="80">
-      <div>Gnhà · sổ việc nội bộ · không phát hành công khai · Chủ nhật 29/11/2026 02:15 (giờ VN, UTC+7)</div>
+      <div>Gnhà · sổ việc nội bộ · không phát hành công khai · Chủ nhật 29/11/2026 03:05 (giờ VN, UTC+7)</div>
     </footer>
   </div>
   <script>
     (function() {
-      var chips = document.querySelectorAll('.chip');
+      var roomChips = document.querySelectorAll('#chips-phong .chip');
+      var mucChips = document.querySelectorAll('#chips-muc .chip');
       var cards = document.querySelectorAll('.card');
-      function apply(filter) {
-        chips.forEach(function(c) {
-          c.classList.toggle('on', c.getAttribute('data-filter') === filter);
+      var label = document.getElementById('loc-label');
+      var room = '*', muc = '*';
+      function apply() {
+        roomChips.forEach(function(c) {
+          c.classList.toggle('on', c.getAttribute('data-filter') === room);
+        });
+        mucChips.forEach(function(c) {
+          c.classList.toggle('on', c.getAttribute('data-muc') === muc);
         });
         cards.forEach(function(card) {
           var rooms = (card.getAttribute('data-phong') || '').split(/\s+/);
-          var show = filter === '*' || rooms.indexOf(filter) !== -1;
-          card.classList.toggle('dim', !show);
+          var okRoom = room === '*' || rooms.indexOf(room) !== -1;
+          var okMuc = muc === '*' || card.getAttribute('data-muc') === muc;
+          card.classList.toggle('dim', !(okRoom && okMuc));
         });
+        var parts = ['Lọc'];
+        if (muc !== '*') parts.push(muc);
+        if (room !== '*') parts.push(room);
+        if (label) label.textContent = parts.join(' · ') + ' ▾';
       }
-      chips.forEach(function(chip) {
+      roomChips.forEach(function(chip) {
         chip.addEventListener('click', function() {
-          apply(chip.getAttribute('data-filter'));
+          room = chip.getAttribute('data-filter');
+          apply();
+        });
+      });
+      mucChips.forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          muc = chip.getAttribute('data-muc');
+          apply();
         });
       });
     })();
+    (function(){
+  function makeBtn(){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='thu-gon';
+    b.textContent='▲ Thu gọn';
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var d=b.closest('details');
+      if(!d)return;
+      d.open=false;
+      var s=d.querySelector('summary');
+      if(s&&s.scrollIntoView)s.scrollIntoView({block:'nearest',behavior:'smooth'});
+    });
+    return b;
+  }
+  function ensureBtn(d){
+    if(!d||!d.open)return;
+    if(d.querySelector(':scope > .thu-gon'))return;
+    var box=d.querySelector(':scope > .sec-body, :scope > .body, :scope > .glist, :scope > .tasks, :scope > .loc-body, :scope > .chi-tiet-body');
+    if(box){
+      if(!box.querySelector(':scope > .thu-gon')) box.appendChild(makeBtn());
+    }else{
+      d.appendChild(makeBtn());
+    }
+  }
+  function closeOthers(d){
+    if(d.classList.contains('loc')||d.classList.contains('chi-tiet'))return;
+    if(d.classList.contains('sec-fold')){
+      document.querySelectorAll('details.sec-fold').forEach(function(s){if(s!==d)s.open=false;});
+      return;
+    }
+    var p=d.parentElement;
+    if(!p)return;
+    Array.prototype.forEach.call(p.children,function(s){
+      if(s!==d && s.tagName==='DETAILS') s.open=false;
+    });
+  }
+  document.addEventListener('toggle',function(e){
+    var d=e.target;
+    if(!d||d.tagName!=='DETAILS')return;
+    if(d.open){closeOthers(d);ensureBtn(d);}
+  },true);
+  document.querySelectorAll('details').forEach(function(d){if(d.open)ensureBtn(d);});
+})();
+
   </script>
 </body>
 </html>
