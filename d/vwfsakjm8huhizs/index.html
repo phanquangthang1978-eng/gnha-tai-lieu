@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#4A3B39">
+<title>Kế hoạch Gnhà dẫn đầu cộng đồng AI · 30/11–06/12/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FD5D32; --orange-ink:#B8330F; --cream:#FFEFE7; --page:#FFF8F4;
+  --brown:#5E4646; --dark:#4A3B39; --white:#fff; --line:#F1D9CC; --peach:#FFC2AC;
+  --ok:#1E7A4C; --okbg:#E6F4EC; --warn:#8A4B00; --warnbg:#FFF1D6;
+  --shadow:0 6px 24px rgba(74,59,57,.08); --shadow-s:0 2px 8px rgba(74,59,57,.07);
+  --r:22px; --r-s:14px;
+  --font:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--dark);font-family:var(--font);font-size:16px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:8px}
+.top{padding-top:20px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:40px;width:auto;display:block}
+.brand .t{font-weight:800;font-size:16px;line-height:1.3;border-left:2px solid var(--line);padding-left:14px}
+.brand .t small{display:block;font-weight:500;color:var(--brown);font-size:16px}
+.chips{position:sticky;top:0;z-index:20;background:rgba(255,248,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.chips .scroll{display:flex;gap:10px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:1120px;margin:0 auto}
+.chips .scroll::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 16px 6px 8px;border-radius:999px;background:var(--white);border:1.5px solid var(--line);text-decoration:none;font-weight:600;font-size:16px;color:var(--dark);white-space:nowrap}
+.chip b{display:inline-grid;place-items:center;min-width:30px;height:30px;border-radius:999px;background:var(--cream);color:var(--orange-ink);font-size:16px;font-weight:800}
+.chip.first{padding-left:16px;background:var(--dark);color:#fff;border-color:var(--dark)}
+.chip.on{background:var(--orange);border-color:var(--orange);color:#1f1210}
+.chip.on b{background:#fff;color:var(--orange-ink)}
+.hero{margin:0;border-radius:28px;padding:28px 22px;color:#fff;background:radial-gradient(120% 90% at 100% 0%,#6a4f4b 0%,var(--dark) 55%,#3b2e2c 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--orange);opacity:.22}
+.hero>*{position:relative;z-index:1}
+.hero .hl{display:flex;align-items:center;gap:12px}
+.hero .hl img{height:34px;width:auto}
+.eyebrow{font-size:16px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--orange-ink)}
+.hero .eyebrow{color:var(--peach);margin-top:18px;display:block}
+.hero h1{font-size:30px;line-height:1.22;font-weight:800;margin-top:8px}
+.hero h1 em{font-style:normal;color:var(--peach)}
+.hero .lead{margin-top:14px;color:#f6e7df;font-size:17px}
+.quote{margin-top:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-s);padding:14px 16px;font-size:16px;color:#fff}
+.quote b{color:var(--peach)}
+.bignums{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.bn{background:#fff;color:var(--dark);border-radius:18px;padding:16px 14px}
+.bn .n{font-size:38px;font-weight:800;line-height:1;color:var(--orange-ink);letter-spacing:-.02em}
+.bn .l{margin-top:8px;font-weight:600;font-size:16px;line-height:1.35}
+.bn .s{display:block;font-weight:400;color:var(--brown);font-size:16px}
+.sec{padding:44px 0 8px;scroll-margin-top:70px}
+.sec>.wrap>.eyebrow{display:block}
+.sec h2{font-size:28px;line-height:1.2;font-weight:800;margin-top:6px}
+.sec .sub{margin-top:10px;color:var(--brown);font-size:17px;max-width:720px}
+.msg{margin-top:18px;background:var(--cream);border-left:6px solid var(--orange);border-radius:var(--r-s);padding:14px 16px}
+.msg .eyebrow{display:block;margin-bottom:4px}
+.msg p{font-size:17px;font-weight:600}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-s);padding:18px}
+.grid{display:grid;gap:14px;margin-top:20px}
+.g2{grid-template-columns:1fr}.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}
+.nl{display:grid;gap:12px;margin-top:20px}
+.nl li{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow-s)}
+.ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:20px;color:#fff;background:var(--orange-ink)}
+.ic.c2{background:var(--dark)}.ic.c3{background:#C2410C}.ic.c4{background:var(--brown)}.ic.c5{background:#1E7A4C}
+.nl h3{font-size:18px;line-height:1.3;font-weight:700}
+.nl p{margin-top:4px;color:var(--brown);font-size:16px}
+.tag{display:inline-block;margin-top:8px;margin-right:6px;padding:2px 10px;border-radius:999px;background:var(--cream);color:var(--orange-ink);font-weight:700;font-size:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow-s)}
+.stat .n{font-size:34px;font-weight:800;color:var(--dark);line-height:1.05;letter-spacing:-.02em}
+.stat .l{margin-top:6px;font-size:16px;color:var(--brown);line-height:1.4}
+.stat.hot{background:var(--orange);border-color:var(--orange)}
+.stat.hot .n,.stat.hot .l{color:#1f1210}
+.callout{display:flex;gap:14px;align-items:flex-start;border-radius:var(--r);padding:16px;margin-top:16px;background:var(--warnbg);border:1px solid #F3D49A;color:#4d2a00}
+.callout .ci{flex:0 0 40px;height:40px;border-radius:12px;background:#F0A23B;display:grid;place-items:center;font-weight:800;color:#2b1700;font-size:20px}
+.callout b{display:block;font-size:17px}
+.callout.ok{background:var(--okbg);border-color:#BFE3CF;color:#12432a}
+.callout.ok .ci{background:#3DB16F;color:#06210f}
+.bars{display:grid;gap:12px;margin-top:6px}
+.bar .row{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:16px}
+.bar .row span:last-child{font-weight:800}
+.track{height:14px;border-radius:999px;background:#F6E4DA;margin-top:6px;overflow:hidden;position:relative}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--orange),#FF8A5E);width:var(--w)}
+.fill.dk{background:linear-gradient(90deg,var(--dark),var(--brown))}
+.fill.g{background:linear-gradient(90deg,#1E7A4C,#3DB16F)}
+.zero{display:inline-block;margin:6px 8px 0 0;padding:2px 10px;border-radius:999px;border:1.5px dashed var(--line);color:var(--brown);font-weight:600;font-size:16px}
+.rings{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.ringcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px;text-align:center;box-shadow:var(--shadow-s)}
+.ring{--p:50;width:104px;height:104px;border-radius:50%;margin:0 auto;display:grid;place-items:center;background:conic-gradient(var(--orange) calc(var(--p)*1%),#F6E4DA 0)}
+.ring i{font-style:normal;width:78px;height:78px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;color:var(--dark)}
+.ring.dk{background:conic-gradient(var(--dark) calc(var(--p)*1%),#F6E4DA 0)}
+.ring.g{background:conic-gradient(#1E7A4C calc(var(--p)*1%),#F6E4DA 0)}
+.ringcard h4{margin-top:10px;font-size:16px;line-height:1.3;font-weight:700}
+.ringcard p{font-size:16px;color:var(--brown);line-height:1.4;margin-top:2px}
+.sim{margin-top:20px;background:var(--dark);color:#fff;border-radius:26px;padding:20px;box-shadow:var(--shadow)}
+.sim .eyebrow{color:var(--peach)}
+.sim h3{font-size:22px;line-height:1.25;margin-top:4px}
+.clockrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;flex-wrap:wrap}
+.clock{font-size:44px;font-weight:800;letter-spacing:.02em;color:var(--peach);font-variant-numeric:tabular-nums;line-height:1}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{min-height:46px;padding:10px 20px;border-radius:999px;border:0;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.p{background:var(--orange);color:#1f1210}
+.btn.s{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn.s.lt{background:#fff;color:var(--dark);border-color:var(--line)}
+.simlist{display:grid;gap:10px;margin-top:16px}
+.si{display:grid;grid-template-columns:70px 1fr;gap:12px;background:rgba(255,255,255,.08);border:1.5px solid transparent;border-radius:16px;padding:12px;transition:background .25s,border-color .25s,transform .25s}
+.si .tm{font-weight:800;font-size:18px;color:var(--peach);font-variant-numeric:tabular-nums}
+.si h4{font-size:16px;font-weight:700;line-height:1.35}
+.si p{font-size:16px;color:#ecd9cf;line-height:1.45;margin-top:2px}
+.si.urgent{border-color:rgba(253,93,50,.7)}
+.si.now{background:#fff;color:var(--dark);border-color:var(--orange);transform:scale(1.01)}
+.si.now .tm{color:var(--orange-ink)}.si.now p{color:var(--brown)}
+.si.done{opacity:.65}
+.badge{display:inline-block;margin-left:8px;padding:0 10px;border-radius:999px;background:var(--orange);color:#1f1210;font-weight:800;font-size:16px;vertical-align:1px}
+.tl{position:relative;margin-top:26px;padding-left:34px}
+.tl:before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:4px;border-radius:4px;background:linear-gradient(var(--orange),var(--peach))}
+.day{position:relative;margin-bottom:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow-s)}
+.day:before{content:"";position:absolute;left:-31px;top:20px;width:20px;height:20px;border-radius:50%;background:#fff;border:5px solid var(--orange)}
+.day.today:before{background:var(--orange)}
+.day .dh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.day .dd{font-weight:800;font-size:20px}
+.day .dw{font-weight:700;color:var(--orange-ink);font-size:16px}
+.day h3{font-size:17px;line-height:1.35;font-weight:700;margin-top:4px}
+.day ul{margin-top:10px;display:grid;gap:8px}
+.day li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:16px;line-height:1.5}
+.day li b{background:var(--cream);color:var(--orange-ink);border-radius:8px;padding:0 8px;font-variant-numeric:tabular-nums;white-space:nowrap;height:fit-content}
+.ctl{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.acc{display:grid;gap:12px;margin-top:16px}
+details.ac{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-s);overflow:hidden}
+details.ac summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:48px 1fr 32px;gap:12px;align-items:center;padding:14px 16px;min-height:72px}
+details.ac summary::-webkit-details-marker{display:none}
+details.ac .ic{width:48px;height:48px;font-size:16px;border-radius:13px}
+details.ac summary h3{font-size:17px;line-height:1.3;font-weight:700}
+details.ac summary p{font-size:16px;color:var(--brown);line-height:1.35}
+.chev{width:32px;height:32px;border-radius:50%;background:var(--cream);position:relative}
+.chev:before{content:"";position:absolute;left:10px;top:9px;width:9px;height:9px;border-right:3px solid var(--orange-ink);border-bottom:3px solid var(--orange-ink);transform:rotate(45deg);transition:transform .2s}
+details[open] .chev:before{transform:rotate(-135deg);top:13px}
+.tasks{padding:2px 16px 16px;display:grid;gap:10px}
+.task{border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;background:var(--page)}
+.task h4{font-size:16px;line-height:1.45;font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.meta span{display:inline-flex;gap:6px;font-size:16px;line-height:1.4;padding:2px 10px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.meta b{font-weight:800}
+.meta .due{background:var(--cream)}
+.meta .kpi{background:var(--okbg);border-color:#BFE3CF}
+.kpis{display:grid;gap:12px;margin-top:6px}
+.kpi-row{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow-s)}
+.kpi-row h3{font-size:17px;font-weight:700;line-height:1.3}
+.kpi-row .who{font-size:16px;color:var(--brown)}
+.dual{margin-top:10px;display:grid;gap:10px}
+.dual .lab{display:flex;justify-content:space-between;gap:8px;font-size:16px;font-weight:600}
+.dual .lab b{font-weight:800}
+.dual .track{margin-top:4px}
+.warns{display:grid;gap:12px;margin-top:20px}
+.wc{display:grid;grid-template-columns:44px 1fr;gap:14px;border-radius:var(--r);padding:16px;background:var(--warnbg);border:1px solid #F3D49A}
+.wc .wi{width:44px;height:44px;border-radius:12px;background:#F0A23B;display:grid;place-items:center;font-weight:800;color:#2b1700;font-size:20px}
+.wc h3{font-size:17px;line-height:1.3;font-weight:700;color:#4d2a00}
+.wc p{font-size:16px;margin-top:3px;color:#5b3a10}
+.wc.stop{background:#FDE7E1;border-color:#F5B9AA}.wc.stop .wi{background:#C73A14;color:#fff}.wc.stop h3{color:#6b1a06}.wc.stop p{color:#6b2a18}
+.wc.ok{background:var(--okbg);border-color:#BFE3CF}.wc.ok .wi{background:#3DB16F;color:#06210f}.wc.ok h3{color:#12432a}.wc.ok p{color:#1d4f35}
+.curve{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 10px 6px;box-shadow:var(--shadow-s)}
+.curve svg{display:block;width:100%;height:auto}
+.steps{display:grid;gap:12px;margin-top:14px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow-s)}
+.step .wk{display:inline-block;background:var(--dark);color:#fff;border-radius:999px;padding:2px 14px;font-weight:800;font-size:16px}
+.step h3{font-size:18px;font-weight:700;margin-top:8px;line-height:1.3}
+.step p{font-size:16px;color:var(--brown);margin-top:6px}
+.step .ms{margin-top:10px;font-weight:700;font-size:16px;color:var(--ok)}
+.cta{margin:40px 0 0;border-radius:28px;background:linear-gradient(135deg,var(--orange) 0%,#E8481F 100%);color:#1f1210;padding:26px 22px;box-shadow:var(--shadow)}
+.cta .eyebrow{color:#3d1308}
+.cta h2{font-size:26px;line-height:1.2;font-weight:800;margin-top:6px}
+.cta p{margin-top:10px;font-size:17px;font-weight:500}
+.cta .btn{background:var(--dark);color:#fff;margin-top:16px}
+.cta .btn.l{background:#fff;color:var(--dark);margin-left:8px}
+footer{padding:26px 0 40px;color:var(--brown);font-size:16px}
+footer .fl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+footer img{height:28px;width:auto}
+footer p{margin-top:8px}
+@media (min-width:700px){
+  .chips .scroll{gap:8px}.chip{padding-right:14px}
+  .hero{padding:44px 40px}.hero h1{font-size:42px}
+  .bignums{grid-template-columns:repeat(4,1fr)}
+  .g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+  .nl{grid-template-columns:1fr 1fr}.nl li:first-child{grid-column:1/-1}
+  .rings{grid-template-columns:repeat(4,1fr)}
+  .warns{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .kpis{grid-template-columns:1fr 1fr}
+  .acc{grid-template-columns:1fr 1fr;align-items:start}
+  .sec h2{font-size:34px}
+  .simlist{grid-template-columns:1fr 1fr}
+  .tl{max-width:860px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.si{transition:none}}
+</style>
+</head>
+<body id="top">
+<header class="wrap top">
+  <div class="brand">
+    <img src="data:image/png;base64,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" alt="Gnhà">
+    <div class="t">Kế hoạch Gnhà dẫn đầu cộng đồng AI<small>Bản cho nhân viên · tuần 30/11–06/12/2026</small></div>
+  </div>
+</header>
+
+<nav class="chips" aria-label="Mục lục">
+  <div class="scroll">
+    <a class="chip first" href="#top">Mục lục</a>
+    <a class="chip" href="#tom-tat"><b>01</b>Tóm tắt</a>
+    <a class="chip" href="#hien-trang"><b>02</b>Hiện trạng</a>
+    <a class="chip" href="#mot-cau"><b>03</b>Một câu</a>
+    <a class="chip" href="#lich-7-ngay"><b>04</b>Lịch 7 ngày</a>
+    <a class="chip" href="#phong-ban"><b>05</b>Từng phòng</a>
+    <a class="chip" href="#chi-so"><b>06</b>Chỉ số</a>
+    <a class="chip" href="#quy-tac"><b>07</b>Quy tắc</a>
+    <a class="chip" href="#lo-trinh"><b>08</b>30 ngày</a>
+  </div>
+</nav>
+
+<main>
+<section class="sec" id="tom-tat" style="padding-top:18px">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hl"><img src="data:image/png;base64,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" alt="Gnhà"></div>
+      <span class="eyebrow">Mục tiêu 7 ngày · 30/11–06/12/2026</span>
+      <h1>Để Google, AI và mạng xã hội cùng hiểu <em>một câu</em> về Gnhà</h1>
+      <p class="lead">Sau đó dùng cộng đồng AI (Fanpage, thử thách, bộ prompt miễn phí, cổng MCP) để người làm AI tự nhắc tên Gnhà.</p>
+      <div class="quote"><b>Câu chuẩn:</b> «Gnhà là thương hiệu của Công ty TNHH Pháp Lý Giải Pháp Tài Chính (hoạt động từ 2015), do Công ty Cổ phần Gnhà vận hành.»</div>
+      <div class="bignums">
+        <div class="bn"><div class="n">10.925</div><div class="l">lượt bấm từ Google về gnha.vn<span class="s">tuần 21–27/11</span></div></div>
+        <div class="bn"><div class="n">140</div><div class="l">ô đo điểm gốc<span class="s">20 câu × 7 AI</span></div></div>
+        <div class="bn"><div class="n">10</div><div class="l">bài Fanpage «Gnhà AI»<span class="s">trong tuần 1</span></div></div>
+        <div class="bn"><div class="n">30</div><div class="l">ngày lộ trình<span class="s">30/11–29/12</span></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:34px"><span class="eyebrow">01 · Tóm tắt</span>
+    <h2>5 việc quan trọng nhất tuần này</h2></div>
+    <ol class="nl">
+      <li><div class="ic">1</div><div><h3>Thứ Hai 30/11: anh Huy làm gấp 3 việc</h3><p>Sửa câu giới thiệu cũ trên meta và JSON-LD (t100094); đặt llms.txt; mở cổng MCP giai đoạn 1 (t100095).</p><span class="tag">10:30 meta</span><span class="tag">11:30 llms.txt</span><span class="tag">17:00 cổng MCP</span></div></li>
+      <li><div class="ic c2">2</div><div><h3>Đo ĐIỂM GỐC trước khi web đổi</h3><p>20 câu × 7 AI = 140 ô, sáng 30/11, để cuối tuần biết thật là có tiến bộ hay không.</p></div></li>
+      <li><div class="ic c3">3</div><div><h3>Một câu định nghĩa thống nhất ở mọi nơi</h3><p>Trang chủ, Giới thiệu, Bảng giá, bio Facebook, TikTok, YouTube, Zalo OA, Google Business Profile; dọn hết câu mâu thuẫn trước 02/12.</p></div></li>
+      <li><div class="ic c4">4</div><div><h3>Mở Fanpage «Gnhà AI – Pháp lý nhà đất»</h3><p>Cùng Thử thách «Hỏi AI một thửa đất» và bộ 12 prompt miễn phí (30/11–02/12); 10 bài trong tuần.</p></div></li>
+      <li><div class="ic c5">5</div><div><h3>Lấp chỗ trống trên Google</h3><p>Cụm bài cha–con «Kiểm tra pháp lý nhà đất trước khi đặt cọc» (3 bài trong tuần), cùng JSON-LD hỏi đáp (t100107) lên sản xuất 02/12.</p></div></li>
+    </ol>
+    <div class="callout" style="margin-top:18px"><div class="ci">!</div><div><b>Việc cần anh Thắng duyệt</b>Chi tiền chỉ sau khi có báo giá bằng văn bản. Hồ sơ báo chí gửi ra ngoài chỉ khi anh duyệt từng nơi nhận. Các việc khác anh đã quyết ngày 29/11.</div></div>
+  </div>
+</section>
+
+<section class="sec" id="hien-trang">
+  <div class="wrap">
+    <span class="eyebrow">02 · Nhóm A · Bức tranh tổng</span>
+    <h2>Hiện trạng và điểm gốc: số thật, không bịa</h2>
+    <p class="sub">Số đo ngày 29/11/2026 từ Google Search Console, Google Analytics 4 và các lần hỏi AI ngày 27–28/11.</p>
+    <div class="msg"><span class="eyebrow">Thông điệp</span><p>Google đã đưa nhiều người về gnha.vn, nhưng chủ đề pháp lý trước đặt cọc gần như trống. AI chỉ nhắc đúng Gnhà khi người hỏi đã gõ tên Gnhà.</p></div>
+
+    <div class="grid g4">
+      <div class="stat"><div class="n">10.925</div><div class="l">lượt bấm, 21–27/11</div></div>
+      <div class="stat"><div class="n">204.892</div><div class="l">lượt hiện, CTR 5,33%</div></div>
+      <div class="stat"><div class="n">6,68</div><div class="l">vị trí trung bình trên Google</div></div>
+      <div class="stat hot"><div class="n">1</div><div class="l">lượt bấm / 28 ngày ở cụm «pháp lý trước đặt cọc»: chỗ trống lớn nhất</div></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="font-size:19px">Lượt truy cập từ AI (GA4, 31/10–28/11)</h3>
+        <div class="bars" style="margin-top:14px">
+          <div class="bar"><div class="row"><span>chatgpt.com</span><span>86 phiên</span></div><div class="track"><div class="fill" style="--w:100%"></div></div></div>
+          <div class="bar"><div class="row"><span>gemini.google.com</span><span>54 phiên</span></div><div class="track"><div class="fill" style="--w:63%"></div></div></div>
+          <div><span class="zero">perplexity 0</span><span class="zero">claude 0</span><span class="zero">copilot 0</span><span class="zero">grok 0</span></div>
+        </div>
+        <p style="margin-top:12px;color:var(--brown)">Đây là mức gốc: 86 + 54 = 140 phiên trong 29 ngày. Google vẫn là nguồn lớn nhất (41.580 phiên).</p>
+      </div>
+      <div class="card">
+        <h3 style="font-size:19px">Từ khóa thương hiệu (31/10–27/11)</h3>
+        <div class="bars" style="margin-top:14px">
+          <div class="bar"><div class="row"><span>«gnha»</span><span>504 bấm · vị trí 1,09</span></div><div class="track"><div class="fill g" style="--w:100%"></div></div></div>
+          <div class="bar"><div class="row"><span>«gnha.vn»</span><span>67 bấm</span></div><div class="track"><div class="fill g" style="--w:13%"></div></div></div>
+          <div class="bar"><div class="row"><span>«g nhà» (có dấu)</span><span>34 bấm · vị trí 3,6</span></div><div class="track"><div class="fill" style="--w:7%"></div></div></div>
+        </div>
+        <p style="margin-top:12px;color:var(--brown)">Gõ có dấu «g nhà» mới đứng thứ 3,6: cần củng cố.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:26px"><span class="eyebrow">AI nhắc Gnhà</span><h3 style="font-size:22px;margin-top:4px">Số câu có nhắc đúng Gnhà (trên 6 câu hỏi)</h3></div>
+    <div class="rings" style="margin-top:14px">
+      <div class="ringcard"><div class="ring" style="--p:50"><i>3/6</i></div><h4>ChatGPT</h4><p>Không gõ tên: 0/3</p></div>
+      <div class="ringcard"><div class="ring" style="--p:50"><i>3/6</i></div><h4>Claude</h4><p>Không gõ tên: 0/3</p></div>
+      <div class="ringcard"><div class="ring dk" style="--p:33"><i>2/6</i></div><h4>Google AI</h4><p>Không gõ tên: 1/3</p></div>
+      <div class="ringcard"><div class="ring dk" style="--p:17"><i>1/6</i></div><h4>Gemini</h4><p>Không gõ tên: 0/3</p></div>
+    </div>
+    <p class="sub" style="margin-top:12px">Chưa hỏi được: Meta AI, TikTok search, Perplexity. Mọi lần đo phải ở cửa sổ ẩn danh, chưa đăng nhập, không bộ nhớ.</p>
+
+    <div style="margin-top:28px"><span class="eyebrow">Nhóm B · Lỗi niềm tin</span><h3 style="font-size:22px;margin-top:4px">5 lỗi các AI nêu và cách xử lý</h3></div>
+    <div class="acc">
+      <details class="ac" open><summary><div class="ic">1</div><div><h3>Hai tên pháp nhân</h3><p>Dễ gây hiểu nhầm là hai công ty</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Dùng đúng một câu sở hữu ở mọi nơi (mục 03).</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c2">2</div><div><h3>Mốc năm lệch nhau</h3><p>Các trang ghi 2015, 2021, 2022</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>«Hoạt động từ 2015» chỉ nói về Công ty TNHH Pháp Lý Giải Pháp Tài Chính. Mốc của Công ty Cổ phần Gnhà ghi theo giấy đăng ký doanh nghiệp. Xóa mọi chỗ ghi «thành lập 2022».</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c3">3</div><div><h3>Câu quá mạnh</h3><p>AI xem là chưa kiểm chứng</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Xóa hoặc thay bằng việc làm được, có nguồn.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c4">4</div><div><h3>Bộ đếm khách không kiểm được</h3><p>Số liệu tự mâu thuẫn</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Chỉ giữ một bộ số có nguồn và ngày, hoặc bỏ.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c5">5</div><div><h3>Đánh giá chưa kiểm chứng</h3><p>Ứng dụng có ít đánh giá</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Trả lời đánh giá lỗi; mời khách hài lòng đánh giá theo mẫu đã duyệt; không tự đăng đánh giá.</h4></div></div></details>
+    </div>
+
+    <div class="callout"><div class="ci">i</div><div><b>Lưu ý trung thực về llms.txt</b>Google Search công bố không dùng file này; OpenAI, Anthropic, Perplexity, Bing chưa có tuyên bố chính thức là có đọc (tra cứu 29/11/2026). File vẫn nên làm vì rẻ. Sức nặng thật nằm ở: trang web có định nghĩa rõ, dữ liệu có cấu trúc, bài của bên thứ ba nhắc Gnhà và cổng MCP.</div></div>
+  </div>
+</section>
+
+<section class="sec" id="mot-cau">
+  <div class="wrap">
+    <span class="eyebrow">03 · Nhóm C · Định nghĩa chuẩn</span>
+    <h2>Một câu về Gnhà, dùng thống nhất mọi nơi</h2>
+    <p class="sub">Các khối chữ chuẩn do Phúc Trí và Công Lý duyệt 09:30 ngày 30/11, sau đó đóng băng. Ai muốn sửa phải qua điều phối.</p>
+    <div class="msg"><span class="eyebrow">Câu sở hữu (dán nguyên văn)</span><p>Gnhà là thương hiệu của Công ty TNHH Pháp Lý Giải Pháp Tài Chính (hoạt động từ 2015), do Công ty Cổ phần Gnhà vận hành.</p></div>
+    <div class="msg" style="border-left-color:var(--dark)"><span class="eyebrow" style="color:var(--dark)">Câu 1 · một câu định nghĩa</span><p>Gnhà là nền tảng pháp lý nhà đất: tra cứu thông tin pháp lý bất động sản theo từng thửa, kèm luật sư rà soát ở các gói có chuyên viên.</p></div>
+    <div class="msg" style="border-left-color:var(--brown)"><span class="eyebrow" style="color:var(--brown)">Khẩu hiệu cho cộng đồng AI</span><p>«Gnhà – nền tảng pháp lý nhà đất vận hành bằng cả một đội AI.» Nhóm Zalo công ty và nhóm môi giới thì bỏ cụm «vận hành bằng cả một đội AI».</p></div>
+
+    <div class="warns">
+      <div class="wc ok"><div class="wi">✓</div><div><h3>Viết tên «Gnhà» có dấu</h3><p>«gnha.vn» chỉ dùng khi là tên miền. Các cách viết khác chỉ nằm trong dữ liệu có cấu trúc để máy hiểu.</p></div></div>
+      <div class="wc"><div class="wi">!</div><div><h3>«Hoạt động từ 2015» có phạm vi riêng</h3><p>Chỉ gắn với Công ty TNHH Pháp Lý Giải Pháp Tài Chính. Không viết số năm kinh nghiệm.</p></div></div>
+      <div class="wc"><div class="wi">!</div><div><h3>Không dùng từ tuyệt đối</h3><p>Không so sánh nhất, không khẳng định khi không có bằng chứng. Dùng «thưởng giới thiệu» cho chương trình giới thiệu.</p></div></div>
+      <div class="wc"><div class="wi">!</div><div><h3>Không gọi Gnhà là công ty bất động sản</h3><p>Gnhà là nền tảng tra cứu pháp lý. Mảng nhà đất ghi: trang đăng tin chính chủ.</p></div></div>
+      <div class="wc ok"><div class="wi">✓</div><div><h3>Mọi kết quả tra cứu kèm một câu</h3><p>«Kết quả tham khảo, luật sư kết luận.»</p></div></div>
+      <div class="wc"><div class="wi">₫</div><div><h3>Giá, đúng một cách nói</h3><p>«Giá sáng lập 990.000đ năm đầu, áp dụng đến hết 30/11. Từ 01/12: 1.990.000đ/năm.» Blog không ghi giá, không đếm ngược, không đếm suất.</p></div></div>
+    </div>
+
+    <div style="margin-top:26px"><span class="eyebrow">Nơi cần cập nhật</span><h3 style="font-size:22px;margin-top:4px">Ai làm gì, hạn khi nào</h3></div>
+    <ol class="nl">
+      <li><div class="ic">1</div><div><h3>Trang chủ: meta, og, JSON-LD</h3><p>Anh Huy sửa (t100094), Vĩnh An đo từ ngoài.</p><span class="tag">30/11 10:30</span></div></li>
+      <li><div class="ic c2">2</div><div><h3>llms.txt tại gnha.vn/llms.txt</h3><p>Anh Huy đặt file đã soạn; Vĩnh An kiểm: HTTP 200, chữ đúng từng dòng.</p><span class="tag">30/11 11:30</span></div></li>
+      <li><div class="ic c3">3</div><div><h3>JSON-LD Organization + FAQPage, mục «Giới thiệu», «Bảng giá»</h3><p>Anh Huy đưa lên (t100107); Kim Quý viết chữ; Phúc Trí và Công Lý duyệt.</p><span class="tag">02/12 12:00 sản xuất</span></div></li>
+      <li><div class="ic c4">4</div><div><h3>Facebook Page, TikTok, YouTube, Zalo OA, Lemon8, Google Business Profile</h3><p>Phát Lộc, Mỹ Mỹ cập nhật bio; Thu Hà kiểm khớp bản chuẩn 100%.</p><span class="tag">01–02/12</span></div></li>
+      <li><div class="ic c5">5</div><div><h3>Bài «Gnhà là gì?» đã đăng</h3><p>Kim Quý thêm câu sở hữu chuẩn ở đoạn đầu và FAQPage; Công Lý kiểm.</p><span class="tag">02/12</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="lich-7-ngay">
+  <div class="wrap">
+    <span class="eyebrow">04 · Nhóm D · Lịch 7 ngày</span>
+    <h2>Bảng việc theo ngày, 30/11–06/12</h2>
+    <p class="sub">Giờ Việt Nam. Mỗi mốc có người làm và người kiểm. Chi tiết từng phòng ở mục 05.</p>
+
+    <div class="sim" id="sim">
+      <span class="eyebrow">Mô phỏng thứ Hai 30/11</span>
+      <h3>Một ngày làm việc, từ 08:00 đến 20:00</h3>
+      <div class="clockrow">
+        <div class="clock" id="clock">08:00</div>
+        <div class="btns"><button class="btn p" id="simbtn" type="button">▶ Chạy mô phỏng</button><button class="btn s" id="simreset" type="button">↺ Về đầu</button></div>
+      </div>
+      <div class="simlist" id="simlist">
+        <div class="si" data-t="08:00"><div class="tm">08:00</div><div><h4>Tin Lark cho anh Huy</h4><p>Mai Minh gửi 3 việc gấp, có hạn giờ.</p></div></div>
+        <div class="si" data-t="08:30"><div class="tm">08:30</div><div><h4>Đo ĐIỂM GỐC: 140 ô</h4><p>Tuệ Nhi đo trước khi web đổi, cửa sổ ẩn danh.</p></div></div>
+        <div class="si" data-t="09:30"><div class="tm">09:30</div><div><h4>Duyệt chữ chuẩn</h4><p>Phúc Trí chấm ≥ 8, Công Lý «ĐẠT» cho định nghĩa và llms.txt.</p></div></div>
+        <div class="si urgent" data-t="10:30"><div class="tm">10:30</div><div><h4>Sửa meta và JSON-LD <span class="badge">Hạn gấp</span></h4><p>Anh Huy (t100094). Vĩnh An đo ngay khi anh báo.</p></div></div>
+        <div class="si urgent" data-t="11:30"><div class="tm">11:30</div><div><h4>llms.txt lên mạng <span class="badge">Hạn gấp</span></h4><p>Anh Huy. Đồng thời Phát Lộc đăng bài #1 Fanpage «Gnhà AI».</p></div></div>
+        <div class="si urgent" data-t="17:00"><div class="tm">17:00</div><div><h4>Cổng MCP giai đoạn 1 <span class="badge">Hạn gấp</span></h4><p>Anh Huy mở cổng, anh Nam kiểm bảo mật; t100107 lên staging.</p></div></div>
+        <div class="si" data-t="17:30"><div class="tm">17:30</div><div><h4>Vĩnh An đo cổng từ ngoài</h4><p>7 điều nghiệm thu; ghi kết quả vào phiếu.</p></div></div>
+        <div class="si" data-t="20:00"><div class="tm">20:00</div><div><h4>Bài #2: Thử thách #1</h4><p>Phát Lộc đăng; Phúc Trí và Công Lý đã chấm trước.</p></div></div>
+      </div>
+    </div>
+
+    <div class="tl" id="tl">
+      <div class="day today"><div class="dh"><span class="dd">30/11</span><span class="dw">Thứ Hai</span></div><h3>Ngày cuối giá sáng lập. Việc gấp của anh Huy, đo điểm gốc, mở Fanpage «Gnhà AI»</h3>
+        <ul><li><b>08:00</b><span>Tin Lark cho anh Huy; 17:45 báo cáo ngày.</span></li><li><b>08:30</b><span>Tuệ Nhi đo điểm gốc 20 câu × 7 AI.</span></li><li><b>09:00</b><span>Phát Lộc tạo Fanpage, bio, hạng mục.</span></li><li><b>11:30</b><span>Bài #1 «Chào cộng đồng: đây là đội AI của Gnhà».</span></li><li><b>20:00</b><span>Bài #2: Thử thách #1 (đề, lời giải sau 48 giờ).</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">01/12</span><span class="dw">Thứ Ba</span></div><h3>Giá chuyển sang 1.990.000đ/năm. Bio thống nhất, thửa mẫu, clip 1</h3>
+        <ul><li><b>00:05</b><span>Vĩnh An đo trang Hội viên đã sang giá mới.</span></li><li><b>09:00</b><span>Thử cổng MCP từ 3 ứng dụng: Claude, Cursor, ChatGPT connector.</span></li><li><b>11:30</b><span>Bài #3: hỏi một AI tìm kiếm về một thửa đất, trích nguyên văn.</span></li><li><b>13:00</b><span>Cập nhật bio mọi kênh theo bản chuẩn.</span></li><li><b>19:20</b><span>Đăng clip 1 (45 giây), chỉ khi đã qua cổng chấm.</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">02/12</span><span class="dw">Thứ Tư</span></div><h3>Lên sản xuất: khung H2, JSON-LD, chữ mới. Công bố 12 prompt và lời giải Thử thách #1</h3>
+        <ul><li><b>11:20</b><span>Clip 2 «Hỏi AI một thửa đất» (bài ngăn chặn).</span></li><li><b>11:30</b><span>Bài #4: 12 prompt kiểm tra pháp lý trước cọc, tải miễn phí.</span></li><li><b>12:00</b><span>Anh Huy đưa t100107, Giới thiệu, Bảng giá lên sản xuất; 12:30 Vĩnh An đo.</span></li><li><b>20:00</b><span>Bài #5: lời giải Thử thách #1 (luật sư ký).</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">03/12</span><span class="dw">Thứ Năm</span></div><h3>Trợ lý Gemini bản 1, bài kiến thức, Radar số 1</h3>
+        <ul><li><b>Cả ngày</b><span>Tạo Gem «Gnhà – Pháp lý nhà đất»; Tuệ Nhi thử 20 câu.</span></li><li><b>11:30</b><span>Bài #6: ngăn chặn, kê biên, thế chấp.</span></li><li><b>19:20</b><span>Clip 3 nếu qua cổng.</span></li><li><b>20:00</b><span>Bài #7: Gnhà Radar #1 (văn bản mới tuần này).</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">04/12</span><span class="dw">Thứ Sáu</span></div><h3>Đo lần 2 so với điểm gốc, báo cáo tuần</h3>
+        <ul><li><b>08:30</b><span>Tuệ Nhi đo lần 2, cùng cách đo như 30/11.</span></li><li><b>11:30</b><span>Bài #8: hậu trường đội AI (đã che dữ liệu).</span></li><li><b>14:00</b><span>Thu Hà chốt số Search Console.</span></li><li><b>17:45</b><span>Báo cáo tuần cho anh Thắng; chốt chỉ tiêu tuần 2.</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">05/12</span><span class="dw">Thứ Bảy</span></div><h3>Nhẹ ngày cuối tuần: giữ nhịp, không dồn việc</h3>
+        <ul><li><b>11:30</b><span>Bài #9: Thử thách #2 (sổ sạch nhưng chủ nhà đang vướng án).</span></li><li><b>19:20</b><span>Video hậu trường nếu qua cổng.</span></li><li><b>Cả ngày</b><span>Kim Quý viết lịch bài tuần 2 theo nhịp cố định.</span></li></ul></div>
+      <div class="day"><div class="dh"><span class="dd">06/12</span><span class="dw">Chủ nhật</span></div><h3>Chốt tuần 1, mở tuần 2</h3>
+        <ul><li><b>11:30</b><span>Bài #10 «Gọi các nhà làm AI cùng Gnhà», chỉ khi cổng MCP đã nghiệm thu; nếu chưa xong thì thay bằng bài hỏi đáp trong tuần.</span></li><li><b>20:00</b><span>Thu Hà tổng hợp tuần vào một bảng, so với chỉ tiêu.</span></li><li><b>Cả ngày</b><span>Phúc Trí và Công Lý soát toàn bộ bài tuần 2.</span></li></ul></div>
+    </div>
+    <div class="callout ok"><div class="ci">✓</div><div><b>Nhịp từ tuần 2</b>T2 Radar · T3 Thử thách mới · T4 Prompt của tuần · T5 Lời giải · T6 Hỏi đáp trong tuần · T7 Hậu trường · CN Hội viên hoặc câu chuyện ẩn danh (ghi «ví dụ minh họa» nếu dựng).</div></div>
+  </div>
+</section>
+
+<section class="sec" id="phong-ban">
+  <div class="wrap">
+    <span class="eyebrow">05 · Nhóm E · Việc từng phòng</span>
+    <h2>Mỗi phòng làm gì, ai phụ trách, hạn, đo bằng gì</h2>
+    <p class="sub">Bấm vào tên phòng để mở. Mỗi việc có ba ô: người phụ trách, hạn, cách đo.</p>
+    <div class="ctl"><button class="btn p" id="openall" type="button">Mở hết</button><button class="btn s lt" id="closeall" type="button">Thu gọn hết</button></div>
+    <div class="acc" id="depts">
+
+      <details class="ac" open><summary><div class="ic">W</div><div><h3>Web · anh Huy, anh Nam</h3><p>3 việc gấp thứ Hai, sản xuất 02/12</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Sửa meta, og, twitter và JSON-LD trang chủ (t100094)</h4><div class="meta"><span class="who"><b>Ai:</b> anh Huy</span><span class="due"><b>Hạn:</b> 30/11 10:30</span><span class="kpi"><b>Đo:</b> 0 lần câu cũ trong mã nguồn; Rich Results Test</span></div></div>
+        <div class="task"><h4>Đặt llms.txt tại gnha.vn/llms.txt</h4><div class="meta"><span class="who"><b>Ai:</b> anh Huy</span><span class="due"><b>Hạn:</b> 30/11 11:30</span><span class="kpi"><b>Đo:</b> HTTP 200, text/plain, chữ đúng từng dòng</span></div></div>
+        <div class="task"><h4>Cổng MCP công khai giai đoạn 1 (t100095); anh Nam kiểm bảo mật và mở mạng</h4><div class="meta"><span class="who"><b>Ai:</b> anh Huy, anh Nam</span><span class="due"><b>Hạn:</b> 30/11 17:00</span><span class="kpi"><b>Đo:</b> 7 điều nghiệm thu, Vĩnh An đo 17:30</span></div></div>
+        <div class="task"><h4>t100107 lên staging, rồi sản xuất cùng Giới thiệu và Bảng giá</h4><div class="meta"><span class="who"><b>Ai:</b> anh Huy</span><span class="due"><b>Hạn:</b> staging 30/11 17:00; sản xuất 02/12 12:00</span><span class="kpi"><b>Đo:</b> ảnh mobile 390 px; Vĩnh An đo 12:30</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c2">IT</div><div><h3>IT · Vĩnh An</h3><p>Đo từ ngoài sau mỗi mốc</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Đo hiện trạng; đo ngay khi anh Huy báo xong từng mốc</h4><div class="meta"><span class="who"><b>Ai:</b> Vĩnh An</span><span class="due"><b>Hạn:</b> 30/11 09:00, 10:30, 11:30, 17:30</span><span class="kpi"><b>Đo:</b> ảnh chụp + mã HTTP + dòng ghi vào phiếu</span></div></div>
+        <div class="task"><h4>Đo trang Hội viên đã sang giá mới; thử cổng MCP từ 3 ứng dụng</h4><div class="meta"><span class="who"><b>Ai:</b> Vĩnh An</span><span class="due"><b>Hạn:</b> 01/12 00:05 và 09:00</span><span class="kpi"><b>Đo:</b> nhật ký gọi thử</span></div></div>
+        <div class="task"><h4>Đo bản sản xuất: Rich Results Test, không còn chữ sai</h4><div class="meta"><span class="who"><b>Ai:</b> Vĩnh An</span><span class="due"><b>Hạn:</b> 02/12 12:30</span><span class="kpi"><b>Đo:</b> báo cáo đo 1 trang</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c3">NC</div><div><h3>Nghiên cứu · Tuệ Nhi</h3><p>Điểm gốc 140 ô, đo lại ngày 04/12</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Đo ĐIỂM GỐC: 20 câu × 7 AI, cửa sổ ẩn danh, chưa đăng nhập</h4><div class="meta"><span class="who"><b>Ai:</b> Tuệ Nhi; Thu Hà, Phúc Trí kiểm</span><span class="due"><b>Hạn:</b> 30/11 12:00; kiểm 15:30</span><span class="kpi"><b>Đo:</b> file CSV + ảnh chụp từng ô, ghi giờ</span></div></div>
+        <div class="task"><h4>Danh sách ít nhất 5 bài báo hoặc nguồn độc lập nhắc Gnhà</h4><div class="meta"><span class="who"><b>Ai:</b> Tuệ Nhi</span><span class="due"><b>Hạn:</b> 01/12 17:00</span><span class="kpi"><b>Đo:</b> bảng nguồn, link mở được</span></div></div>
+        <div class="task"><h4>Đo lần 2, so từng ô với điểm gốc</h4><div class="meta"><span class="who"><b>Ai:</b> Tuệ Nhi</span><span class="due"><b>Hạn:</b> 04/12 12:00</span><span class="kpi"><b>Đo:</b> bảng so sánh điểm gốc và lần 2</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c4">MX</div><div><h3>Mạng xã hội · Phát Lộc</h3><p>Fanpage «Gnhà AI», 10 bài tuần 1</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Tạo Fanpage «Gnhà AI – Pháp lý nhà đất»; đăng bài #1 lúc 11:30 và #2 lúc 20:00</h4><div class="meta"><span class="who"><b>Ai:</b> Phát Lộc</span><span class="due"><b>Hạn:</b> 30/11</span><span class="kpi"><b>Đo:</b> Page có bài; ảnh chụp trang</span></div></div>
+        <div class="task"><h4>Cập nhật bio Facebook, TikTok, YouTube, Zalo OA, Lemon8</h4><div class="meta"><span class="who"><b>Ai:</b> Phát Lộc; Thu Hà kiểm</span><span class="due"><b>Hạn:</b> 01/12 14:30</span><span class="kpi"><b>Đo:</b> khớp bản chuẩn 100%</span></div></div>
+        <div class="task"><h4>Đăng bài #3 đến #10 theo lịch 7 ngày</h4><div class="meta"><span class="who"><b>Ai:</b> Phát Lộc; Phúc Trí, Công Lý chấm trước</span><span class="due"><b>Hạn:</b> 01/12–06/12</span><span class="kpi"><b>Đo:</b> bài đăng, lượt xem, bình luận</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c5">NS</div><div><h3>Nội dung Hội viên · Kim Quý</h3><p>Hỏi đáp, 12 prompt, bài cha–con</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Viết 6 câu hỏi đáp (FAQPage) và khối «Gnhà là gì»; viết 12 prompt</h4><div class="meta"><span class="who"><b>Ai:</b> Kim Quý</span><span class="due"><b>Hạn:</b> 30/11 12:00</span><span class="kpi"><b>Đo:</b> đủ chữ, đúng quy tắc, Phúc Trí duyệt</span></div></div>
+        <div class="task"><h4>Chữ mới cho Giới thiệu và Bảng giá; nháp bài cha «Kiểm tra pháp lý nhà đất trước khi đặt cọc»</h4><div class="meta"><span class="who"><b>Ai:</b> Kim Quý</span><span class="due"><b>Hạn:</b> 01/12 17:00</span><span class="kpi"><b>Đo:</b> Phúc Trí ≥ 8</span></div></div>
+        <div class="task"><h4>Hoàn bài cha; bài con 1 và 2 (ngày 03/12), bài con 3 (ngày 04/12)</h4><div class="meta"><span class="who"><b>Ai:</b> Kim Quý; Công Lý soát</span><span class="due"><b>Hạn:</b> 02/12–04/12</span><span class="kpi"><b>Đo:</b> 3–5 link nội bộ mỗi bài; về bài cha</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic">HM</div><div><h3>Hình ảnh · Họa Mi</h3><p>Avatar, ảnh đề, PDF prompt</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Avatar và ảnh bìa Fanpage; ảnh đề Thử thách #1</h4><div class="meta"><span class="who"><b>Ai:</b> Họa Mi</span><span class="due"><b>Hạn:</b> 30/11 11:00 và 16:00</span><span class="kpi"><b>Đo:</b> tự chấm ≥ 8; logo nguyên vẹn</span></div></div>
+        <div class="task"><h4>Dàn PDF 12 prompt; infographic ngăn chặn, kê biên, thế chấp</h4><div class="meta"><span class="who"><b>Ai:</b> Họa Mi</span><span class="due"><b>Hạn:</b> 01/12 12:00 và 16:00</span><span class="kpi"><b>Đo:</b> PDF đọc đúng dấu</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c2">VD</div><div><h3>Video · Phim Phim</h3><p>4 clip trong tuần, qua cổng chấm</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Kịch bản clip 1 «Hỏi AI một thửa đất» (45 giây); dựng; đăng 01/12 19:20</h4><div class="meta"><span class="who"><b>Ai:</b> Phim Phim</span><span class="due"><b>Hạn:</b> 30/11 viết; 01/12 đăng</span><span class="kpi"><b>Đo:</b> Phúc Trí ≥ 8 và Gemini TB ≥ 7,5</span></div></div>
+        <div class="task"><h4>Clip 2 (02/12 11:20), clip 3 (03/12 19:20), clip 4 (04/12 11:20)</h4><div class="meta"><span class="who"><b>Ai:</b> Phim Phim</span><span class="due"><b>Hạn:</b> trước mỗi khe giờ</span><span class="kpi"><b>Đo:</b> qua cổng chấm mới đăng</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c3">HH</div><div><h3>Đối tác, cộng đồng · Hòa Hợp</h3><p>Nhóm AI, tối đa 1 bài/nhóm/ngày</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Gửi tin 1-1 theo gói đã duyệt (tối đa 10 tin/ngày); đọc nội quy nhóm trước khi đăng</h4><div class="meta"><span class="who"><b>Ai:</b> Hòa Hợp</span><span class="due"><b>Hạn:</b> 08:30–09:30 mỗi ngày</span><span class="kpi"><b>Đo:</b> nhật ký gửi, chặn, phản hồi; Thu Hà kiểm 17:15</span></div></div>
+        <div class="task"><h4>Đăng bài «cho đi» (12 prompt) vào nhóm đã vào và nội quy cho phép</h4><div class="meta"><span class="who"><b>Ai:</b> Hòa Hợp</span><span class="due"><b>Hạn:</b> từ 02/12; tối đa 1 bài/nhóm/ngày</span><span class="kpi"><b>Đo:</b> bài đăng, bình luận, lượt tải</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c4">CS</div><div><h3>CSKH · Mỹ Mỹ, Thanh Tâm</h3><p>Gom tin 3 lượt mỗi ngày</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Gom tin 08:45, 11:45, 16:45; trả lời bình luận Fanpage bằng mẫu v3</h4><div class="meta"><span class="who"><b>Ai:</b> Mỹ Mỹ, Thanh Tâm</span><span class="due"><b>Hạn:</b> hằng ngày</span><span class="kpi"><b>Đo:</b> thời gian trả lời; liên hệ có số</span></div></div>
+        <div class="task"><h4>Trả lời đánh giá lỗi trên App Store, Google Play theo mẫu; thêm 5 câu FAQ từ bình luận thật</h4><div class="meta"><span class="who"><b>Ai:</b> Mỹ Mỹ, Thanh Tâm</span><span class="due"><b>Hạn:</b> 01/12 và 03/12</span><span class="kpi"><b>Đo:</b> số đánh giá đã trả lời; FAQ mới 5 câu</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c5">KPI</div><div><h3>KPI · Thu Hà</h3><p>Nhật ký 4 mốc mỗi ngày</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Dựng sheet «Điểm gốc AI»; ghi mốc Search Console và GA4</h4><div class="meta"><span class="who"><b>Ai:</b> Thu Hà</span><span class="due"><b>Hạn:</b> 30/11 08:30</span><span class="kpi"><b>Đo:</b> không có ô trống giả</span></div></div>
+        <div class="task"><h4>Theo dõi GA4 nguồn AI; báo cáo tuần; tổng hợp so chỉ tiêu</h4><div class="meta"><span class="who"><b>Ai:</b> Thu Hà</span><span class="due"><b>Hạn:</b> 04/12 17:45; 06/12 20:00</span><span class="kpi"><b>Đo:</b> bảng tuần: AI, Google, mạng xã hội, MCP, lead</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic">PT</div><div><h3>Kiểm duyệt · Phúc Trí, Công Lý</h3><p>Cổng chất lượng trước khi đăng</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Phúc Trí chấm 3 bản định nghĩa và llms.txt; Công Lý kiểm câu chữ pháp lý</h4><div class="meta"><span class="who"><b>Ai:</b> Phúc Trí, Công Lý</span><span class="due"><b>Hạn:</b> 30/11 09:30</span><span class="kpi"><b>Đo:</b> điểm ≥ 8; «ĐẠT» hoặc danh sách sửa</span></div></div>
+        <div class="task"><h4>Ký lời giải Thử thách #1; soát prompt 7–12 và bài cha–con</h4><div class="meta"><span class="who"><b>Ai:</b> Công Lý; anh Tân kiểm</span><span class="due"><b>Hạn:</b> 02/12 14:00</span><span class="kpi"><b>Đo:</b> «ĐẠT»</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c2">AT</div><div><h3>Luật sư, chốt khách · anh Tân</h3><p>Thửa mẫu và lời giải có chữ ký</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>Chọn cùng Công Lý một thửa mẫu nội bộ cho Thử thách (che thông tin)</h4><div class="meta"><span class="who"><b>Ai:</b> anh Tân, Công Lý</span><span class="due"><b>Hạn:</b> 30/11 17:00</span><span class="kpi"><b>Đo:</b> thửa mẫu chốt, anh Thắng xem</span></div></div>
+        <div class="task"><h4>Nhận liên hệ nóng và gọi trong 2 giờ</h4><div class="meta"><span class="who"><b>Ai:</b> anh Tân</span><span class="due"><b>Hạn:</b> hằng ngày</span><span class="kpi"><b>Đo:</b> thời gian gọi lại</span></div></div>
+      </div></details>
+
+      <details class="ac"><summary><div class="ic c3">MM</div><div><h3>Điều phối · Mai Minh</h3><p>Nhịp ngày, báo cáo cho anh Thắng</p></div><span class="chev"></span></summary><div class="tasks">
+        <div class="task"><h4>08:00 tin Lark cho anh Huy; 08:40 chốt «Hôm nay»; 17:45 báo cáo ngày</h4><div class="meta"><span class="who"><b>Ai:</b> Mai Minh</span><span class="due"><b>Hạn:</b> hằng ngày</span><span class="kpi"><b>Đo:</b> tin đã gửi; báo cáo 17:45</span></div></div>
+        <div class="task"><h4>Chốt chỉ tiêu tuần 2; báo anh Huy ngày xong giai đoạn 2 của MCP</h4><div class="meta"><span class="who"><b>Ai:</b> Mai Minh</span><span class="due"><b>Hạn:</b> 06/12</span><span class="kpi"><b>Đo:</b> tin đã gửi; anh Thắng nhận</span></div></div>
+      </div></details>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="chi-so">
+  <div class="wrap">
+    <span class="eyebrow">06 · Nhóm F · Chỉ số KPI</span>
+    <h2>Chỉ tiêu 7 ngày và 30 ngày</h2>
+    <p class="sub">Đây là chỉ tiêu đề xuất, xem lại 06/12 sau khi có điểm gốc. Chưa phải kết quả đạt được. AI và Google thay đổi theo ngày nên chỉ dùng để kiểm tra việc làm có tác dụng hay không.</p>
+
+    <div style="margin-top:20px"><span class="eyebrow">Đo bằng vòng</span><h3 style="font-size:22px;margin-top:4px">Mục tiêu về AI nhắc Gnhà</h3></div>
+    <div class="rings" style="margin-top:14px">
+      <div class="ringcard"><div class="ring" style="--p:71"><i>5/7</i></div><h4>Nhận ra thương hiệu</h4><p>Câu «Gnhà là gì» ở ít nhất 5/7 AI (7 ngày)</p></div>
+      <div class="ringcard"><div class="ring dk" style="--p:80"><i>80%</i></div><h4>Gõ tên Gnhà</h4><p>Nhóm A1–A5 đạt điểm ≥ 2 ở ≥ 80% ô (30 ngày)</p></div>
+      <div class="ringcard"><div class="ring g" style="--p:25"><i>25%</i></div><h4>Không gõ tên</h4><p>≥ 25% ô nhóm B có Gnhà, 14/56 (30 ngày)</p></div>
+      <div class="ringcard"><div class="ring" style="--p:67"><i>2/3</i></div><h4>Qua cổng MCP</h4><p>≥ 2/3 câu nhóm D có Gnhà ở ≥ 2 AI (30 ngày)</p></div>
+    </div>
+
+    <div style="margin-top:28px"><span class="eyebrow">Đo bằng thanh</span><h3 style="font-size:22px;margin-top:4px">Tuần 1 so với đích 30 ngày</h3></div>
+    <div class="kpis" style="margin-top:14px">
+      <div class="kpi-row"><h3>Bài đăng Fanpage «Gnhà AI»</h3><div class="who">Phát Lộc, Thu Hà · đo bằng nhật ký Page</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>10 bài</b></div><div class="track"><div class="fill" style="--w:25%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>40 bài</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Người theo dõi Fanpage</h3><div class="who">Phát Lộc, Thu Hà · tự nhiên</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>100</b></div><div class="track"><div class="fill" style="--w:20%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>500</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Lượt tải 12 prompt</h3><div class="who">Kim Quý, Thu Hà · đo theo UTM</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>100</b></div><div class="track"><div class="fill" style="--w:33%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>300</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Lượt gọi cổng MCP từ IP ngoài</h3><div class="who">Vĩnh An · đo bằng nhật ký cổng</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>50</b></div><div class="track"><div class="fill" style="--w:10%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>500</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Liên hệ có số điện thoại từ cộng đồng AI</h3><div class="who">Thu Hà · file lead chung</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>3</b></div><div class="track"><div class="fill" style="--w:20%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>15</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Bài ở nhóm AI bên ngoài</h3><div class="who">Hòa Hợp · 0 bài bị xóa hoặc cảnh báo</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>3 bài, 3 nhóm</b></div><div class="track"><div class="fill" style="--w:38%"></div></div></div><div><div class="lab"><span>30 ngày</span><b>8 bài, 5 nhóm</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Lượt bấm Google về gnha.vn mỗi tuần</h3><div class="who">Thu Hà · Search Console</div><div class="dual"><div><div class="lab"><span>Hiện tại (21–27/11)</span><b>10.925</b></div><div class="track"><div class="fill g" style="--w:91%"></div></div></div><div><div class="lab"><span>Mục tiêu 30 ngày</span><b>≥ 12.000</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+      <div class="kpi-row"><h3>Phiên từ ChatGPT và Gemini (GA4)</h3><div class="who">Thu Hà · mức gốc 140 phiên / 29 ngày</div><div class="dual"><div><div class="lab"><span>Tuần 1</span><b>≥ 34 phiên</b></div><div class="track"><div class="fill" style="--w:49%"></div></div></div><div><div class="lab"><span>Tuần cuối (30 ngày)</span><b>≥ 70 phiên/tuần</b></div><div class="track"><div class="fill dk" style="--w:100%"></div></div></div></div></div>
+    </div>
+
+    <div class="callout"><div class="ci">!</div><div><b>Luật dừng</b>12 prompt dưới 20 lượt tải sau 3 ngày ở 2 nhóm: đổi nội dung, không tăng số bài. Bị cảnh báo hoặc khóa tài khoản: dừng ngay và báo điều phối. Chỉ tiêu Hội viên thu từ nguồn này: chưa đặt vì chưa có cơ sở số thật.</div></div>
+  </div>
+</section>
+
+<section class="sec" id="quy-tac">
+  <div class="wrap">
+    <span class="eyebrow">07 · Nhóm G · Quy tắc chạy suốt</span>
+    <h2>Quy tắc và cảnh báo</h2>
+    <p class="sub">Áp dụng cho mọi phòng, suốt 30 ngày.</p>
+    <div class="warns">
+      <div class="wc stop"><div class="wi">✋</div><div><h3>Không chi tiền khi chưa có báo giá bằng văn bản</h3><p>Chỉ chi sau khi anh Thắng duyệt. Xin báo giá chưa phải cam kết.</p></div></div>
+      <div class="wc stop"><div class="wi">✋</div><div><h3>Bị cảnh báo hoặc khóa tài khoản thì dừng ngay</h3><p>Báo điều phối. Bài bị nhóm xóa: dừng nhóm đó, không đăng lại.</p></div></div>
+      <div class="wc stop"><div class="wi">✋</div><div><h3>Không ghi mật khẩu, mã truy cập hay thông tin khách</h3><p>Không đưa vào file, chat hoặc bình luận dưới bản kế hoạch.</p></div></div>
+      <div class="wc"><div class="wi">1</div><div><h3>Cổng chất lượng bài blog</h3><p>Chỉ lên khi Phúc Trí ≥ 8 và Công Lý «ĐẠT».</p></div></div>
+      <div class="wc"><div class="wi">2</div><div><h3>Cổng chất lượng clip</h3><p>Chỉ lên khi Phúc Trí ≥ 8 và Gemini trung bình ≥ 7,5.</p></div></div>
+      <div class="wc"><div class="wi">3</div><div><h3>Nhịp đăng và nhắn</h3><p>Mỗi nhóm cộng đồng tối đa 1 bài/ngày. Tối đa 10 tin/tài khoản Zalo/ngày, ghi nhật ký từng tin.</p></div></div>
+      <div class="wc"><div class="wi">4</div><div><h3>Người dẫn và logo</h3><p>Người dẫn chỉ N1, N2, N3. Chỉ dùng logo Gnhà.</p></div></div>
+      <div class="wc"><div class="wi">5</div><div><h3>Số điện thoại trong video</h3><p>TikTok: số chỉ ở tiểu sử. Shorts: số chỉ ở phần mô tả.</p></div></div>
+      <div class="wc ok"><div class="wi">✓</div><div><h3>Chỉ ghi «luật sư rà» khi đã rà thật</h3><p>Bài do AI soạn mà luật sư chưa rà thì không ghi dòng này. Không đăng số tự nghĩ ra; chỉ dùng số đo được và ảnh chụp thật.</p></div></div>
+      <div class="wc ok"><div class="wi">✓</div><div><h3>Mở bài bằng một tình huống</h3><p>Không mở bằng câu hỏi. Dẫn đường link kiểm tra pháp lý trọn gói; có hotline và Zalo công ty.</p></div></div>
+    </div>
+
+    <div style="margin-top:28px"><span class="eyebrow">Rủi ro</span><h3 style="font-size:22px;margin-top:4px">Dấu hiệu và cách xử lý</h3></div>
+    <div class="acc">
+      <details class="ac"><summary><div class="ic">!</div><div><h3>Anh Huy chưa làm kịp</h3><p>10:30 hoặc 11:30 chưa xong</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Vĩnh An nhắc một lần, giọng lịch sự. 12:00 điều phối báo anh Nam đặt file llms.txt tĩnh (không sửa mã); phần meta giữ ở phiếu t100094.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c2">!</div><div><h3>Cổng MCP trả dữ liệu mẫu</h3><p>Công cụ thửa trả «DỮ LIỆU MẪU»</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Tắt 5 công cụ tra thửa ở bản công khai, hoặc gắn nhãn lớn. Hạn cứng của cổng giai đoạn 1: 01/12 17:00; quá hạn thì ghi lý do vào phiếu và điều phối báo anh Thắng trong ngày.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c3">!</div><div><h3>Câu pháp lý sai</h3><p>Công Lý ghi sai</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Không đăng; sửa; Công Lý «ĐẠT» lần hai.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c4">!</div><div><h3>Kết quả AI đổi theo ngày</h3><p>Hai lần hỏi cho kết quả khác nhau</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Hỏi hai lần ở các câu quan trọng, ghi giờ, so xu hướng chứ không so từng ô.</h4></div></div></details>
+      <details class="ac"><summary><div class="ic c5">!</div><div><h3>Số liệu cộng đồng bị thổi phồng</h3><p>Xuất hiện chữ «hàng nghìn», «đông đảo»</p></div><span class="chev"></span></summary><div class="tasks"><div class="task"><h4>Chỉ dùng số đo được và ảnh chụp thật.</h4></div></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="lo-trinh">
+  <div class="wrap">
+    <span class="eyebrow">08 · Nhóm H · Lộ trình</span>
+    <h2>Lộ trình 30 ngày, 30/11–29/12</h2>
+    <p class="sub">Bốn tuần, bốn giai đoạn: dọn nền, nhân rộng, chứng minh bằng số thật, đo và quyết định.</p>
+    <div class="curve">
+      <svg viewBox="0 0 640 190" role="img" aria-label="Đường lộ trình 4 tuần đi lên">
+        <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FFC2AC"/><stop offset="1" stop-color="#FD5D32"/></linearGradient></defs>
+        <path d="M40 150 C 140 150, 160 112, 230 108 S 360 96, 410 64 S 540 30, 600 28" fill="none" stroke="url(#gc)" stroke-width="8" stroke-linecap="round"/>
+        <g font-family="Be Vietnam Pro,system-ui,sans-serif" font-weight="800" font-size="28" text-anchor="middle">
+          <circle cx="40" cy="150" r="24" fill="#4A3B39"/><text x="40" y="160" fill="#fff">1</text>
+          <circle cx="230" cy="108" r="24" fill="#4A3B39"/><text x="230" y="118" fill="#fff">2</text>
+          <circle cx="410" cy="64" r="24" fill="#4A3B39"/><text x="410" y="74" fill="#fff">3</text>
+          <circle cx="600" cy="28" r="24" fill="#FD5D32"/><text x="600" y="38" fill="#1f1210">4</text>
+        </g>
+      </svg>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="wk">Tuần 1 · 30/11–06/12</span><h3>Dọn nền, mở cổng, khởi động cộng đồng</h3><p>Anh Huy 3 việc gấp; điểm gốc 140 ô; một câu định nghĩa trên mọi kênh; Fanpage 10 bài; Thử thách #1; 12 prompt; bài cha + 2 bài con; JSON-LD lên sản xuất 02/12.</p><div class="ms">Mốc 06/12: báo cáo tuần + chỉ tiêu</div></div>
+      <div class="step"><span class="wk">Tuần 2 · 07–13/12</span><h3>Nhân rộng</h3><p>3–4 bài/tuần theo mô hình cha–con; Thử thách #2, #3; trợ lý Gem; hồ sơ báo chí (gửi ra ngoài vẫn duyệt từng nơi nhận); MCP giai đoạn 2 (mục tiêu 10/12).</p><div class="ms">Mốc 11/12: so điểm gốc</div></div>
+      <div class="step"><span class="wk">Tuần 3 · 14–20/12</span><h3>Chứng minh bằng số thật</h3><p>Công bố số thật 30 ngày đầu của cổng MCP và Thử thách; một ca thật có đồng ý của khách và đã che thông tin; mời người làm AI dùng cổng.</p><div class="ms">Mốc 18/12: so điểm gốc lần 3</div></div>
+      <div class="step"><span class="wk">Tuần 4 · 21–29/12</span><h3>Đo và quyết định</h3><p>Chạy lại 140 ô ngày 25/12; báo cáo 30 ngày: giữ, bỏ hay tăng từng kênh; xét lại Wikidata khi đủ 3 nguồn độc lập.</p><div class="ms">Mốc 29/12: báo cáo gửi anh Thắng</div></div>
+    </div>
+
+    <div class="cta">
+      <span class="eyebrow">Bắt đầu từ phòng của mình</span>
+      <h2>Xem việc của phòng bạn trong tuần này →</h2>
+      <p>Mở mục 05, tìm tên phòng, đọc ba ô: người phụ trách, hạn, cách đo. Có góp ý hoặc vướng việc, gửi điều phối Mai Minh trên Lark. Bản này chỉ để xem, không sửa.</p>
+      <a class="btn" href="#phong-ban">Xem việc từng phòng →</a><a class="btn l" href="#top">Về đầu trang ↑</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><img src="data:image/png;base64,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" alt="Gnhà"><b>Gnhà</b></div>
+    <p>Bản cho nhân viên · cập nhật 01:15 ngày 29/11/2026 (giờ Việt Nam) · soạn: Mai Minh (điều phối).</p>
+    <p>Hotline 1900.58.88.57 · Zalo 090 1627939. Trang này không dành cho công cụ tìm kiếm; chỉ dùng đường link được gửi.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.chip[href^="#"]'));
+  var secs=chips.map(function(c){return document.querySelector(c.getAttribute('href'))}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){chips.forEach(function(c){var on=c.getAttribute('href')==='#'+e.target.id;c.classList.toggle('on',on);if(on){var p=c.parentNode;if(p.scrollWidth>p.clientWidth+4&&p.scrollTo)p.scrollTo({left:Math.max(0,c.offsetLeft-16),behavior:'smooth'});}});}
+    });},{rootMargin:'-30% 0px -60% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+  var all=[].slice.call(document.querySelectorAll('#depts details'));
+  var oa=document.getElementById('openall'),ca=document.getElementById('closeall');
+  if(oa)oa.onclick=function(){all.forEach(function(d){d.open=true})};
+  if(ca)ca.onclick=function(){all.forEach(function(d){d.open=false})};
+  var items=[].slice.call(document.querySelectorAll('#simlist .si'));
+  var clock=document.getElementById('clock'),btn=document.getElementById('simbtn'),rs=document.getElementById('simreset');
+  var idx=-1,timer=null;
+  function show(i){
+    items.forEach(function(el,k){el.classList.toggle('now',k===i);el.classList.toggle('done',k<i)});
+    clock.textContent=i>=0?items[i].getAttribute('data-t'):'08:00';
+  }
+  function stop(end){clearInterval(timer);timer=null;btn.textContent=end?'▶ Chạy lại':'▶ Chạy tiếp';}
+  function step(){idx++;if(idx>=items.length){idx=items.length-1;stop(true);return;}show(idx);}
+  btn.onclick=function(){
+    if(timer){stop(false);return;}
+    if(idx>=items.length-1){idx=-1;}
+    btn.textContent='❚❚ Dừng';step();timer=setInterval(step,1800);
+  };
+  rs.onclick=function(){clearInterval(timer);timer=null;idx=-1;show(-1);btn.textContent='▶ Chạy mô phỏng';};
+})();
+</script>
+</body>
+</html>
