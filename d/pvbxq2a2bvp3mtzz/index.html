@@ -1,0 +1,616 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Kế hoạch chăm khách nhanh — Gnhà</title><style>
+:root{--kem:#FFEFE7;--vien:#F1D9CC;--chu:#3a2e2b;--cam:#E8590C;--do:#d92d20;--vang:#d99a00;--xanh:#1d6fd1;--xam:#8a8f98}
+*{box-sizing:border-box}
+body{margin:0;background:#fffaf7;color:var(--chu);font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:14px 14px 60px}
+header.top{background:linear-gradient(135deg,#E8590C,#f08a4b);color:#fff;border-radius:18px;padding:18px;margin:6px 0 14px}
+header.top h1{font-size:1.25em;line-height:1.35;margin:0 0 6px}
+header.top p{margin:0;font-size:.9em;opacity:.95}
+.tomtat1{background:#fff;border:2px solid var(--cam);border-radius:18px;padding:6px 16px 14px;margin:12px 0}
+.tomtat1 h2{font-size:1.1em;color:var(--cam);margin:10px 0 4px}
+.tomtat1 ul{list-style:none;padding:0;margin:8px 0}
+.tomtat1 li{background:var(--kem);border:1px solid var(--vien);border-radius:14px;padding:10px 12px;margin:9px 0}
+details.sec{background:#fff;border:1px solid var(--vien);border-radius:18px;margin:12px 0;box-shadow:0 2px 8px rgba(74,59,57,.07)}
+details.sec>summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;font-size:1.02em;line-height:1.4}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary::after{content:"▼ Mở";float:right;font-size:.8em;color:var(--cam);font-weight:600;margin-left:8px}
+details.sec[open]>summary::after{content:"";}
+details.sec[open]>summary{border-bottom:1px solid var(--vien);background:var(--kem);border-radius:18px 18px 0 0}
+.sec-body{padding:6px 16px 16px}
+.sec-body h3{background:var(--kem);border:1px solid var(--vien);border-radius:12px;padding:8px 12px;font-size:1em;margin:18px 0 8px}
+.sec-body{overflow-wrap:anywhere}
+.sec-body p{margin:.7em 0}
+.sec-body ul,.sec-body ol{padding-left:1.25em;margin:.6em 0}
+.sec-body li{margin:.5em 0}
+.sec-body a{color:var(--xanh);word-break:break-word}
+.tw{overflow-x:auto;margin:12px -4px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;font-size:.88em;line-height:1.5;min-width:520px}
+th,td{border:1px solid var(--vien);padding:8px 10px;vertical-align:top;text-align:left}
+th{background:var(--kem)}
+code{background:#f6efe9;border-radius:6px;padding:1px 5px;font-size:.88em;word-break:break-all}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:2px;margin:12px 0}
+.flow b{display:block}.flow span{display:block;font-size:.88em;line-height:1.5}
+.fl-in{background:var(--xanh);color:#fff;border-radius:14px;padding:10px 14px;text-align:center}
+.fl-box{background:var(--kem);border:1px solid var(--vien);border-radius:14px;padding:10px 14px}
+.arr{text-align:center;color:var(--cam);line-height:1.1}
+.fl-3{display:flex;flex-direction:column;gap:8px}
+.fl-3>div{border-radius:14px;padding:10px 14px;border:1px solid var(--vien);border-left-width:6px}
+.fl-a{border-left-color:var(--xanh)!important;background:#eef5ff}
+.fl-b{border-left-color:var(--do)!important;background:#fff0ee}
+.fl-c{border-left-color:var(--vang)!important;background:#fff8e6}
+.thu-gon{display:block;width:100%;margin:14px 0 0;padding:12px;border:1px solid var(--cam);background:#fff;color:var(--cam);border-radius:12px;font-size:1em;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.legend span{padding:4px 10px;border-radius:999px;color:#fff;font-size:.8em}
+footer{font-size:.8em;color:#7a6a64;text-align:center;margin-top:20px}
+
+/* Gnhà — đọc dễ trên điện thoại + nút thu gọn cho mọi <details> */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:clip}
+body{font-size:17px;line-height:1.7}
+img,svg,video,iframe,table{max-width:100%;height:auto}
+h1,h2,h3,h4,h5,
+.brand .t,.hero h1,header.top h1,.card h3,summary,.col-h h2{
+  overflow:visible !important;
+  text-overflow:unset !important;
+  white-space:normal !important;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.prose,.body,.sec-body,.tomtat,.kmeta,.lead,p.note,.need{
+  max-width:38em;
+}
+.prose p,.body p,.sec-body p,.tomtat p{margin:0.75em 0}
+.prose ul,.body ul,.sec-body ul,.tomtat ul,
+.footnote ul{
+  list-style:disc;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose ol,.body ol,.sec-body ol:not(.nl),.tomtat ol,
+.footnote ol{
+  list-style:decimal;
+  padding-left:1.35em;
+  margin:0.6em 0;
+}
+.prose li,.body li,.sec-body li,.tomtat li,.footnote li{
+  margin:0.45em 0;
+  line-height:1.7;
+}
+.body h2,.body h3,.prose h2,.prose h3{
+  background:var(--kem, var(--cream, #FFEFE7));
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:14px;
+  padding:10px 14px;
+  margin:18px 0 10px;
+  font-size:1.05em;
+  line-height:1.4;
+}
+.body h3,.prose h3{background:#fff;border-color:#F1D9CC}
+.block-card,.tomtat{
+  background:#fff;
+  border:1px solid var(--vien, var(--line, #F1D9CC));
+  border-radius:18px;
+  padding:16px 18px;
+  margin:12px 0;
+  box-shadow:0 2px 8px rgba(74,59,57,.07);
+}
+.stat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.stat-chip{
+  display:inline-flex;flex-direction:column;gap:2px;
+  background:#FFF8F4;border:1px solid #F1D9CC;border-radius:14px;
+  padding:10px 14px;min-width:6.5em;
+}
+.stat-chip .n{font-weight:800;font-size:22px;color:#B8330F;line-height:1.1}
+.stat-chip .l{font-size:13px;color:#5E4646;line-height:1.35}
+details>summary{cursor:pointer}
+details>summary::-webkit-details-marker{display:none}
+details[open]:not(:has(details[open]))>summary{
+  position:sticky;
+  top:0;
+  z-index:15;
+  background:var(--trang, var(--white, #fff));
+  box-shadow:0 1px 0 var(--vien, var(--line, #F1D9CC));
+}
+.thu-gon{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin:16px 0 4px;
+  padding:10px 18px;
+  min-height:44px;
+  border-radius:999px;
+  border:1.5px solid var(--vien, var(--line, #F1D9CC));
+  background:var(--kem, var(--cream, #FFEFE7));
+  color:var(--dam, var(--dark, #4A3B39));
+  font:inherit;font-weight:700;font-size:15px;
+  cursor:pointer;
+}
+.thu-gon:focus-visible{outline:3px solid #FD5D32;outline-offset:3px}
+details.chi-tiet{margin-top:10px;border-top:1px dashed var(--vien, var(--line, #F1D9CC));padding-top:8px}
+details.chi-tiet>summary{
+  list-style:none;font-weight:700;color:#B8330F;padding:8px 0;cursor:pointer;
+}
+.tomtat .dung-khi{margin:0 0 10px}
+.tomtat .dung-khi b{color:#B8330F}
+.name-only{padding:10px 8px;border-top:1px solid var(--vien, var(--line, #F1D9CC));color:var(--nau, #5E4646)}
+@media (max-width:719px){
+  .search,.chips-nav,.filters{position:static !important}
+  .wrap{padding-left:18px;padding-right:18px}
+}
+</style></head><body><div class="wrap">
+<header class="top"><h1>Kế hoạch chăm khách nhanh: một đường ống cho Zalo OA, Messenger, chat web và Lark</h1><p>Soạn 29/11/2026 03:40 (giờ Việt Nam, UTC+7) · Mai Minh (điều phối) · gửi anh Thắng xem trước, chưa giao nhóm. Chỉ đọc và soạn: chưa đổi cài đặt OA/Page, chưa nhắn khách, chưa đăng lên Lark nhóm.</p></header>
+<div class="legend"><span style="background:var(--do)">Đỏ: làm ngay</span><span style="background:var(--vang)">Vàng: hơi gấp</span><span style="background:var(--xanh)">Xanh: thường</span><span style="background:var(--xam)">Xám: chờ</span></div>
+<section class="tomtat1"><h2>0. Tóm tắt 1 phút</h2><ul>
+<li><strong>Chỗ nghẽn thật:</strong> khách nhắn vào OA không có ai nhận ngay. Em phải mở trình duyệt đọc OA theo lượt, có ngày cách nhau 2–4 giờ; Zalo Hội Viên và Page có ngày không đọc được vì mất đăng nhập máy Windows. Tin trả lời ngắn vì luật mình tự đặt: chỉ dùng mẫu đã duyệt, mỗi lần một câu hỏi, ngoài mẫu thì xin số rồi chuyển.</li>
+<li><strong>Cách sửa gốc:</strong> để khách nhắn vào kênh nào cũng chạy qua <strong>một đường ống tự động</strong>: nhận tin ngay (webhook), trả lời xác nhận trong vòng 60 giây, báo Lark kèm thẻ màu cho người chốt, và soạn sẵn câu trả lời đầy đủ từ «kho trả lời khách» lấy từ Bộ não.</li>
+<li><strong>Làm được ngay hôm nay, 0 đồng, không cần lập trình:</strong> bật tin chào và trả lời tự động trên Zalo OA, bật «Trả lời tức thì», «Câu hỏi thường gặp», «Tin vắng mặt» cho Messenger, bật tin chào cho chat web, và đổi nhịp đọc tin thành 30 phút.</li>
+<li><strong>Cần kỹ thuật (anh Huy, Vĩnh An):</strong> phiếu kỹ thuật kèm theo. Việc chặn lớn nhất là chưa có khóa truy cập Zalo OA (cần admin OA bấm «Cho phép» một lần) và chưa có ứng dụng Meta cho Page.</li>
+<li><strong>Cần anh quyết:</strong> duyệt bộ 9 mẫu tin, cho phép tin xác nhận tự gửi, cách ghi «tin tự động» để đúng Luật Trí tuệ nhân tạo, và các khoản chi nếu có (mục 9).</li>
+</ul></section><details class="sec"><summary>1. Hiện trạng: chậm ở đâu (số có nguồn)</summary><div class="sec-body"><div class="tw"><table>
+<thead>
+<tr>
+<th>Điều đã thấy</th>
+<th>Số thực</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Khách gửi số điện thoại lúc 09:56 nhưng 16:50 mới phát hiện</td>
+<td>trễ khoảng 7 giờ (26/11)</td>
+<td>Sổ lỗi 07b, dòng 26/11 17:03</td>
+</tr>
+<tr>
+<td>Khe không đọc OA 27/11</td>
+<td>11:57 → 16:05, khoảng 4 giờ</td>
+<td>Sổ lỗi 07b, 27/11 18:12</td>
+</tr>
+<tr>
+<td>Khe không đọc OA 28/11</td>
+<td>08:06→10:47 (2 giờ 41), 12:43→14:47 (2 giờ 04), 15:08→16:44 (1 giờ 36)</td>
+<td>Rút kinh nghiệm 28/11</td>
+</tr>
+<tr>
+<td>Luật tự đặt cho lượt gom</td>
+<td>skill ghi «khe không quá 1 giờ», checklist cũ ghi 3 lượt 08:45, 11:45, 16:45; Chủ nhật nghỉ</td>
+<td>skill cskh-zalo-thanh-tam; checklist-tu-chay.md</td>
+</tr>
+<tr>
+<td>Zalo Hội Viên và bình luận Page 28/11</td>
+<td>chưa đọc được cả ngày vì thiếu đăng nhập Guacamole</td>
+<td>Rút kinh nghiệm 28/11</td>
+</tr>
+<tr>
+<td>Số khách mới vào OA</td>
+<td>khoảng 1–3 khách mới một ngày (27–28/11)</td>
+<td>Sổ lỗi 07b, báo số 27–28/11</td>
+</tr>
+<tr>
+<td>Hạn mức tin OA đã dùng</td>
+<td>4/500 (lượt 12:43 28/11)</td>
+<td>Gom OA 12:43 28/11</td>
+</tr>
+<tr>
+<td>Khóa Zalo OA trên box</td>
+<td>chưa có file <code>zalo-oa.env</code> hay token (kiểm 29/11)</td>
+<td>thư mục khóa trên box</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kết luận chỗ nghẽn.</strong> Lượng khách nhỏ, nên không phải thiếu sức. Chậm vì ba lý do:</p>
+<ol>
+<li><strong>Đọc theo lượt bằng trình duyệt/máy Windows</strong>: lượt đánh thức trượt, đăng nhập rớt, một máy Windows dùng chung. Khách không nhận được gì cho tới khi em đọc.</li>
+<li><strong>Không có tin xác nhận tự động</strong>: gói OA Tăng trưởng đã mua 25/11 (1.400.000đ, đến 24/05/2027) có API, chatbot 10 kịch bản, nhưng chưa bật cái nào; mã webhook nháp 26/11 vẫn tắt gửi, vì thiếu khóa truy cập.</li>
+<li><strong>Trả lời ngắn do luật chặt</strong>: chỉ gửi mẫu đã duyệt (danh sách cấm tự gửi còn A2, A3, A5, A6, B3, C6, C7, F1, M1, M2), mỗi lần một câu hỏi, khách ngoài mẫu thì xin số và chuyển anh Tân. Không có nguồn trả lời đầy đủ để em soạn nhanh.</li>
+</ol>
+<p>Còn Messenger và chat web: gnha.vn đang nhúng <strong>Tawk.to</strong> (kiểm trang chủ 29/11), có nút Zalo OA; chưa thấy ứng dụng Meta nào cho Page, chưa có luồng báo Lark cho hai kênh này.</p></div></details><details class="sec"><summary>2. Các kênh: cách tự động chính thức</summary><div class="sec-body"><div class="tw"><table>
+<thead>
+<tr>
+<th>Kênh</th>
+<th>Làm tự động được thế nào</th>
+<th>Giới hạn chính</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zalo OA</strong> (gói Tăng trưởng)</td>
+<td>Webhook báo tin khách tới máy mình ngay; gọi API gửi tin tư vấn trả lời. Tin trong khung 48 giờ kể từ tương tác cuối miễn phí.</td>
+<td>Khách phải có tương tác trong 7 ngày. Webhook phải trả 200 trong 2 giây, hỏng quá thì Zalo tắt webhook. Token truy cập sống 25 giờ, token làm mới dùng một lần, chỉ một nơi được làm mới. Mỗi tin tối đa 2.000 ký tự. 100 request mỗi phút.</td>
+<td>docs.zaloplatforms.com (webhook, tin tư vấn, điều kiện 7 ngày), zalo.solutions/oa/pricing</td>
+</tr>
+<tr>
+<td><strong>Zalo OA không cần lập trình</strong></td>
+<td>Lời chào, trả lời tự động theo khung giờ, Chatbot kịch bản + từ khóa (tối đa 10 kịch bản gói Tăng trưởng).</td>
+<td>Chạy theo kịch bản và nút bấm, không trả lời tự do.</td>
+<td>oa.zalo.me/home/documents/guides/huong-dan-su-dung-zalo-chatbot; chatbot.zalo.me/oa/docs/getting-started/create-rule</td>
+</tr>
+<tr>
+<td><strong>Nhóm Zalo công ty / Zalo cá nhân</strong></td>
+<td><strong>Không có API chính thức</strong> cho tài khoản cá nhân hay nhóm cá nhân. Công cụ không chính thức (như zca-js) trái điều khoản, có thể bị khóa. <strong>Không dùng.</strong></td>
+<td>Zalo liệt kê «đăng nhập bằng phần mềm bên thứ ba không được Zalo cấp phép» là hành vi vi phạm, xử lý có thể khóa tài khoản.</td>
+<td>zalo.vn/dieukhoan (mục 4.7, 14.2); help.zalo.me (tài khoản bị tạm vô hiệu hóa)</td>
+</tr>
+<tr>
+<td><strong>Nhóm chat của OA (GMF)</strong></td>
+<td>OA gửi tin vào nhóm qua API.</td>
+<td>Tài liệu ghi chỉ dành cho OA xác thực dùng Gói Nâng cao hoặc Premium; gói Tăng trưởng có dùng được không thì <strong>chưa rõ, cần kiểm trên trang OA</strong>.</td>
+<td>docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/general</td>
+</tr>
+<tr>
+<td><strong>Messenger (Page)</strong></td>
+<td>Webhook <code>messages</code> báo tin tới; Send API trả lời; Meta Business Suite có «Trả lời tức thì», «Câu hỏi thường gặp» (tối đa 5 câu), «Tin vắng mặt». Nền tảng miễn phí.</td>
+<td>Khách phải nhắn trước. Cửa sổ trả lời chuẩn 24 giờ (tối đa 7 ngày nếu khách bấm vào quảng cáo nhắn tin). Webhook trả 200 trong 5 giây. Cần ứng dụng Meta đã xuất bản, token Page, quyền <code>pages_messaging</code>, <code>pages_manage_metadata</code>, <code>pages_read_engagement</code>, <code>business_management</code>. Với Page của chính mình không cần duyệt ứng dụng (App Review). Meta khuyên báo khách biết đang chat tự động.</td>
+<td>developers.facebook.com/docs/messenger-platform (overview, webhooks, send-messages); facebook.com/help/1615627532020480</td>
+</tr>
+<tr>
+<td><strong>Chat web gnha.vn (Tawk.to)</strong></td>
+<td>Webhook Tawk báo khi khách bắt đầu chat hoặc có phiếu; trigger/tin chào ngay trong Tawk.</td>
+<td>Tawk <strong>không có API để bot gửi tin vào khung chat</strong> (hỗ trợ Tawk xác nhận), nên AI không trả lời thay được qua Tawk. Webhook chỉ báo chat bắt đầu, kết thúc, bản ghi, phiếu.</td>
+<td>developer.tawk.to/webhooks; community.tawk.to/t/reply-chat-from-api/3182</td>
+</tr>
+<tr>
+<td><strong>Nút chat web khác</strong></td>
+<td>Nút «chat Zalo» chính thức (<code>zalo-chat-widget</code>, gắn mã OA) mở chat OA ngay trên web. Nút Messenger bằng liên kết <code>m.me</code>: plugin chat Messenger đã bị Meta ngừng từ 09/05/2024.</td>
+<td>Tin vào OA hoặc Page nên đi chung đường ống.</td>
+<td>docs.zaloplatforms.com/docs/Social/social-plugin/widget-chat; developers.facebook.com (chat plugin)</td>
+</tr>
+<tr>
+<td><strong>Lark</strong></td>
+<td>Ứng dụng bot nhận sự kiện <code>im.message.receive_v1</code> (tin nhắn nhóm, tin có @bot); gửi thẻ tin có @ và màu. Đã có bot <code>cskh</code> và webhook chỉ-gửi.</td>
+<td>Bot chỉ thấy tin nhóm khi có quyền «đọc mọi tin nhóm» (quyền nhạy cảm) hoặc khi được @. Khử trùng theo <code>message_id</code>.</td>
+<td>open.larksuite.com/document/server-docs/im-v1/message/events/receive</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Về pháp lý, quan trọng.</strong> Luật Trí tuệ nhân tạo 134/2025/QH15, hiệu lực 01/03/2026, Điều 11 khoản 1: hệ thống AI tương tác trực tiếp với người phải được thiết kế để người dùng <strong>nhận biết mình đang tương tác với AI</strong>. Quy tắc nội bộ hiện nay là «không xưng AI với khách». Hai điều này đang vênh nhau ở phần tin <strong>tự gửi không có người xem</strong>. Em đề xuất: tin xác nhận tự gửi ghi rõ «tin phản hồi tự động»; câu trả lời nội dung do AI soạn thì người thật xem rồi mới gửi (người chịu trách nhiệm). Công Lý xác nhận lại với văn bản hướng dẫn trước khi bật tự gửi nội dung (mục 9, câu 3).</p></div></details><details class="sec"><summary>3. Kiến trúc: một đường ống cho mọi kênh</summary><div class="sec-body"><div class="flow">
+<div class="fl-in"><b>Kênh khách nhắn</b><span>Zalo OA · Messenger · Chat web</span></div>
+<div class="arr">▼</div>
+<div class="fl-box"><b>Cửa nhận chung</b><span>trả 200 ngay (Zalo ≤ 2 giây, Meta ≤ 5 giây) · kiểm chữ ký · chống trùng · chuẩn hóa tin · ghi mã lead (không PII)</span></div>
+<div class="arr">▼</div>
+<div class="fl-box"><b>Phân loại</b><span>đỏ nóng · vàng ấm · xanh thường · xám bỏ qua · khó</span></div>
+<div class="arr">▼</div>
+<div class="fl-3">
+<div class="fl-a"><b>1. Khách nhận xác nhận</b><span>≤ 60 giây, đúng kênh khách nhắn (mẫu T1/T2)</span></div>
+<div class="fl-b"><b>2. Lark báo người chốt</b><span>thẻ có @ và màu, ≤ 1 phút</span></div>
+<div class="fl-c"><b>3. AI soạn nháp</b><span>từ «kho trả lời khách» → người duyệt một chạm → gửi lại đúng kênh</span></div>
+</div></div>
+<p><strong>Mỗi tin vào được chuẩn hóa một dạng:</strong> kênh, mã khách theo kênh, mã tin, nội dung, tệp đính kèm, giờ nhận, trong/ngoài giờ làm việc, nhóm phân loại, mã lead. Mã tin dùng để chống trùng (Zalo <code>msg_id</code>, Meta <code>mid</code>, Lark <code>message_id</code>). Khách trùng giữa các kênh được nối bằng số điện thoại khi khách cho.</p>
+<p><strong>Nơi chạy.</strong> Hai phương án, em khuyên <strong>A</strong>:</p>
+<ul>
+<li><strong>A. Tunnel Cloudflare mới → máy chủ gnha-bot (VPS)</strong>: mã nháp đã có từ 26/11 (<code>/workspace/kho-gnha/cong-cu/zalo-oa-webhook/</code>), dựng nhanh nhất, token Zalo chỉ một nơi làm mới. Đổi VPS phải có phiếu anh duyệt (quy định hiện hành).</li>
+<li><strong>B. Cloudflare Worker làm cửa nhận</strong>, đẩy sang VPS xử lý: bền hơn khi VPS khởi động lại. Gói Worker miễn phí cho 100.000 yêu cầu mỗi ngày, mỗi lần 10 mili giây CPU (nguồn developers.cloudflare.com/workers/platform/pricing), thừa với 1–3 khách mỗi ngày. Làm ở giai đoạn 2 nếu cần.</li>
+</ul>
+<p><strong>Phân loại và ai chốt (giữ đúng luật cũ):</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Dấu hiệu</th>
+<th>Tự động làm</th>
+<th>Người chốt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đỏ: nóng</td>
+<td>sắp cọc, sắp ký, hỏi giá, gửi giấy tờ, cho số</td>
+<td>Xác nhận T1 + T7, thẻ đỏ @anh Tân</td>
+<td>anh Tân (anh Thắng dự phòng), gọi trong 15 phút</td>
+</tr>
+<tr>
+<td>Vàng: ấm</td>
+<td>hỏi dịch vụ, hỏi Hội viên</td>
+<td>Xác nhận T1, hỏi nhu cầu T3, AI soạn nháp</td>
+<td>Mỹ Mỹ duyệt nháp trong 15 phút giờ làm việc</td>
+</tr>
+<tr>
+<td>Xanh: thường</td>
+<td>hỏi chung, chào</td>
+<td>Xác nhận T1, mẫu 5 đã duyệt, gợi ý bài</td>
+<td>Mỹ Mỹ</td>
+</tr>
+<tr>
+<td>Xám: bỏ qua</td>
+<td>«ok», «cảm ơn», sticker, quảng cáo</td>
+<td>Không trả lời</td>
+<td>không</td>
+</tr>
+<tr>
+<td>Khó</td>
+<td>khiếu nại, tranh chấp, giảm giá, hoàn tiền, thanh toán</td>
+<td>Chỉ T8 «đã nhận, sẽ báo lại» + thẻ đỏ</td>
+<td>anh Tân/anh Thắng; mẫu thanh toán C6 chờ duyệt</td>
+</tr>
+</tbody>
+</table></div></div></details><details class="sec"><summary>4. Bộ não làm nguồn trả lời: tự động, đầy đủ, không lộ nội bộ</summary><div class="sec-body"><p>Bộ não có nhiều thứ nội bộ (tài chính, kế hoạch, ghi chú vận hành), không được cho AI trả lời khách trực tiếp từ đó. Cách làm:</p>
+<ol>
+<li><strong>Tạo một kho riêng «Trả lời khách»</strong> trên WeKnora (ai.gnha.vn, đã có 9 kho theo phòng). Chỉ nạp các tệp được đánh dấu <em>dùng cho khách</em> và đã duyệt: bộ mẫu v3, hỏi đáp Hội viên, 5 công cụ, trang dịch vụ gnha.vn, kho từ khóa dịch vụ, câu giá, hotline và Zalo. Khóa API chỉ cho kho này, quyền «chat» (WeKnora hỗ trợ khóa giới hạn theo kho; nguồn github.com/Tencent/WeKnora, API chat).</li>
+<li><strong>Nạp ngay khi tệp đổi</strong>, không đợi 21:00 hằng đêm như bây giờ (script <code>sync-weknora.py</code>), để câu giá đổi đúng giờ.</li>
+<li><strong>Luật cứng khi soạn:</strong> trả lời chỉ dựa vào kho; không tìm thấy nguồn thì <strong>không bịa</strong>, hỏi số điện thoại và chuyển người. Cấm chữ «hoa hồng» (dùng «thưởng giới thiệu»), «15 năm», từ tuyệt đối, hứa kết quả, kết luận pháp lý. Giá luôn đúng câu: «Giá sáng lập 990.000đ năm đầu, áp dụng đến hết 30/11. Từ 01/12: 1.990.000đ/năm.» và hệ thống tự chọn vế theo ngày (từ 00:00 01/12 chỉ còn vế 1.990.000đ/năm).</li>
+<li><strong>Trả lời đầy đủ hơn nhưng không dài dòng:</strong> mỗi nháp gồm 4 phần (nhắc lại tình huống của khách, 2–3 ý đúng với tình huống, một bước tiếp theo, một câu hỏi để biết thêm), khoảng 300–600 ký tự, kênh Zalo cho tối đa 2.000 ký tự.</li>
+<li><strong>Học từ người sửa:</strong> mỗi lần Mỹ Mỹ hoặc anh Tân sửa nháp, cặp «câu hỏi → câu sửa» được ghi (đã bỏ thông tin khách). Mỗi tuần Phúc Trí chấm, đạt từ 8 điểm thì nạp vào kho. Đây cũng là kỹ năng tự lưu theo lời anh.</li>
+</ol></div></details><details class="sec"><summary>5. Khách nhận thông báo ngay, không chờ</summary><div class="sec-body"><div class="tw"><table>
+<thead>
+<tr>
+<th>Mốc</th>
+<th>Zalo OA</th>
+<th>Messenger</th>
+<th>Chat web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ngay lập tức (≤ 5 giây), không cần lập trình</td>
+<td>Lời chào + Chatbot «tin chào/ngoài giờ»</td>
+<td>«Trả lời tức thì» + «Câu hỏi thường gặp» + «Tin vắng mặt»</td>
+<td>Tin chào tự động của Tawk, hoặc nút chat Zalo</td>
+</tr>
+<tr>
+<td>≤ 60 giây, đường ống mới</td>
+<td>Webhook → gửi T1 bằng API tin tư vấn (trong 48 giờ, miễn phí)</td>
+<td>Webhook → Send API T1 (trong 24 giờ)</td>
+<td>Widget tự dựng trả ngay; Tawk chỉ báo Lark</td>
+</tr>
+<tr>
+<td>≤ 15 phút giờ làm việc</td>
+<td>Nháp đã duyệt gửi đi</td>
+<td>như Zalo</td>
+<td>như Zalo, hoặc người trả lời trong Tawk</td>
+</tr>
+<tr>
+<td>Ngoài giờ (21:00–08:00)</td>
+<td>T2, hẹn 08:30</td>
+<td>T2</td>
+<td>T2 và biểu mẫu để lại số</td>
+</tr>
+</tbody>
+</table></div>
+<p>Khách nhận thông báo đẩy ngay trên điện thoại ở Zalo và Messenger (Zalo ghi rõ thông báo trong và ngoài ứng dụng, 24/24). Nhân viên trực bật thông báo đẩy OA Manager và Lark trên điện thoại.</p></div></details><details class="sec"><summary>6. Bộ 9 mẫu tin để anh duyệt (chưa gửi khách)</summary><div class="sec-body"><p>Quy tắc chung: viết «Gnhà», xưng «em», gọi «anh/chị», tự giới thiệu «Thanh Tâm», không nêu số cá nhân của ai, chỉ hotline 1900 58 88 57 và Zalo 090 1627939, một câu hỏi mỗi tin. <code>[Tên]</code> bỏ trống nếu chưa có tên.</p>
+<ul>
+<li><strong>T1. Xác nhận trong giờ (08:00–21:00):</strong> «Dạ Gnhà xin chào anh/chị [Tên] ạ. Đây là tin phản hồi tự động để anh/chị không phải chờ. Em là Thanh Tâm bên Gnhà, em đã nhận tin và sẽ trả lời chi tiết trong vòng 15 phút. Nếu gấp, anh/chị gọi hotline 1900 58 88 57 hoặc nhắn Zalo 090 1627939 ạ.»</li>
+<li><strong>T2. Xác nhận ngoài giờ:</strong> «Dạ Gnhà xin chào anh/chị [Tên] ạ. Đây là tin phản hồi tự động. Hiện đang ngoài giờ làm việc (08:00–21:00), em Thanh Tâm sẽ trả lời anh/chị trước 08:30 sáng mai. Anh/chị để lại khu vực và số điện thoại giúp em, hoặc gọi hotline 1900 58 88 57 khi cần gấp ạ.»</li>
+<li><strong>T3. Hỏi nhu cầu (nút bấm nếu kênh có):</strong> «Để em hỗ trợ đúng việc, anh/chị đang ở bước nào ạ: (1) Chuẩn bị mua (2) Đang bán hoặc cho thuê (3) Sắp đặt cọc/ký (4) Giấy tờ, sổ, xây dựng (5) Việc khác.»</li>
+<li><strong>T4. Xin khu vực rồi xin số:</strong> «Dạ em cảm ơn anh/chị. Anh/chị cho em xin khu vực thửa đất (phường/xã, tỉnh/thành) ạ.» Sau khi có khu vực: «Em xin số điện thoại để chuyên viên gọi anh/chị trong 2 giờ làm việc, tiện trao đổi hơn ạ.»</li>
+<li><strong>T5. Khách hỏi giá Hội viên:</strong> «Dạ gói Hội viên Gnhà: Giá sáng lập 990.000đ năm đầu, áp dụng đến hết 30/11. Từ 01/12: 1.990.000đ/năm. Chi tiết: https://gnha.vn/dich-vu/hoi-vien . Anh/chị đang là môi giới hay tìm hiểu cho nhu cầu cá nhân ạ?» (hệ thống tự bỏ vế hết hạn từ 01/12).</li>
+<li><strong>T6. Khách gửi ảnh hoặc giấy tờ:</strong> «Dạ Gnhà đã nhận tệp anh/chị gửi. Em chuyển chuyên viên xem và báo lại trong 15 phút (trong giờ làm việc). Anh/chị cho em xin thêm khu vực để em ghi đúng hồ sơ ạ.»</li>
+<li><strong>T7. Bàn giao khách nóng:</strong> «Dạ em đã chuyển thông tin của anh/chị cho chuyên viên Gnhà, chuyên viên sẽ gọi anh/chị trong vòng 15 phút (giờ làm việc). Anh/chị tiện nghe máy giúp em ạ.»</li>
+<li><strong>T8. Chưa có đáp án (đã dùng):</strong> «Thanh Tâm đã nhận, kiểm tra và báo lại anh/chị ạ.»</li>
+<li><strong>T9. Môi giới:</strong> dùng nguyên mẫu C5 đã duyệt 12/11, chữ «thưởng giới thiệu».</li>
+</ul>
+<p>Các mẫu soạn đủ ý nên cần Phúc Trí chấm từ 8 điểm và Công Lý xác nhận «ĐẠT» trước khi anh duyệt (quy tắc kiểm chéo). Tin chào đầu tiên khi khách nhắn lần đầu vẫn có thể dùng Mẫu 5 đã duyệt 25/11 thay cho T1 nếu anh muốn giữ.</p></div></details><details class="sec"><summary>7. Kế hoạch theo giai đoạn</summary><div class="sec-body"><h3>Hôm nay (Chủ nhật 29/11): 0 đồng, không lập trình</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Ai làm</th>
+<th>Xong khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anh duyệt bộ mẫu T1–T9 và nhịp 15 phút</td>
+<td>anh Thắng</td>
+<td>có chữ «duyệt»</td>
+</tr>
+<tr>
+<td>Zalo OA: bật Lời chào + Trả lời tự động ngoài giờ (T2); soát chatbot đang chạy để không gửi trùng</td>
+<td>Mỹ Mỹ (sau khi anh duyệt)</td>
+<td>gửi thử từ tài khoản nội bộ</td>
+</tr>
+<tr>
+<td>Messenger: Meta Business Suite → Hộp thư → Tự động hóa: Trả lời tức thì (T1), Câu hỏi thường gặp 5 câu, Tin vắng mặt (T2)</td>
+<td>Phát Lộc (quản Page)</td>
+<td>gửi thử từ tài khoản nội bộ</td>
+</tr>
+<tr>
+<td>Chat web: bật tin chào + biểu mẫu ngoài giờ trong Tawk.to; thêm nút chat Zalo OA nếu chưa có</td>
+<td>Vĩnh An</td>
+<td>thử trên gnha.vn</td>
+</tr>
+<tr>
+<td>Đổi nhịp đọc tin: 30 phút một lượt 08:00–21:00 cả Chủ nhật; «đọc là ghi file ngay»; thẻ đỏ báo ngay không đợi mốc</td>
+<td>Mỹ Mỹ, điều phối</td>
+<td>không còn khe quá 1 giờ</td>
+</tr>
+<tr>
+<td>Vĩnh An viết phiếu cho anh Huy (đã soạn kèm); xin anh/anh Nam bấm «Cho phép» ứng dụng Zalo OA</td>
+<td>Vĩnh An, anh Thắng</td>
+<td>có khóa truy cập</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Trong 3 ngày (30/11–02/12)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Ai làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zalo: ứng dụng + khóa + webhook thật (bỏ cách đọc 5 phút một lần), <strong>chỉ báo Lark</strong>, chưa gửi</td>
+<td>anh Huy, Vĩnh An, anh Nam</td>
+</tr>
+<tr>
+<td>Meta: tạo ứng dụng, nối Page, webhook <code>messages</code>, <strong>chỉ báo Lark</strong></td>
+<td>anh Huy, Phát Lộc (quyền Page)</td>
+</tr>
+<tr>
+<td>Tawk: webhook chat bắt đầu/phiếu → Lark</td>
+<td>Vĩnh An</td>
+</tr>
+<tr>
+<td>Thẻ Lark có @ và màu; ghi mã lead không PII</td>
+<td>Vĩnh An, điều phối</td>
+</tr>
+<tr>
+<td>Bật tự gửi T1/T2 sau khi anh duyệt; <strong>tắt chatbot OA trùng cùng lúc</strong></td>
+<td>Mỹ Mỹ, Vĩnh An</td>
+</tr>
+<tr>
+<td>Từ 00:00 01/12 câu giá chuyển vế 1.990.000đ/năm trên mọi mẫu và chatbot</td>
+<td>Mỹ Mỹ, Vĩnh An</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Trong 2 tuần (đến 13/12)</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Ai làm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kho «Trả lời khách» + AI soạn nháp có nguồn, thẻ Lark có nút «Gửi nháp / Sửa / Chuyển»</td>
+<td>Vĩnh An, anh Huy</td>
+</tr>
+<tr>
+<td>Widget chat web tự dựng nếu anh duyệt (AI trả ngay trên web)</td>
+<td>anh Huy</td>
+</tr>
+<tr>
+<td>Đo 7 ngày; nhóm FAQ nào ≥ 90% nháp không phải sửa thì anh duyệt cho tự gửi</td>
+<td>Thu Hà, Mỹ Mỹ</td>
+</tr>
+<tr>
+<td>Học từ bản sửa mỗi tuần, nạp kho</td>
+<td>Phúc Trí, Mỹ Mỹ</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nhóm Zalo công ty và Zalo cá nhân:</strong> không tự động hóa. Giữ người thật theo giờ trực, giữ trần 10 tin mỗi tài khoản mỗi ngày, và dẫn khách sang OA/Messenger bằng liên kết để vào đường ống.</p></div></details><details class="sec"><summary>8. Chỉ số (KPI) đề xuất</summary><div class="sec-body"><p>Chưa có số nền đo bằng máy. Ngưỡng dưới đây là <strong>mục tiêu đề xuất</strong>, sẽ đo từ ngày đường ống chạy rồi chốt lại sau 7 ngày.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Chỉ số</th>
+<th>Hiện tại</th>
+<th>Mục tiêu đề xuất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thời gian khách nhận phản hồi đầu tiên</td>
+<td>khe 1–7 giờ (có ngày)</td>
+<td>≤ 5 giây (cài sẵn) và ≤ 60 giây (đường ống), 24/24</td>
+</tr>
+<tr>
+<td>Thời gian người trả lời nội dung</td>
+<td>chưa đo</td>
+<td>≤ 15 phút giờ làm việc; ngoài giờ trước 08:30</td>
+</tr>
+<tr>
+<td>Thẻ đỏ tới người chốt</td>
+<td>khách nóng chuyển trong 15 phút (luật cũ), chưa đạt ổn định</td>
+<td>thẻ ≤ 1 phút, người nhận ≤ 15 phút</td>
+</tr>
+<tr>
+<td>Độ sâu trả lời</td>
+<td>tin ngắn theo mẫu</td>
+<td>≥ 80% nháp đủ 4 phần</td>
+</tr>
+<tr>
+<td>Khách để lại số điện thoại</td>
+<td>chưa có tỷ lệ</td>
+<td>đo 7 ngày đầu, đặt mục tiêu sau</td>
+</tr>
+<tr>
+<td>Tin bỏ sót</td>
+<td>có</td>
+<td>0 tin quá 1 giờ chưa có ai nhận trong giờ làm việc</td>
+</tr>
+<tr>
+<td>Chi phí</td>
+<td>1.400.000đ gói OA (đã trả)</td>
+<td>không phát sinh ngoài mục 9</td>
+</tr>
+</tbody>
+</table></div></div></details><details class="sec"><summary>9. Chi phí, rủi ro và việc cần anh quyết</summary><div class="sec-body"><p><strong>Chi phí (cái nào cần anh duyệt):</strong></p>
+<ul>
+<li>Đã trả: gói OA Tăng trưởng 1.400.000đ, 25/11/2026–24/05/2027.</li>
+<li>Zalo: tin tư vấn trong 48 giờ miễn phí; ngoài 48 giờ trừ hạn mức, hết hạn mức tính 55đ mỗi tin (đã gồm VAT, theo bảng giá 01/06/2026). Đường ống chỉ trả lời trong 48 giờ nên không phát sinh.</li>
+<li>Messenger: nền tảng miễn phí.</li>
+<li>Cloudflare Worker: miễn phí đủ dùng; nếu cần gói trả phí thì từ 5 USD mỗi tháng, <strong>cần anh duyệt</strong>.</li>
+<li>Mô hình AI soạn nháp: <strong>chưa có số</strong>, Vĩnh An báo giá trước khi bật, <strong>cần anh duyệt</strong>.</li>
+<li>Máy chủ: dùng VPS hiện có; đổi cấu hình VPS cần phiếu anh duyệt.</li>
+</ul>
+<p><strong>Rủi ro và cách giữ:</strong></p>
+<ul>
+<li><em>Zalo</em>: không trả 200 trong 2 giây thì bị tắt webhook → trả 200 ngay, xử lý nền. Token làm mới dùng một lần → chỉ một tiến trình làm mới, sao lưu trước khi đổi. Tránh hai hệ trả lời cùng lúc (chatbot OA + API).</li>
+<li><em>Messenger</em>: quá 24 giờ không gửi được tin chủ động; Meta khuyên báo khách đang chat tự động.</li>
+<li><em>Luật AI</em>: ghi «tin phản hồi tự động»; nháp AI phải có người duyệt; Công Lý xác nhận.</li>
+<li><em>Thông tin khách (PII)</em>: không ghi tên, số điện thoại vào tệp chung hay nhóm; trong Lark nhóm chỉ hiện 3 số cuối, số đầy đủ ở thẻ riêng của anh Tân.</li>
+<li><em>Trả lời sai</em>: chỉ trả lời có nguồn trong kho; khó thì chuyển người.</li>
+<li><em>Vòng lặp tin</em>: bỏ qua tin do chính OA/Page gửi (sự kiện dội lại).</li>
+<li><em>Tài khoản</em>: không dùng Zalo cá nhân của anh; không dùng công cụ không chính thức.</li>
+</ul>
+<p><strong>Anh quyết giúp em:</strong></p>
+<ol>
+<li>Duyệt bộ mẫu T1–T9 và hẹn «15 phút giờ làm việc», «08:30 sáng» ngoài giờ.</li>
+<li>Cho <strong>tự gửi</strong> T1/T2 (tin xác nhận) trên cả ba kênh. Câu trả lời nội dung do AI soạn: em đề nghị người duyệt một chạm trước khi gửi.</li>
+<li>Đổi quy tắc «không xưng AI» thành «không xưng AI trong tin người thật soạn; tin tự động ghi rõ phản hồi tự động» để đúng Luật AI. Công Lý xác nhận.</li>
+<li>Cho anh Nam/anh Thắng bấm «Cho phép» ứng dụng Zalo OA, và cấp cho anh Huy quyền quản trị ứng dụng Meta/Cloudflare theo mức tối thiểu.</li>
+<li>Page nào nối trước: gnhavn.official hay GNha.vn 4.0 (em đề nghị gnhavn.official trước).</li>
+<li>Khi bật gửi: tắt chatbot OA đang chạy (nếu có) để không gửi trùng.</li>
+<li>Chi phí: Worker trả phí và mô hình AI (chỉ khi cần, báo giá trước).</li>
+<li>Có làm widget chat web riêng sau 2 tuần hay giữ Tawk.to cho người trả lời.</li>
+</ol></div></details><details class="sec"><summary>10. Nguồn</summary><div class="sec-body"><ul>
+<li>Zalo OA: <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/OA/webhook/tong-quan">Webhook</a> · <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/OA/webhook/tin-nhan/su-kien-nguoi-dung-gui-tin-nhan">Sự kiện người dùng gửi tin</a> · <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/OA/tin-nhan/tin-tu-van/gui-tin-tu-van-dang-van-ban">Gửi tin tư vấn</a> · <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/OA/tin-nhan/tin-tu-van/dieu-kien-gui-tin-tu-van">Điều kiện gửi tin tư vấn</a> · <a target="_blank" rel="noopener" href="https://zalo.solutions/oa/pricing">Bảng giá</a> · <a target="_blank" rel="noopener" href="https://oa.zalo.me/home/documents/guides/huong-dan-su-dung-zalo-chatbot">Hướng dẫn Chatbot</a> · <a target="_blank" rel="noopener" href="https://chatbot.zalo.me/oa/docs/getting-started/create-rule">Quy tắc tự động</a> · <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/OA/nhom-chat-gmf/general">Nhóm chat GMF</a> · <a target="_blank" rel="noopener" href="https://docs.zaloplatforms.com/docs/Social/social-plugin/widget-chat">Nút chat Zalo</a></li>
+<li>Zalo cá nhân: <a target="_blank" rel="noopener" href="https://zalo.vn/dieukhoan/">Điều khoản sử dụng</a> · <a target="_blank" rel="noopener" href="https://help.zalo.me/huong-dan/chuyen-muc/quan-ly-tai-khoan-zalo/loi-thuong-gap/tai-khoan-zalo-bi-tam-thoi-vo-hieu-hoa/">Tài khoản bị tạm vô hiệu hóa</a></li>
+<li>Messenger: <a target="_blank" rel="noopener" href="https://developers.facebook.com/docs/messenger-platform/overview">Tổng quan</a> · <a target="_blank" rel="noopener" href="https://developers.facebook.com/docs/messenger-platform/webhooks">Webhooks</a> · <a target="_blank" rel="noopener" href="https://developers.facebook.com/docs/messenger-platform/send-messages">Gửi tin</a> · <a target="_blank" rel="noopener" href="https://www.facebook.com/help/1615627532020480">Trả lời tức thì</a> · <a target="_blank" rel="noopener" href="https://www.facebook.com/help/800788243369168">Tin vắng mặt</a></li>
+<li>Chat web: <a target="_blank" rel="noopener" href="https://developer.tawk.to/webhooks/">Tawk.to webhooks</a> · <a target="_blank" rel="noopener" href="https://community.tawk.to/t/reply-chat-from-api/3182">Tawk.to không có API gửi vào khung chat</a></li>
+<li>Lark: <a target="_blank" rel="noopener" href="https://open.larksuite.com/document/server-docs/im-v1/message/events/receive?lang=en-US">Nhận tin nhắn im.message.receive_v1</a></li>
+<li>WeKnora: <a target="_blank" rel="noopener" href="https://weknora.weixin.qq.com/docs/04-api/02-api-chat">API chat</a> · <a target="_blank" rel="noopener" href="https://github.com/Tencent/WeKnora/blob/main/website-docs/04-api/01-api-overview.md">Tổng quan API và khóa</a></li>
+<li>Cloudflare: <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/platform/pricing/">Giá Workers</a></li>
+<li>Luật Trí tuệ nhân tạo 134/2025/QH15: <a target="_blank" rel="noopener" href="https://thuvienphapluat.vn/van-ban/Cong-nghe-thong-tin/Luat-Tri-tue-nhan-tao-2025-so-134-2025-QH15-679013.aspx">Toàn văn, Điều 11</a></li>
+<li>Trong kho: <code>04-cskh/zalo-oa-tra-loi-tuc-thi.md</code> (nghiên cứu 26/11), <code>05-cong-nghe/20261125-ke-hoach-noi-zalo-oa-lark.md</code>, <code>cong-cu/zalo-oa-webhook/</code> (mã nháp), sổ lỗi <code>07b</code>, <code>content/cskh-zalo/rut-kinh-nghiem/2026-11-28.md</code>, phiếu kỹ thuật <code>phieu-ky-thuat-cskh-nhanh-anh-huy-20261129.md</code>.</li>
+</ul></div></details>
+<footer>Gnhà · tài liệu nội bộ, gửi riêng anh Thắng · chưa giao nhóm</footer>
+</div><script>(function(){
+  function makeBtn(){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='thu-gon';
+    b.textContent='▲ Thu gọn';
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var d=b.closest('details');
+      if(!d)return;
+      d.open=false;
+      var s=d.querySelector('summary');
+      if(s&&s.scrollIntoView)s.scrollIntoView({block:'nearest',behavior:'smooth'});
+    });
+    return b;
+  }
+  function ensureBtn(d){
+    if(!d||!d.open)return;
+    if(d.querySelector(':scope > .thu-gon'))return;
+    var box=d.querySelector(':scope > .sec-body, :scope > .body, :scope > .glist, :scope > .tasks, :scope > .loc-body, :scope > .chi-tiet-body');
+    if(box){
+      if(!box.querySelector(':scope > .thu-gon')) box.appendChild(makeBtn());
+    }else{
+      d.appendChild(makeBtn());
+    }
+  }
+  function closeOthers(d){
+    if(d.classList.contains('loc')||d.classList.contains('chi-tiet'))return;
+    if(d.classList.contains('sec-fold')){
+      document.querySelectorAll('details.sec-fold').forEach(function(s){if(s!==d)s.open=false;});
+      return;
+    }
+    var p=d.parentElement;
+    if(!p)return;
+    Array.prototype.forEach.call(p.children,function(s){
+      if(s!==d && s.tagName==='DETAILS') s.open=false;
+    });
+  }
+  document.addEventListener('toggle',function(e){
+    var d=e.target;
+    if(!d||d.tagName!=='DETAILS')return;
+    if(d.open){closeOthers(d);ensureBtn(d);}
+  },true);
+  document.querySelectorAll('details').forEach(function(d){if(d.open)ensureBtn(d);});
+})();
+</script></body></html>
